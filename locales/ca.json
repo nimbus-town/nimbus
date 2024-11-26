@@ -74,7 +74,7 @@
     "switch_account": "Canvia de compte",
     "vote": "Vota"
   },
-  "app_desc_short": "Un client web àgil Mastodon",
+  "app_desc_short": "Un client web àgil Bluesky",
   "app_logo": "Logotip d'Nimbus",
   "app_name": "Nimbus",
   "attachment": {
@@ -172,7 +172,7 @@
       "title": "Vista prèvia del desplegament"
     },
     "desc_highlight": "Espereu alguns errors i característiques que falten aquí i allà.",
-    "desc_para1": "Gràcies pel vostre interès a provar Nimbus, el nostre client web en desenvolupament per a Mastodon!",
+    "desc_para1": "Gràcies pel vostre interès a provar Nimbus, el nostre client web en desenvolupament per a Bluesky!",
     "desc_para2": "Estem treballant intensament en el desenvolupament i millorant-lo amb el temps.",
     "desc_para3": "Per impulsar el desenvolupament, podeu patrocinar l'equip a través dels patrocinadors de GitHub. Esperem que gaudiu d'Nimbus!",
     "desc_para4": "Nimbus és de codi obert. Si voleu ajudar amb les proves, fer comentaris o contribuir-hi,",
@@ -283,22 +283,22 @@
     "update_available_short": "Actualitza Nimbus",
     "webmanifest": {
       "canary": {
-        "description": "Un client web àgil Mastodon (canari)",
+        "description": "Un client web àgil Bluesky (canari)",
         "name": "Nimbus (canari)",
         "short_name": "Nimbus (canari)"
       },
       "dev": {
-        "description": "Un client web àgil Mastodon (dev)",
+        "description": "Un client web àgil Bluesky (dev)",
         "name": "Nimbus (dev)",
         "short_name": "Nimbus (dev)"
       },
       "preview": {
-        "description": "Un client web àgil Mastodon (vista prèvia)",
+        "description": "Un client web àgil Bluesky (vista prèvia)",
         "name": "Nimbus (vista prèvia)",
         "short_name": "Nimbus (vista prèvia)"
       },
       "release": {
-        "description": "Un client web àgil Mastodon",
+        "description": "Un client web àgil Bluesky",
         "name": "Nimbus",
         "short_name": "Nimbus"
       }
@@ -322,7 +322,7 @@
       "version": "Versió"
     },
     "account_settings": {
-      "description": "Editeu la configuració del vostre compte a la interfície d'usuari de Mastodon",
+      "description": "Editeu la configuració del vostre compte a la interfície d'usuari de Bluesky",
       "label": "Configuració del compte"
     },
     "interface": {
@@ -572,12 +572,12 @@
   },
   "user": {
     "add_existing": "Afegeix un compte existent",
-    "server_address_label": "Adreça del servidor Mastodon",
+    "server_address_label": "Adreça del servidor Bluesky",
     "sign_in_desc": "Inicia sessió per seguir perfils o hashtags, preferir, compartir i respondre publicacions o interactuar des del vostre compte en un servidor diferent.",
     "sign_in_notice_title": "S'estan visualitzant {0} dades públiques",
     "sign_out_account": "Tanca la sessió {0}",
     "single_instance_sign_in_desc": "Inicieu la sessió per seguir perfils o hashtags, preferir, compartir i respondre publicacions.",
-    "tip_no_account": "Si encara no teniu cap compte de Mastodon, {0}.",
+    "tip_no_account": "Si encara no teniu cap compte de Bluesky, {0}.",
     "tip_register_account": "trieu el vostre servidor i registreu-ne un"
   },
   "visibility": {

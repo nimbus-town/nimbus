@@ -75,7 +75,7 @@
     "switch_account": "Hesap değiştir",
     "vote": "Oy ver"
   },
-  "app_desc_short": "Hızlı bir Mastodon web istemcisi",
+  "app_desc_short": "Hızlı bir Bluesky web istemcisi",
   "app_logo": "Nimbus Logosu",
   "app_name": "Nimbus",
   "attachment": {
@@ -175,7 +175,7 @@
       "title": "Dağıtımı önizleyin"
     },
     "desc_highlight": "Orada burada bir kaç hata ve eksik özellik bekleyin.",
-    "desc_para1": "Nimbus'i, bizim çalışması devam eden Mastodon web istemcimizi, denemedeki ilginiz için teşekkürler!",
+    "desc_para1": "Nimbus'i, bizim çalışması devam eden Bluesky web istemcimizi, denemedeki ilginiz için teşekkürler!",
     "desc_para2": "Zaman içinde geliştirmek ve iyileştirmek için çok çalışıyoruz.",
     "desc_para3": "Geliştirmemizi hızlandırmak için takıma GitHub Sponsors üzerinden sponsor olabilirsinizi. Umarız Nimbus'i beğenirsiniz!",
     "desc_para4": "Nimbus açık kaynaklıdır. Test etmek, geri dönüş vermek veya katkıda bulunmak isterseniz,",
@@ -316,22 +316,22 @@
     "update_available_short": "Nimbus'i güncelle",
     "webmanifest": {
       "canary": {
-        "description": "Hızlı bir Mastodon web istemcisi (canary)",
+        "description": "Hızlı bir Bluesky web istemcisi (canary)",
         "name": "Nimbus (canary)",
         "short_name": "Nimbus (canary)"
       },
       "dev": {
-        "description": "Hızlı bir Mastodon web istemcisi (dev)",
+        "description": "Hızlı bir Bluesky web istemcisi (dev)",
         "name": "Nimbus (dev)",
         "short_name": "Nimbus (dev)"
       },
       "preview": {
-        "description": "Hızlı bir Mastodon web istemcisi (preview)",
+        "description": "Hızlı bir Bluesky web istemcisi (preview)",
         "name": "Nimbus (preview)",
         "short_name": "Nimbus (preview)"
       },
       "release": {
-        "description": "Hızlı bir Mastodon web istemcisi",
+        "description": "Hızlı bir Bluesky web istemcisi",
         "name": "Nimbus",
         "short_name": "Nimbus"
       }
@@ -355,7 +355,7 @@
       "version": "Versiyon"
     },
     "account_settings": {
-      "description": "Mastodon UI'da hesap ayarlarını değiştir",
+      "description": "Bluesky UI'da hesap ayarlarını değiştir",
       "label": "Hesap ayarları"
     },
     "interface": {
@@ -614,12 +614,12 @@
   },
   "user": {
     "add_existing": "Var olan bir hesap ekle",
-    "server_address_label": "Mastodon Sunucu Adresi",
+    "server_address_label": "Bluesky Sunucu Adresi",
     "sign_in_desc": "Profilleri veya hashtag'leri takip etmek, favorilere eklemek, gönderileri paylaşmak ve yanıtlamak veya farklı bir sunucudaki hesabınızdan etkileşim kurmak için oturum açın.",
     "sign_in_notice_title": "{0} herkese açık veri görüntüleniyor",
     "sign_out_account": "{0} çıkış yap",
     "single_instance_sign_in_desc": "Profilleri veya hashtag'leri takip etmek, favorilere eklemek, gönderileri paylaşmak ve yanıtlamak için oturum açın.",
-    "tip_no_account": "Eğer bir Mastodon hesabınız yoksa, {0}.",
+    "tip_no_account": "Eğer bir Bluesky hesabınız yoksa, {0}.",
     "tip_register_account": "sunucunuzu seçin ve kaydolun"
   },
   "visibility": {

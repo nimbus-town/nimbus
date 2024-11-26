@@ -87,7 +87,7 @@
     "switch_account": "Switch account",
     "vote": "Vote"
   },
-  "app_desc_short": "A nimble Mastodon web client",
+  "app_desc_short": "A nimble Bluesky web client",
   "app_logo": "Nimbus Logo",
   "app_name": "Nimbus",
   "attachment": {
@@ -199,7 +199,7 @@
       "title": "Preview deploy"
     },
     "desc_highlight": "Expect some bugs and missing features here and there.",
-    "desc_para1": "Nimbus is a nimble Mastodon web client. You can login to your Mastodon account and use it to interact with the fediverse.",
+    "desc_para1": "Nimbus is a nimble Bluesky web client. You can login to your Bluesky account and use it to interact with the fediverse.",
     "desc_para2": "Nimbus is Open Source and we're actively improving it as a community project. Join us and let's build it together!",
     "desc_para3": "To boost development, you can sponsor the Team through GitHub Sponsors. We hope you enjoy Nimbus!",
     "desc_para4": "If you'd like to report a bug, help us testing, give feedback, or contribute,",
@@ -375,22 +375,22 @@
     "update_available_short": "Update Nimbus",
     "webmanifest": {
       "canary": {
-        "description": "A nimble Mastodon web client (canary)",
+        "description": "A nimble Bluesky web client (canary)",
         "name": "Nimbus (canary)",
         "short_name": "Nimbus (canary)"
       },
       "dev": {
-        "description": "A nimble Mastodon web client (dev)",
+        "description": "A nimble Bluesky web client (dev)",
         "name": "Nimbus (dev)",
         "short_name": "Nimbus (dev)"
       },
       "preview": {
-        "description": "A nimble Mastodon web client (preview)",
+        "description": "A nimble Bluesky web client (preview)",
         "name": "Nimbus (preview)",
         "short_name": "Nimbus (preview)"
       },
       "release": {
-        "description": "A nimble Mastodon web client",
+        "description": "A nimble Bluesky web client",
         "name": "Nimbus",
         "short_name": "Nimbus"
       }
@@ -450,7 +450,7 @@
       "version": "Version"
     },
     "account_settings": {
-      "description": "Edit your account settings in Mastodon UI",
+      "description": "Edit your account settings in Bluesky UI",
       "label": "Account settings"
     },
     "interface": {
@@ -744,12 +744,12 @@
   },
   "user": {
     "add_existing": "Add an existing account",
-    "server_address_label": "Mastodon Server Address",
+    "server_address_label": "Bluesky Server Address",
     "sign_in_desc": "Sign in to follow profiles or hashtags, favorite, share and reply to posts, or interact from your account on a different server.",
     "sign_in_notice_title": "Viewing {0} public data",
     "sign_out_account": "Sign out {0}",
     "single_instance_sign_in_desc": "Sign in to follow profiles or hashtags, favorite, share and reply to posts.",
-    "tip_no_account": "If you don't have a Mastodon account yet, {0}.",
+    "tip_no_account": "If you don't have a Bluesky account yet, {0}.",
     "tip_register_account": "pick your server and register one"
   },
   "visibility": {

@@ -47,7 +47,7 @@
     "switch_account": "Přepnout účet",
     "vote": "Hlasovat"
   },
-  "app_desc_short": "Nimbus - hbitý webklient pro Mastodon.",
+  "app_desc_short": "Nimbus - hbitý webklient pro Bluesky.",
   "app_logo": "logo Nimbus",
   "app_name": "Nimbus",
   "command": {
@@ -79,7 +79,7 @@
   },
   "help": {
     "desc_highlight": "Z toho důvodu může tu a tam nastat chyba nebo chybět nějaká ta funkce.",
-    "desc_para1": "Těší nás váš zájem o Nimbus - Mastodoní klient na kterém právě pracujeme.",
+    "desc_para1": "Těší nás váš zájem o Nimbus - Blueskyí klient na kterém právě pracujeme.",
     "desc_para2": "Pracujeme na vývoji a průběžně Nimbus vylepšujeme. Brzy ho zveřejníme jako open source a budete mít možnost přispět svou troškou do mlýna.",
     "desc_para3": "Předtím můžete přispět do klobouku našim vývojářům na níže uvedených odkazech:",
     "title": "Nimbus ještě není hotový"
@@ -230,10 +230,10 @@
   },
   "user": {
     "add_existing": "Přidat existující účet",
-    "server_address_label": "Adresa Mastodon serveru:",
+    "server_address_label": "Adresa Bluesky serveru:",
     "sign_in_desc": "Přihlaste se, abyste mohli sledovat profily nebo hashtagy, psát a sdílet příspěvky a odpovídat na ně na tomto nebo jiných serverech.",
     "sign_out_account": "Odhlásit {0}",
-    "tip_no_account": "Pokud nemáte účet na Mastodonu, {0}.",
+    "tip_no_account": "Pokud nemáte účet na Blueskyu, {0}.",
     "tip_register_account": "vyberte server a zaregistrujte se"
   },
   "visibility": {

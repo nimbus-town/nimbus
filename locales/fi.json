@@ -87,7 +87,7 @@
     "switch_account": "Vaihda tiliä",
     "vote": "Äänestä"
   },
-  "app_desc_short": "Ketterä verkkosovellus Mastodonille",
+  "app_desc_short": "Ketterä verkkosovellus Blueskyille",
   "app_logo": "Nimbus-logo",
   "app_name": "Nimbus",
   "attachment": {
@@ -199,7 +199,7 @@
       "title": "Esijulkaisu"
     },
     "desc_highlight": "Saatat löytää bugeja ja puuttuvia ominaisuuksia sieltä täältä.",
-    "desc_para1": "Nimbus on ketterä verkkosovellus Mastodonille. Voit kirjautua sisään Mastodon-tilillesi ja olla sen avulla vuorovaikutuksessa fediversumin kanssa.",
+    "desc_para1": "Nimbus on ketterä verkkosovellus Blueskyille. Voit kirjautua sisään Bluesky-tilillesi ja olla sen avulla vuorovaikutuksessa fediversumin kanssa.",
     "desc_para2": "Nimbus on avointa lähdekoodia, ja me parantelemme sitä vilkkaasti yhteisöprojektina. Liity joukkoomme, niin rakennamme sitä yhdessä!",
     "desc_para3": "Voit auttaa kehityksessä tukemalla tiimiä GitHub-sponsorina. Toivomme, että nautit Nimbusin käytöstä!",
     "desc_para4": "Jos haluat ilmoittaa ohjelmontivirheestä, auttaa testauksessa, antaa palautetta tai osallistua,",
@@ -375,22 +375,22 @@
     "update_available_short": "Päivitä Nimbus",
     "webmanifest": {
       "canary": {
-        "description": "Ketterä verkkosovellus Mastodonille (canary-versio)",
+        "description": "Ketterä verkkosovellus Blueskyille (canary-versio)",
         "name": "Nimbus (canary)",
         "short_name": "Nimbus (canary)"
       },
       "dev": {
-        "description": "Ketterä verkkosovellus Mastodonille (kehitysversio)",
+        "description": "Ketterä verkkosovellus Blueskyille (kehitysversio)",
         "name": "Nimbus (dev)",
         "short_name": "Nimbus (dev)"
       },
       "preview": {
-        "description": "Ketterä verkkosovellus Mastodonille (esijulkaisu)",
+        "description": "Ketterä verkkosovellus Blueskyille (esijulkaisu)",
         "name": "Nimbus (preview)",
         "short_name": "Nimbus (preview)"
       },
       "release": {
-        "description": "Ketterä verkkosovellus Mastodonille",
+        "description": "Ketterä verkkosovellus Blueskyille",
         "name": "Nimbus",
         "short_name": "Nimbus"
       }
@@ -450,7 +450,7 @@
       "version": "Versio"
     },
     "account_settings": {
-      "description": "Muokkaa tiliasetuksiasi Mastodonin käyttöliittymässä",
+      "description": "Muokkaa tiliasetuksiasi Blueskyin käyttöliittymässä",
       "label": "Tiliasetukset"
     },
     "interface": {
@@ -743,12 +743,12 @@
   },
   "user": {
     "add_existing": "Lisää olemassa oleva tili",
-    "server_address_label": "Mastodon-palvelimen osoite",
+    "server_address_label": "Bluesky-palvelimen osoite",
     "sign_in_desc": "Kirjaudu sisään, niin voit seurata profiileja ja aihetunnisteita, lisätä julkaisuja suosikkeihin, jakaa niitä ja vastata niihin sekä olla vuorovaikutuksessa toiselta palvelimelta.",
     "sign_in_notice_title": "Näytetään palvelimen {0} julkiset tiedot",
     "sign_out_account": "Kirjaa ulos {0}",
     "single_instance_sign_in_desc": "Kirjaudu sisään, niin voit seurata profiileja ja aihetunnisteita, lisätä julkaisuja suosikkeihin, jakaa niitä ja vastata niihin.",
-    "tip_no_account": "Jos sinulla ei ole vielä Mastodon-tiliä, {0}.",
+    "tip_no_account": "Jos sinulla ei ole vielä Bluesky-tiliä, {0}.",
     "tip_register_account": "valitse palvelimesi ja luo tili"
   },
   "visibility": {

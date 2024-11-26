@@ -87,7 +87,7 @@
     "switch_account": "Fiók váltás",
     "vote": "Szavazás"
   },
-  "app_desc_short": "Egy fürge Mastodon kliens",
+  "app_desc_short": "Egy fürge Bluesky kliens",
   "app_logo": "Nimbus Logó",
   "app_name": "Nimbus",
   "attachment": {
@@ -199,7 +199,7 @@
       "title": "Előzetes változatát telepítése"
     },
     "desc_highlight": "Számíthatsz néhány hibára és hiányzó funkcióra itt és ott.",
-    "desc_para1": "Köszönjük az érdeklődésedet és hogy kipróbálod az Nimbus folyamazban lévő és fejlesztés alatt álló Mastodon klienst!",
+    "desc_para1": "Köszönjük az érdeklődésedet és hogy kipróbálod az Nimbus folyamazban lévő és fejlesztés alatt álló Bluesky klienst!",
     "desc_para2": "keményen dolgozunk a fejlesztésen és a javításokon időről időre.",
     "desc_para3": "A fejlesztés lendületéhez tudod támogatni csapatunkat a GitHub szponoráción keresztül. Reméljük elnyeri tetszésedét az Nimbus!",
     "desc_para4": "Az Nimbus nyílt forráskódú. Ha segíteni akar a tesztelésben, adhat visszajelzést vagy hozzájárulást,",
@@ -375,22 +375,22 @@
     "update_available_short": "Nimbus frissítése",
     "webmanifest": {
       "canary": {
-        "description": "Egy fürge Mastodon web kliens (canary)",
+        "description": "Egy fürge Bluesky web kliens (canary)",
         "name": "Nimbus (canary)",
         "short_name": "Nimbus (canary)"
       },
       "dev": {
-        "description": "Egy fürge Mastodon web kliens (dev)",
+        "description": "Egy fürge Bluesky web kliens (dev)",
         "name": "Nimbus (dev)",
         "short_name": "Nimbus (dev)"
       },
       "preview": {
-        "description": "Egy fürge Mastodon web kliens (preview)",
+        "description": "Egy fürge Bluesky web kliens (preview)",
         "name": "Nimbus (preview)",
         "short_name": "Nimbus (preview)"
       },
       "release": {
-        "description": "Egy fürge Mastodon web kliens",
+        "description": "Egy fürge Bluesky web kliens",
         "name": "Nimbus",
         "short_name": "Nimbus"
       }
@@ -450,7 +450,7 @@
       "version": "Verzió"
     },
     "account_settings": {
-      "description": "Szerkeszd fiókbeállításaid a Mastodonban.",
+      "description": "Szerkeszd fiókbeállításaid a Blueskyban.",
       "label": "Fiók beállítások"
     },
     "interface": {
@@ -744,12 +744,12 @@
   },
   "user": {
     "add_existing": "Egy látező fiók hozzáadása",
-    "server_address_label": "Mastodon szerver címe",
+    "server_address_label": "Bluesky szerver címe",
     "sign_in_desc": "Jelentkezzen be profilok vagy címkék követéséhez, kedvencekhez, bejegyzések megosztásához és megválaszolásához, vagy egy másik szerveren lévő fiókjából való interakcióhoz.",
     "sign_in_notice_title": "{0} nyilvános adat megtekintése",
     "sign_out_account": "Kijelentkezés {0}",
     "single_instance_sign_in_desc": "Jelentkezzen be profilok vagy címkék követéséhez, kedvencei közé, bejegyzések megosztásához és megválaszolásához.",
-    "tip_no_account": "Ha még nincs Mastodon fiókod: {0}.",
+    "tip_no_account": "Ha még nincs Bluesky fiókod: {0}.",
     "tip_register_account": "válassz egy szervert és regisztrált egyet"
   },
   "visibility": {
