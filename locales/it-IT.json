@@ -87,7 +87,7 @@
     "switch_account": "Cambia account",
     "vote": "Vota"
   },
-  "app_desc_short": "Un client web agile per Mastodon",
+  "app_desc_short": "Un client web agile per Bluesky",
   "app_logo": "Logo Nimbus",
   "app_name": "Nimbus",
   "attachment": {
@@ -199,7 +199,7 @@
       "title": "Anteprima implementazione"
     },
     "desc_highlight": "Aspettati qualche bug e funzione mancante qua e là.",
-    "desc_para1": "Grazie per il tuo interesse a provare Nimbus, il nostro web client per Mastodon in corso d'opera!",
+    "desc_para1": "Grazie per il tuo interesse a provare Nimbus, il nostro web client per Bluesky in corso d'opera!",
     "desc_para2": "Stiamo lavorando sodo allo sviluppo e al suo miglioramento nel tempo.",
     "desc_para3": "Per sostenere lo sviluppo, puoi sponsorizzare il team tramite GitHub Sponsors. Speriamo ti piaccia Nimbus!",
     "desc_para4": "Nimbus è open source. Se hai voglia di testare, fornire feedback o contribuire,",
@@ -375,22 +375,22 @@
     "update_available_short": "Aggiorna Nimbus",
     "webmanifest": {
       "canary": {
-        "description": "Un client web agile per Mastodon (canary)",
+        "description": "Un client web agile per Bluesky (canary)",
         "name": "Nimbus (canary)",
         "short_name": "Nimbus (canary)"
       },
       "dev": {
-        "description": "Un client web agile per Mastodon (dev)",
+        "description": "Un client web agile per Bluesky (dev)",
         "name": "Nimbus (dev)",
         "short_name": "Nimbus (dev)"
       },
       "preview": {
-        "description": "Un client web agile per Mastodon (anteprima)",
+        "description": "Un client web agile per Bluesky (anteprima)",
         "name": "Nimbus (anteprima)",
         "short_name": "Nimbus (anteprima)"
       },
       "release": {
-        "description": "Un client web agile per Mastodon",
+        "description": "Un client web agile per Bluesky",
         "name": "Nimbus",
         "short_name": "Nimbus"
       }
@@ -450,7 +450,7 @@
       "version": "Versione"
     },
     "account_settings": {
-      "description": "Modifica le impostazioni del tuo account su Mastodon",
+      "description": "Modifica le impostazioni del tuo account su Bluesky",
       "label": "Impostazioni account"
     },
     "interface": {
@@ -744,12 +744,12 @@
   },
   "user": {
     "add_existing": "Aggiungi account esistente",
-    "server_address_label": "Indirizzo istanza Mastodon",
+    "server_address_label": "Indirizzo istanza Bluesky",
     "sign_in_desc": "Accedi per seguire profili o hashtag, apprezzare, condividere e rispondere a post o interagire dal tuo account su un'altra istanza.",
     "sign_in_notice_title": "Visualizzando {0} dati pubblici",
     "sign_out_account": "Esci {0}",
     "single_instance_sign_in_desc": "Accedi per seguire profili o hastag, apprezzare condividere o rispondere a post.",
-    "tip_no_account": "Se ancora non hai un account Mastodon, {0}.",
+    "tip_no_account": "Se ancora non hai un account Bluesky, {0}.",
     "tip_register_account": "scegli la tua istanza preferita e registrati"
   },
   "visibility": {

@@ -87,7 +87,7 @@
     "switch_account": "Mudar de conta",
     "vote": "Votar"
   },
-  "app_desc_short": "Uma ágil aplicação web para o Mastodon",
+  "app_desc_short": "Uma ágil aplicação web para o Bluesky",
   "app_logo": "Logo do Nimbus",
   "app_name": "Nimbus",
   "attachment": {
@@ -199,7 +199,7 @@
       "title": "Produção de pré-visualização"
     },
     "desc_highlight": "Espere alguns problemas e funcionalidades em falta.",
-    "desc_para1": "O Nimbus é uma ágil aplicação web para o Mastodon. Pode iniciar sessão com a sua conta Mastodon e utilizá-la para interagir com o fediverso.",
+    "desc_para1": "O Nimbus é uma ágil aplicação web para o Bluesky. Pode iniciar sessão com a sua conta Bluesky e utilizá-la para interagir com o fediverso.",
     "desc_para2": "O Nimbus é software de código aberto e estamos a aperfeiçoá-lo ativamente como um projeto comunitário. Junte-se a nós e vamos construí-lo juntos!",
     "desc_para3": "Para ajudar a impulsionar o desenvolvimento, pode patrocinar a Equipa através do GitHub Sponsors. Esperamos que aprecie o Nimbus!",
     "desc_para4": "Se quiser comunicar um erro, ajudar-nos a testar, dar feedback ou contribuir,",
@@ -375,22 +375,22 @@
     "update_available_short": "Atualizar Nimbus",
     "webmanifest": {
       "canary": {
-        "description": "Uma ágil aplicação web para o Mastodon (canary)",
+        "description": "Uma ágil aplicação web para o Bluesky (canary)",
         "name": "Nimbus (canary)",
         "short_name": "Nimbus (canary)"
       },
       "dev": {
-        "description": "Uma ágil aplicação web para o Mastodon (dev)",
+        "description": "Uma ágil aplicação web para o Bluesky (dev)",
         "name": "Nimbus (dev)",
         "short_name": "Nimbus (dev)"
       },
       "preview": {
-        "description": "Uma ágil aplicação web para o Mastodon (preview)",
+        "description": "Uma ágil aplicação web para o Bluesky (preview)",
         "name": "Nimbus (preview)",
         "short_name": "Nimbus (preview)"
       },
       "release": {
-        "description": "Uma ágil aplicação web para o Mastodon",
+        "description": "Uma ágil aplicação web para o Bluesky",
         "name": "Nimbus",
         "short_name": "Nimbus"
       }
@@ -450,7 +450,7 @@
       "version": "Versão"
     },
     "account_settings": {
-      "description": "Editar as configurações da sua conta na aplicação web do Mastodon",
+      "description": "Editar as configurações da sua conta na aplicação web do Bluesky",
       "label": "Configurações da conta"
     },
     "interface": {
@@ -744,12 +744,12 @@
   },
   "user": {
     "add_existing": "Adicionar uma conta existente",
-    "server_address_label": "Endereço do Servidor Mastodon",
+    "server_address_label": "Endereço do Servidor Bluesky",
     "sign_in_desc": "Inicie sessão, para seguir pessoas ou hashtags, adicionar aos favoritos, partilhar e responder a publicações, ou interagir a partir da sua conta de outro servidor.",
     "sign_in_notice_title": "A visualizar os dados públicos de {0}",
     "sign_out_account": "Desconectar {0}",
     "single_instance_sign_in_desc": "Inicie sessão, para seguir pessoas ou hashtags, adicionar aos favoritos, partilhar e responder a publicações.",
-    "tip_no_account": "Se ainda não tem uma conta Mastodon, {0}.",
+    "tip_no_account": "Se ainda não tem uma conta Bluesky, {0}.",
     "tip_register_account": "escolha um servidor e inscreva-se"
   },
   "visibility": {

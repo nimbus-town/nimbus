@@ -83,7 +83,7 @@
     "switch_account": "Cambiar de conta",
     "vote": "Votar"
   },
-  "app_desc_short": "Un cliente web áxil para Mastodon",
+  "app_desc_short": "Un cliente web áxil para Bluesky",
   "app_logo": "Logo de Nimbus",
   "app_name": "Nimbus",
   "attachment": {
@@ -183,7 +183,7 @@
       "title": "Instalar versión"
     },
     "desc_highlight": "É de agardar que haxa fallos e falten cousas por aquí e por alá.",
-    "desc_para1": "Grazas polo teu interese en probar Nimbus, o cliente web para Mastodon que estamos creando!",
+    "desc_para1": "Grazas polo teu interese en probar Nimbus, o cliente web para Bluesky que estamos creando!",
     "desc_para2": "traballamos arreo para desenvolvelo e melloralo.",
     "desc_para3": "Podes acelerar o desenvolvemento patrocinando ao Equipo en GitHub Sponsors. Agardamos que desfrutes de Nimbus!",
     "desc_para4": "Nimbus é Código Aberto. Se queres axudar probándoo, aportando a túa opinión, ou colaborando,",
@@ -344,22 +344,22 @@
     "update_available_short": "Actualizar Nimbus",
     "webmanifest": {
       "canary": {
-        "description": "Un cliente áxil para Mastodon (canary)",
+        "description": "Un cliente áxil para Bluesky (canary)",
         "name": "Nimbus (canary)",
         "short_name": "Nimbus (canary)"
       },
       "dev": {
-        "description": "Un cliente áxil para Mastodon (dev)",
+        "description": "Un cliente áxil para Bluesky (dev)",
         "name": "Nimbus (dev)",
         "short_name": "Nimbus (dev)"
       },
       "preview": {
-        "description": "Un cliente áxil para Mastodon (preview)",
+        "description": "Un cliente áxil para Bluesky (preview)",
         "name": "Nimbus (preview)",
         "short_name": "Nimbus (preview)"
       },
       "release": {
-        "description": "Un cliente áxil para Mastodon",
+        "description": "Un cliente áxil para Bluesky",
         "name": "Nimbus",
         "short_name": "Nimbus"
       }
@@ -419,7 +419,7 @@
       "version": "Versión"
     },
     "account_settings": {
-      "description": "Edita a configuración da túa conta na interface de Mastodon",
+      "description": "Edita a configuración da túa conta na interface de Bluesky",
       "label": "Axustes da conta"
     },
     "interface": {
@@ -698,12 +698,12 @@
   },
   "user": {
     "add_existing": "Engadir unha conta existente.",
-    "server_address_label": "Enderezo do Servidor Mastodon",
+    "server_address_label": "Enderezo do Servidor Bluesky",
     "sign_in_desc": "Inicia sesión para seguir perfís e cancelos, favorecer, compartir ou responder a mensaxes, ou interactuar coa túa conta noutro servidor.",
     "sign_in_notice_title": "Vendo {0} datos públicos",
     "sign_out_account": "Pechar sesión {0}",
     "single_instance_sign_in_desc": "Inicia sesión para seguir perfís e cancelos, favorecer, compartir ou responder a mensaxes.",
-    "tip_no_account": "Se aínda non tes unha conta Mastodon, {0}.",
+    "tip_no_account": "Se aínda non tes unha conta Bluesky, {0}.",
     "tip_register_account": "elixe un servidor para crear unha"
   },
   "visibility": {
