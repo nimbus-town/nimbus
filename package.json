@@ -32,6 +32,8 @@
     "release": "stale-dep && bumpp && tsx scripts/release.ts"
   },
   "dependencies": {
+    "@atproto/api": "^0.13.18",
+    "@atproto/oauth-client-browser": "^0.3.2",
     "@emoji-mart/data": "^1.1.2",
     "@fnando/sparkline": "^0.3.10",
     "@iconify-emoji/twemoji": "^1.0.2",
