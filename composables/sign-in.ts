@@ -1,6 +1,36 @@
 import type { Ref } from 'vue'
 import { BrowserOAuthClient } from '@atproto/oauth-client-browser'
 
+function isLoopbackHost(host: string) {
+  return host === 'localhost' || host === '127.0.0.1' || host === '[::1]'
+}
+
+async function useOAuthClient() {
+  const isLocalDev = typeof window !== 'undefined' && isLoopbackHost(window.location.hostname)
+
+  let clientId = `${window.location.protocol}//${window.location.host}/client-metadata.json`
+
+  if (isLocalDev) {
+    // The following requires a yet to be released version of the oauth-client:
+    // &scope=${OAUTH_SCOPE.split(' ').map(encodeURIComponent).join('+')}
+    clientId = `http://localhost?redirect_uri=${encodeURIComponent(
+      new URL(
+        `http://127.0.0.1${
+          window.location.port ? `:${window.location.port}` : ''
+        }/oauth/callback`,
+      ).href,
+    )}`
+  }
+
+  const client = await BrowserOAuthClient.load({
+    clientId,
+    handleResolver: 'https://api.bsky.app',
+    plcDirectoryUrl: 'https://plc.directory',
+  })
+
+  return client
+}
+
 export function useSignIn(_input?: Ref<HTMLInputElement | undefined>) {
   const userSettings = useUserSettings()
 
@@ -19,22 +49,17 @@ export function useSignIn(_input?: Ref<HTMLInputElement | undefined>) {
 
     await nextTick()
 
-    const isLocalDev = location.hostname === 'localhost'
-
-    const client = await BrowserOAuthClient.load({
-      clientId: isLocalDev ? 'http://localhost' : `${location.protocol}//${location.host}/client-metadata.json`,
-      handleResolver: 'https://bsky.social/',
-    })
-
     try {
-      const url = await client.authorize(handle.value, {
-        scope: 'atproto transition:generic',
+      const client = await useOAuthClient()
+
+      const authUrl = await client.authorize(handle.value, {
+        // scope: 'atproto transition:generic',
         // prompt: users.value.length > 0 ? 'login' : 'none',
         ui_locales: userSettings.value.language,
-        redirect_uri: isLocalDev ? `http://127.0.0.1:5314/oauth/callback` : `https://${location.host}/oauth/callback`,
+        // redirect_uri: isLocalDev ? `http://localhost` : `https://${window.location.host}/oauth/callback`, // TODO: not sure why this is not working
       })
 
-      location.href = url.toString()
+      window.location.href = authUrl.toString()
     }
     catch (e) {
       console.error('error', e)
