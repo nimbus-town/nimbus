@@ -11,6 +11,7 @@ import memory from 'unstorage/drivers/memory'
 
 import vercelKVDriver from 'unstorage/drivers/vercel-kv'
 
+import { version } from '~/config/env'
 import { APP_NAME } from '~/constants'
 
 import type { AppInfo } from '~/types'
@@ -48,9 +49,14 @@ export function getRedirectURI(origin: string, server: string) {
   return `${origin}/api/${server}/oauth/${encodeURIComponent(origin)}`
 }
 
+export const defaultUserAgent = `${APP_NAME}/${version}`
+
 async function fetchAppInfo(origin: string, server: string) {
   const app: AppInfo = await $fetch(`https://${server}/api/v1/apps`, {
     method: 'POST',
+    headers: {
+      'user-agent': defaultUserAgent,
+    },
     body: {
       client_name: APP_NAME + (env !== 'release' ? ` (${env})` : ''),
       website: 'https://nimbus.town',
