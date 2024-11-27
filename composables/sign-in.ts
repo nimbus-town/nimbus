@@ -1,8 +1,8 @@
 import type { Ref } from 'vue'
+import { BrowserOAuthClient } from '@atproto/oauth-client-browser'
 
-export function useSignIn(input?: Ref<HTMLInputElement | undefined>) {
+export function useSignIn(_input?: Ref<HTMLInputElement | undefined>) {
   const userSettings = useUserSettings()
-  const users = useUsers()
 
   const busy = ref(false)
   const error = ref(false)
@@ -19,28 +19,28 @@ export function useSignIn(input?: Ref<HTMLInputElement | undefined>) {
 
     await nextTick()
 
+    const isLocalDev = location.hostname === 'localhost'
+
+    const client = await BrowserOAuthClient.load({
+      clientId: isLocalDev ? 'http://localhost' : `${location.protocol}//${location.host}/client-metadata.json`,
+      handleResolver: 'https://bsky.social/',
+    })
+
     try {
-      location.href = await (globalThis.$fetch as any)(`/api/${publicServer.value}/login`, {
-        method: 'POST',
-        body: {
-          handle: handle.value,
-          force_login: users.value.length > 0,
-          origin: location.origin,
-          lang: userSettings.value.language,
-        },
+      const url = await client.authorize(handle.value, {
+        scope: 'atproto transition:generic',
+        // prompt: users.value.length > 0 ? 'login' : 'none',
+        ui_locales: userSettings.value.language,
+        redirect_uri: isLocalDev ? `http://127.0.0.1:5314/oauth/callback` : `https://${location.host}/oauth/callback`,
       })
-      busy.value = false
+
+      location.href = url.toString()
     }
-    catch (err) {
-      displayError.value = true
+    catch (e) {
+      console.error('error', e)
       error.value = true
-      await nextTick()
-      input?.value?.focus()
-      await nextTick()
-      setTimeout(() => {
-        busy.value = false
-        error.value = false
-      }, 512)
+      displayError.value = true
+      busy.value = false
     }
   }
 
