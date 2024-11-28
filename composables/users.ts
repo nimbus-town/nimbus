@@ -375,14 +375,16 @@ async function loadOAuthClient(): Promise<BrowserOAuthClient> {
   let clientId = `${window.location.protocol}//${window.location.host}/api/oauth/client-metadata.json`
 
   if (isLocalDev) {
-    const redirectUri = encodeURIComponent(
-      new URL(
-        `http://127.0.0.1${
-          window.location.port ? `:${window.location.port}` : ''
-        }`,
-      ).href,
-    )
-    clientId = `http://localhost?redirect_uri=${redirectUri}&scope=${OAUTH_SCOPE.split(' ').map(encodeURIComponent).join('+')}`
+    const redirectUri = new URL(
+      `http://127.0.0.1${
+        window.location.port ? `:${window.location.port}` : ''
+      }`,
+    ).href
+
+    clientId = `http://localhost?${new URLSearchParams({
+      scope: OAUTH_SCOPE,
+      redirect_uri: redirectUri,
+    })}`
   }
 
   // import dynamically to avoid SSR issues
@@ -427,6 +429,11 @@ export function useAuth() {
     isLoading.value = true
     client.value = await loadOAuthClient()
     const result = await client.value.init()
+
+    // TODO: remove after testing
+    // eslint-disable-next-line no-console
+    console.log('OAuth client initialized', result)
+
     if (result) {
       setUser({
         did: result.session.did as string,
