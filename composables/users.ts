@@ -364,7 +364,7 @@ export function clearUserLocalStorage(account?: ProfileViewDetailed) {
   })
 }
 
-const OAUTH_SCOPE = 'atproto transition:generic'
+const OAUTH_SCOPE = 'atproto transition:generic transition:chat.bsky'
 
 function isLoopbackHost(host: string) {
   return host === 'localhost' || host === '127.0.0.1' || host === '[::1]'
@@ -373,7 +373,7 @@ function isLoopbackHost(host: string) {
 async function loadOAuthClient(): Promise<BrowserOAuthClient> {
   const isLocalDev = typeof window !== 'undefined' && isLoopbackHost(window.location.hostname)
 
-  let clientId = `${window.location.protocol}//${window.location.host}/client-metadata.json`
+  let clientId = `${window.location.protocol}//${window.location.host}/oauth/client-metadata.json`
 
   if (isLocalDev) {
     const redirectUri = encodeURIComponent(
@@ -456,7 +456,6 @@ export function useAuth() {
       scope: OAUTH_SCOPE,
       // prompt: users.value.length > 0 ? 'select_account' : 'login',
       ui_locales: userSettings.value.language,
-      // redirect_uri: isLocalDev ? `http://localhost` : `https://${window.location.host}`, // TODO: not sure why this is not working
     })
   }
 
