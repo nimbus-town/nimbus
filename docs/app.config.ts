@@ -29,8 +29,7 @@ export default defineAppConfig({
           icon: 'IconNuxtLabs',
         },
         {
-          // change this when Nimbus ready
-          href: 'https://bsky.app/profile/nimbus',
+          href: 'https://bsky.app/profile/nimbus.town',
           icon: 'IconBluesky',
         },
       ],
