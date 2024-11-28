@@ -55,7 +55,7 @@ function processSignIn() {
       <CommonDropdownItem
         is="button"
         v-if="isHydrated && currentUser"
-        :text="$t('user.sign_out_account', [currentUser.account.handle])"
+        :text="$t('user.sign_out_account', [getFullHandle(currentUser.account.handle)])"
         icon="i-ri:logout-box-line rtl-flip"
         w-full
         @click="signOut"
