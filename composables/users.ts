@@ -9,6 +9,7 @@ import { withoutProtocol } from 'ufo'
 import type { PushNotificationPolicy, PushNotificationRequest } from '~/composables/push-notifications/types'
 import {
   DEFAULT_POST_CHARS_LIMIT,
+  OAUTH_SCOPE,
   STORAGE_KEY_CURRENT_USER_HANDLE,
   STORAGE_KEY_NODES,
   STORAGE_KEY_NOTIFICATION,
@@ -364,8 +365,6 @@ export function clearUserLocalStorage(account?: ProfileViewDetailed) {
   })
 }
 
-const OAUTH_SCOPE = 'atproto transition:generic transition:chat.bsky'
-
 function isLoopbackHost(host: string) {
   return host === 'localhost' || host === '127.0.0.1' || host === '[::1]'
 }
@@ -373,7 +372,7 @@ function isLoopbackHost(host: string) {
 async function loadOAuthClient(): Promise<BrowserOAuthClient> {
   const isLocalDev = typeof window !== 'undefined' && isLoopbackHost(window.location.hostname)
 
-  let clientId = `${window.location.protocol}//${window.location.host}/oauth/client-metadata.json`
+  let clientId = `${window.location.protocol}//${window.location.host}/api/oauth/client-metadata.json`
 
   if (isLocalDev) {
     const redirectUri = encodeURIComponent(

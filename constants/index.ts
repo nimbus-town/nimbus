@@ -37,3 +37,5 @@ export const THEME_COLORS = {
   backgroundDark: '#fafafa',
   backgroundLight: '#111111',
 } as const
+
+export const OAUTH_SCOPE = 'atproto transition:generic transition:chat.bsky'
