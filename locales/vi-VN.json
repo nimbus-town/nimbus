@@ -87,7 +87,7 @@
     "switch_account": "Chuyển sang tài khoản khác",
     "vote": "Bình chọn"
   },
-  "app_desc_short": "Một ứng dụng web Mastodon nhanh nhẹn",
+  "app_desc_short": "Một ứng dụng web Bluesky nhanh nhẹn",
   "app_logo": "Nimbus Logo",
   "app_name": "Nimbus",
   "attachment": {
@@ -199,7 +199,7 @@
       "title": "Bản dựng"
     },
     "desc_highlight": "Sẽ có lỗi và một số tính năng bị thiếu.",
-    "desc_para1": "Nimbus là một ứng dụng web Mastodon nhanh nhẹn. Sử dụng để đăng nhập Mastodon và tương tác với Fediverse.",
+    "desc_para1": "Nimbus là một ứng dụng web Bluesky nhanh nhẹn. Sử dụng để đăng nhập Bluesky và tương tác với Fediverse.",
     "desc_para2": "Nimbus là Mã Nguồn Mở và chúng tôi cải tiến nó như một dự án cộng đồng. Hãy tham gia và cùng xây dựng!",
     "desc_para3": "Để thúc đẩy sự phát triển, bạn có thể tài trợ cho Nhóm thông qua GitHub Sponsors. Chúng tôi hy vọng bạn thích Nimbus!",
     "desc_para4": "Nếu bạn muốn thử nghiệm, đưa ra phản hồi hoặc đóng góp,",
@@ -375,22 +375,22 @@
     "update_available_short": "Cập nhật Nimbus",
     "webmanifest": {
       "canary": {
-        "description": "Một ứng dụng web Mastodon nhanh nhẹn (canary)",
+        "description": "Một ứng dụng web Bluesky nhanh nhẹn (canary)",
         "name": "Nimbus (canary)",
         "short_name": "Nimbus (canary)"
       },
       "dev": {
-        "description": "Một ứng dụng web Mastodon nhanh nhẹn (dev)",
+        "description": "Một ứng dụng web Bluesky nhanh nhẹn (dev)",
         "name": "Nimbus (dev)",
         "short_name": "Nimbus (dev)"
       },
       "preview": {
-        "description": "Một ứng dụng web Mastodon nhanh nhẹn (preview)",
+        "description": "Một ứng dụng web Bluesky nhanh nhẹn (preview)",
         "name": "Nimbus (preview)",
         "short_name": "Nimbus (preview)"
       },
       "release": {
-        "description": "Một ứng dụng web Mastodon nhanh nhẹn",
+        "description": "Một ứng dụng web Bluesky nhanh nhẹn",
         "name": "Nimbus",
         "short_name": "Nimbus"
       }
@@ -450,7 +450,7 @@
       "version": "Phiên bản"
     },
     "account_settings": {
-      "description": "Cài đặt tài khoản trong Mastodon UI",
+      "description": "Cài đặt tài khoản trong Bluesky UI",
       "label": "Cài đặt tài khoản"
     },
     "interface": {
@@ -744,12 +744,12 @@
   },
   "user": {
     "add_existing": "Thêm một tài khoản khác",
-    "server_address_label": "Địa chỉ máy chủ Mastodon",
+    "server_address_label": "Địa chỉ máy chủ Bluesky",
     "sign_in_desc": "Đăng nhập để theo dõi người dùng hoặc hashtag, thích, chia sẻ và trả lời tút hoặc tương tác từ tài khoản của bạn trên một máy chủ khác.",
     "sign_in_notice_title": "Đang xem {0} công khai",
     "sign_out_account": "Đăng xuất {0}",
     "single_instance_sign_in_desc": "Đăng nhập để theo dõi người dùng hoặc hashtag, thích, chia sẻ và trả lời tút",
-    "tip_no_account": "Nếu bạn chưa có tài khoản Mastodon, {0}.",
+    "tip_no_account": "Nếu bạn chưa có tài khoản Bluesky, {0}.",
     "tip_register_account": "chọn máy chủ và đăng ký"
   },
   "visibility": {

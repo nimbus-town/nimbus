@@ -83,7 +83,7 @@
     "switch_account": "Ganti akun",
     "vote": "Pilih"
   },
-  "app_desc_short": "Klien web Mastodon yang gesit",
+  "app_desc_short": "Klien web Bluesky yang gesit",
   "app_logo": "Logo Nimbus",
   "app_name": "Nimbus",
   "attachment": {
@@ -183,7 +183,7 @@
       "title": "Pratinjau penerapan"
     },
     "desc_highlight": "Masih terdapat beberapa bug dan fitur yang hilang di sana-sini.",
-    "desc_para1": "Terima kasih atas minat Anda untuk mencoba Nimbus, klien web Mastodon kami yang sedang dalam proses penyempurnaan!",
+    "desc_para1": "Terima kasih atas minat Anda untuk mencoba Nimbus, klien web Bluesky kami yang sedang dalam proses penyempurnaan!",
     "desc_para2": "kami bekerja keras untuk mengembangkan dan memperbaikinya dari waktu ke waktu.",
     "desc_para3": "Untuk meningkatkan pengembangan, Anda dapat mensponsori Tim melalui Sponsor GitHub. \nKami harap Anda menikmati Nimbus!",
     "desc_para4": "Nimbus adalah Software Sumber Terbuka. \nJika Anda ingin membantu dalam pengujian, memberikan umpan balik, atau berkontribusi,",
@@ -344,22 +344,22 @@
     "update_available_short": "Perbarui Nimbus",
     "webmanifest": {
       "canary": {
-        "description": "Klien web Mastodon yang gesit (canary)",
+        "description": "Klien web Bluesky yang gesit (canary)",
         "name": "Nimbus (canary)",
         "short_name": "Nimbus (canary)"
       },
       "dev": {
-        "description": "Klien web Mastodon yang gesit (dev)",
+        "description": "Klien web Bluesky yang gesit (dev)",
         "name": "Nimbus (dev)",
         "short_name": "Nimbus (dev)"
       },
       "preview": {
-        "description": "Klien web Mastodon yang gesit (pratinjau)",
+        "description": "Klien web Bluesky yang gesit (pratinjau)",
         "name": "Nimbus (pratinjau)",
         "short_name": "Nimbus (pratinjau)"
       },
       "release": {
-        "description": "Klien web Mastodon yang gesit",
+        "description": "Klien web Bluesky yang gesit",
         "name": "Nimbus",
         "short_name": "Nimbus"
       }
@@ -419,7 +419,7 @@
       "version": "Versi"
     },
     "account_settings": {
-      "description": "Sunting pengaturan akun Anda di Mastodon UI",
+      "description": "Sunting pengaturan akun Anda di Bluesky UI",
       "label": "Pengaturan akun"
     },
     "interface": {
@@ -698,12 +698,12 @@
   },
   "user": {
     "add_existing": "Tambahkan akun yang ada",
-    "server_address_label": "Alamat Server Mastodon",
+    "server_address_label": "Alamat Server Bluesky",
     "sign_in_desc": "Masuk untuk mengikuti profil atau hashtag, favorit, berbagi dan membalas posting, atau berinteraksi dari akun Anda di server lain.",
     "sign_in_notice_title": "Menampilkan data publik {0}",
     "sign_out_account": "Keluar {0}",
     "single_instance_sign_in_desc": "Masuk untuk mengikuti profil atau hashtag, memfavoritkan, berbagi, dan membalas postingan.",
-    "tip_no_account": "Jika Anda belum memiliki akun Mastodon, {0}.",
+    "tip_no_account": "Jika Anda belum memiliki akun Bluesky, {0}.",
     "tip_register_account": "pilih server Anda dan daftarkan"
   },
   "visibility": {
