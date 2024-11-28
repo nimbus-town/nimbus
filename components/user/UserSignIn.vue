@@ -55,14 +55,6 @@ onMounted(async () => {
         </Transition>
       </div>
     </div>
-    <!-- <div text-secondary text-sm flex>
-      <div i-ri:lightbulb-line me-1 />
-      <span>
-        <i18n-t keypath="user.tip_no_account">
-          <NuxtLink href="https://joinmastodon.org/servers" target="_blank" external class="text-primary" hover="underline">{{ $t('user.tip_register_account') }}</NuxtLink>
-        </i18n-t>
-      </span>
-    </div> -->
     <button flex="~ row" gap-x-2 items-center btn-solid mt2 :disabled="!handle || busy">
       <span v-if="busy" aria-hidden="true" block animate animate-spin preserve-3d class="rtl-flip">
         <span block i-ri:loader-2-fill aria-hidden="true" />
