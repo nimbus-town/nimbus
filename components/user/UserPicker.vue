@@ -5,7 +5,7 @@ const all = useUsers()
 const router = useRouter()
 
 function clickUser(user: UserLogin) {
-  if (user.account.acct === currentUser.value?.account.acct)
+  if (user.account.did === currentUser.value?.account.did)
     router.push(getAccountRoute(user.account))
   else
     switchUser(user)

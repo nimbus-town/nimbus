@@ -6,7 +6,7 @@ const emit = defineEmits<{
 }>()
 
 const all = useUsers()
-const { singleInstanceServer, oauth } = useSignIn()
+const { singleInstanceServer, signIn } = useSignIn()
 
 const sorted = computed(() => {
   return [
@@ -17,14 +17,14 @@ const sorted = computed(() => {
 
 const router = useRouter()
 function clickUser(user: UserLogin) {
-  if (user.account.id === currentUser.value?.account.id)
+  if (user.account.did === currentUser.value?.account.did)
     router.push(getAccountRoute(user.account))
   else
     switchUser(user)
 }
 function processSignIn() {
   if (singleInstanceServer)
-    oauth()
+    signIn()
   else
     openSigninDialog()
 }
@@ -55,7 +55,7 @@ function processSignIn() {
       <CommonDropdownItem
         is="button"
         v-if="isHydrated && currentUser"
-        :text="$t('user.sign_out_account', [getFullHandle(currentUser.account)])"
+        :text="$t('user.sign_out_account', [currentUser.account.handle])"
         icon="i-ri:logout-box-line rtl-flip"
         w-full
         @click="signOut"

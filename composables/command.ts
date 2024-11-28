@@ -249,7 +249,7 @@ export function provideGlobalCommands() {
   const masto = useMasto()
   const colorMode = useColorMode()
   const userSettings = useUserSettings()
-  const { singleInstanceServer, oauth } = useSignIn()
+  const { singleInstanceServer, signIn } = useSignIn()
 
   useCommand({
     scope: 'Preferences',
@@ -305,7 +305,7 @@ export function provideGlobalCommands() {
 
     onActivate() {
       if (singleInstanceServer)
-        oauth()
+        signIn()
       else
         openSigninDialog()
     },
