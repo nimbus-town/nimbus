@@ -77,14 +77,16 @@ export function useSelfAccount(user: MaybeRefOrGetter<mastodon.v1.Account | unde
 export const characterLimit = computed(() => currentInstance.value?.configuration?.statuses.maxCharacters ?? DEFAULT_POST_CHARS_LIMIT)
 
 export async function loginTo(
-  _masto: ElkMasto,
+  masto: ElkMasto,
   user: Overwrite<UserLogin, { account?: ProfileViewDetailed }>,
 ) {
-  if (currentUserHandle.value !== user.account?.did) {
+  mastoLogin(masto, user)
+
+  if (currentUserHandle.value !== user.did) {
     const session = await oauthClient.value?.restore(user.did)
     if (session) {
       sessions.value.push(session)
-      currentUserHandle.value = user.account?.did
+      currentUserHandle.value = user.did
     }
     else {
       // remove session if it's not found
@@ -446,6 +448,8 @@ export function useAuth() {
 
   // auto-init
   if (!oauthClient.value && import.meta.client) {
+    // eslint-disable-next-line no-console
+    console.log('Initializing OAuth client')
     init()
   }
   else {
@@ -461,3 +465,6 @@ export function useAuth() {
     signIn,
   }
 }
+
+// auto load
+useAuth()
