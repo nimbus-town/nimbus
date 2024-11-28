@@ -41,11 +41,9 @@ export default defineNuxtPlugin({
       const { readIDB } = await useAsyncIDBKeyval<UserLogin[]>(STORAGE_KEY_USERS, defaultUsers, users)
 
       function reload() {
-        // TODO: fix reload loop by allowing to serialize UserLogin
-        // setTimeout(() => {
-        //   window.location.reload()
-        // }, 0)
-        console.error('reloading is currently disabled to prevent loop')
+        setTimeout(() => {
+          window.location.reload()
+        }, 0)
       }
 
       debouncedWatch(

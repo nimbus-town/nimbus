@@ -1,6 +1,5 @@
 import type { RouteLocationRaw } from '#vue-router'
 import type { ProfileViewDetailed } from '@atproto/api/dist/client/types/app/bsky/actor/defs'
-import type { OAuthSession } from '@atproto/oauth-client-browser'
 import type { mastodon } from 'masto'
 import type { MarkNonNullable, Mutable } from './utils'
 
@@ -16,10 +15,10 @@ export interface AppInfo {
 
 export interface UserLogin {
   did: string
+  /** @deprecated */
   server: string
   /** @deprecated use session instead */
   token?: string
-  session?: OAuthSession
   account: ProfileViewDetailed
   /** @deprecated use session instead */
   vapidKey?: string

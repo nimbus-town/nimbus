@@ -11,7 +11,7 @@ const { singleInstanceServer, signIn } = useSignIn()
 const sorted = computed(() => {
   return [
     currentUser.value!,
-    ...all.value.filter(account => account.token !== currentUser.value?.token),
+    ...all.value.filter(account => account.did !== currentUser.value?.did),
   ].filter(Boolean)
 })
 
@@ -41,7 +41,7 @@ function processSignIn() {
       >
         <AccountInfo :account="user.account" :hover-card="false" square />
         <div flex-auto />
-        <div v-if="user.token === currentUser?.token" i-ri:check-line text-primary mya text-2xl />
+        <div v-if="user.did === currentUser?.did" i-ri:check-line text-primary mya text-2xl />
       </button>
     </template>
     <div border="t base" pt2>

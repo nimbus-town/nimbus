@@ -24,6 +24,7 @@ const mock = process.mock
 const client = ref<BrowserOAuthClient>()
 const isLoading = ref(false)
 const users: Ref<UserLogin[]> | RemovableRef<UserLogin[]> = import.meta.server ? ref<UserLogin[]>([]) : ref<UserLogin[]>([]) as RemovableRef<UserLogin[]>
+const sessions = ref<OAuthSession[]>([])
 export const currentUserHandle = useLocalStorage<string>(STORAGE_KEY_CURRENT_USER_HANDLE, mock ? mock.user.account.id : '')
 const nodes = useLocalStorage<Record<string, any>>(STORAGE_KEY_NODES, {}, { deep: true })
 export const instanceStorage = useLocalStorage<Record<string, mastodon.v1.Instance>>(STORAGE_KEY_SERVERS, mock ? mock.server : {}, { deep: true })
@@ -51,10 +52,8 @@ export const currentUser = computed<UserLogin | undefined>(() => {
 
 const publicInstance = ref<ElkInstance | null>(null)
 export const currentInstance = computed<null | ElkInstance>(() => {
-  const user = currentUser.value
-  const storage = instanceStorage.value
   const instance = publicInstance.value
-  return user ? storage[user.server] ?? null : instance
+  return instance
 })
 
 export function getInstanceDomain(instance: ElkInstance) {
@@ -62,7 +61,7 @@ export function getInstanceDomain(instance: ElkInstance) {
 }
 
 export const publicServer = ref('')
-export const currentServer = computed<string>(() => currentUser.value?.server || publicServer.value)
+export const currentServer = computed<string>(() => publicServer.value)
 
 export const currentNodeInfo = computed<null | Record<string, any>>(() => nodes.value[currentServer.value] || null)
 export const isGotoSocial = computed(() => currentNodeInfo.value?.software?.name === 'gotosocial')
@@ -78,55 +77,21 @@ export function useSelfAccount(user: MaybeRefOrGetter<mastodon.v1.Account | unde
 export const characterLimit = computed(() => currentInstance.value?.configuration?.statuses.maxCharacters ?? DEFAULT_POST_CHARS_LIMIT)
 
 export async function loginTo(
-  masto: ElkMasto,
-  user: Overwrite<UserLogin, { account?: mastodon.v1.AccountCredentials }>,
+  _masto: ElkMasto,
+  user: Overwrite<UserLogin, { account?: ProfileViewDetailed }>,
 ) {
-  const { client } = masto
-  const instance = mastoLogin(masto, user)
-
-  // GoToSocial only API
-  const url = `https://${user.server}`
-  fetch(`${url}/nodeinfo/2.0`).then(r => r.json()).then((info) => {
-    nodes.value[user.server] = info
-  }).catch(() => undefined)
-
-  if (!user?.token) {
-    publicServer.value = user.server
-    publicInstance.value = instance
-    return
+  if (currentUserHandle.value !== user.account?.did) {
+    const session = await client.value?.restore(user.did)
+    if (session) {
+      sessions.value.push(session)
+      currentUserHandle.value = user.account?.did
+    }
+    else {
+      // remove session if it's not found
+      sessions.value.splice(sessions.value.findIndex(s => s.did === user.did), 1)
+      users.value.splice(users.value.findIndex(u => u.did === user.did), 1)
+    }
   }
-
-  function getUser() {
-    return users.value.find(u => u.server === user.server && u.token === user.token)
-  }
-
-  const account = getUser()?.account
-  if (account)
-    currentUserHandle.value = account.acct
-
-  const [me, pushSubscription] = await Promise.all([
-    fetchAccountInfo(client.value, user.server),
-    // if PWA is not enabled, don't get push subscription
-    useAppConfig().pwaEnabled
-    // we get 404 response instead empty data
-      ? client.value.v1.push.subscription.fetch().catch(() => Promise.resolve(undefined))
-      : Promise.resolve(undefined),
-  ])
-
-  const existingUser = getUser()
-  if (existingUser) {
-    existingUser.account = me
-    existingUser.pushSubscription = pushSubscription
-  }
-  else {
-    users.value.push({
-      ...user,
-      account: me,
-      pushSubscription,
-    })
-  }
-
-  currentUserHandle.value = me.acct
 }
 
 const accountPreferencesMap = new Map<string, Partial<mastodon.v1.Preference>>()
@@ -256,9 +221,9 @@ export async function signOut() {
 
   const masto = useMasto()
 
-  const _currentUserId = currentUser.value.account.id
+  const _currentUserDid = currentUser.value.account.did
 
-  const index = users.value.findIndex(u => u.account?.id === _currentUserId)
+  const index = users.value.findIndex(u => u.account?.did === _currentUserDid)
 
   if (index !== -1) {
     // Clear stale data
@@ -401,10 +366,10 @@ async function loadOAuthClient(): Promise<BrowserOAuthClient> {
 
 export function useAuth() {
   function getSession(did: string): OAuthSession {
-    const user = users.value.find(u => u.session?.did === did)
-    if (!user?.session)
+    const session = sessions.value.find(s => s.did === did)
+    if (!session)
       throw new Error('Session not found')
-    return user.session
+    return session as OAuthSession
   }
 
   function getAgent(sessionOrDid: string | OAuthSession) {
@@ -413,16 +378,31 @@ export function useAuth() {
   }
 
   function setUser(user: UserLogin) {
-    if (users.value.some(u => u.did === user.account.did))
-      users.value = users.value.map(u => u.did !== user.account.did ? u : user)
+    const userIndex = users.value.findIndex(u => u.account.did === user.account.did)
+    if (userIndex !== -1)
+      users.value.splice(userIndex, 1, user)
     else
       users.value.push(user)
   }
 
   async function getProfile(session: OAuthSession): Promise<ProfileViewDetailed> {
     const agent = getAgent(session)
-    const response = await agent.getProfile({ actor: session.sub })
-    return response.data
+    const response = await agent.getProfile({ actor: session.did })
+    return {
+      did: response.data.did,
+      displayName: response.data.displayName,
+      handle: response.data.handle,
+      avatar: response.data.avatar,
+      banner: response.data.banner,
+      description: response.data.description,
+      createdAt: response.data.createdAt,
+      updatedAt: response.data.updatedAt,
+      postsCount: response.data.postsCount,
+      followersCount: response.data.followersCount,
+      followsCount: response.data.followsCount,
+      indexedAt: response.data.indexedAt,
+      labels: response.data.labels,
+    }
   }
 
   async function init() {
@@ -438,7 +418,6 @@ export function useAuth() {
       setUser({
         did: result.session.did as string,
         server: '', // TODO: get the server from the session
-        session: result.session,
         account: await getProfile(result.session),
       })
       currentUserHandle.value = result.session.did

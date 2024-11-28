@@ -1,9 +1,6 @@
 import type { Pausable } from '@vueuse/core'
 import type { mastodon } from 'masto'
 import type { Ref } from 'vue'
-import type { ElkInstance } from '../users'
-import { createRestAPIClient, createStreamingAPIClient } from 'masto'
-import type { UserLogin } from '~/types'
 
 export function createMasto() {
   return {
@@ -18,32 +15,6 @@ export function useMasto() {
 }
 export function useMastoClient() {
   return useMasto().client.value
-}
-
-export function mastoLogin(masto: ElkMasto, user: Pick<UserLogin, 'server' | 'token'>) {
-  const server = user.server
-  const url = `https://${server}`
-  const instance: ElkInstance = reactive(getInstanceCache(server) || { uri: server, accountDomain: server })
-  const accessToken = user.token
-
-  const createStreamingClient = (streamingApiUrl: string | undefined) => {
-    return streamingApiUrl ? createStreamingAPIClient({ streamingApiUrl, accessToken, implementation: globalThis.WebSocket }) : undefined
-  }
-
-  const streamingApiUrl = instance?.urls?.streamingApi
-  masto.client.value = createRestAPIClient({ url, accessToken })
-  masto.streamingClient.value = createStreamingClient(streamingApiUrl)
-
-  // Refetch instance info in the background on login
-  masto.client.value.v1.instance.fetch().then((newInstance) => {
-    Object.assign(instance, newInstance)
-    if (newInstance.urls.streamingApi !== streamingApiUrl)
-      masto.streamingClient.value = createStreamingClient(newInstance.urls.streamingApi)
-
-    instanceStorage.value[server] = newInstance
-  })
-
-  return instance
 }
 
 interface UseStreamingOptions<Controls extends boolean> {

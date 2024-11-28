@@ -21,7 +21,7 @@ function clickUser(user: UserLogin) {
             flex rounded
             cursor-pointer
             :aria-label="$t('action.switch_account')"
-            :class="user.account.acct === currentUser?.account.acct ? '' : 'op25 grayscale'"
+            :class="user.account.did === currentUser?.account.did ? '' : 'op25 grayscale'"
             hover="filter-none op100"
             @click="clickUser(user)"
           >
