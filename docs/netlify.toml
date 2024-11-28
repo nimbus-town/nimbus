@@ -1,6 +1,7 @@
 [build]
 publish = "dist"
 command = "pnpm generate"
+base = "/docs/"
 
 # Allow previewing docs
 [[redirects]]
