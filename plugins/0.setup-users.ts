@@ -41,9 +41,11 @@ export default defineNuxtPlugin({
       const { readIDB } = await useAsyncIDBKeyval<UserLogin[]>(STORAGE_KEY_USERS, defaultUsers, users)
 
       function reload() {
-        setTimeout(() => {
-          window.location.reload()
-        }, 0)
+        // TODO: fix reload loop by allowing to serialize UserLogin
+        // setTimeout(() => {
+        //   window.location.reload()
+        // }, 0)
+        console.error('reloading is currently disabled to prevent loop')
       }
 
       debouncedWatch(
@@ -66,18 +68,18 @@ export default defineNuxtPlugin({
             return
           }
 
-          let sameAcct: boolean
+          let sameDid: boolean
           // 1. detect account switching
           if (oldHandle) {
-            sameAcct = handle === oldHandle
+            sameDid = handle === oldHandle
           }
           else {
-            const acct = currentUser.value?.account?.acct
+            const did = currentUser.value?.account?.did
             // 2. detect sign-in?
-            sameAcct = !acct || acct === handle
+            sameDid = !did || did === handle
           }
 
-          if (!sameAcct) {
+          if (!sameDid) {
             reload()
           }
         },

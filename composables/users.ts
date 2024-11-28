@@ -1,7 +1,11 @@
+import type { ProfileViewDetailed } from '@atproto/api/dist/client/types/app/bsky/actor/defs'
+import type { OAuthSession } from '@atproto/oauth-client-browser'
 import type { MaybeRefOrGetter, RemovableRef } from '@vueuse/core'
 import type { mastodon } from 'masto'
 import type { EffectScope, Ref } from 'vue'
 import type { ElkMasto } from './masto/masto'
+import { Agent } from '@atproto/api'
+import { BrowserOAuthClient } from '@atproto/oauth-client-browser'
 import { withoutProtocol } from 'ufo'
 import type { PushNotificationPolicy, PushNotificationRequest } from '~/composables/push-notifications/types'
 import {
@@ -17,9 +21,11 @@ import type { Overwrite } from '~/types/utils'
 
 const mock = process.mock
 
+const client = ref<BrowserOAuthClient>()
+const isLoading = ref(false)
 const users: Ref<UserLogin[]> | RemovableRef<UserLogin[]> = import.meta.server ? ref<UserLogin[]>([]) : ref<UserLogin[]>([]) as RemovableRef<UserLogin[]>
-const nodes = useLocalStorage<Record<string, any>>(STORAGE_KEY_NODES, {}, { deep: true })
 export const currentUserHandle = useLocalStorage<string>(STORAGE_KEY_CURRENT_USER_HANDLE, mock ? mock.user.account.id : '')
+const nodes = useLocalStorage<Record<string, any>>(STORAGE_KEY_NODES, {}, { deep: true })
 export const instanceStorage = useLocalStorage<Record<string, mastodon.v1.Instance>>(STORAGE_KEY_SERVERS, mock ? mock.server : {}, { deep: true })
 
 export type ElkInstance = Partial<mastodon.v1.Instance> & {
@@ -32,10 +38,10 @@ export function getInstanceCache(server: string): mastodon.v1.Instance | undefin
 }
 
 export const currentUser = computed<UserLogin | undefined>(() => {
-  const handle = currentUserHandle.value
+  const did = currentUserHandle.value
   const currentUsers = users.value
-  if (handle) {
-    const user = currentUsers.find(user => user.account?.acct === handle)
+  if (did) {
+    const user = currentUsers.find(user => user.account.did === did)
     if (user)
       return user
   }
@@ -270,7 +276,7 @@ export async function signOut() {
   }
 
   // Set currentUserId to next user if available
-  currentUserHandle.value = users.value[0]?.account?.acct
+  currentUserHandle.value = users.value[0]?.account?.did
 
   if (!currentUserHandle.value)
     await useRouter().push('/')
@@ -343,7 +349,7 @@ export function useUserLocalStorage<T extends object>(key: string, initial: () =
  * Clear all storages for the given account
  * @param account
  */
-export function clearUserLocalStorage(account?: mastodon.v1.Account) {
+export function clearUserLocalStorage(account?: ProfileViewDetailed) {
   if (!account)
     account = currentUser.value?.account
   if (!account)
@@ -357,4 +363,108 @@ export function clearUserLocalStorage(account?: mastodon.v1.Account) {
     if (value.value[id])
       delete value.value[id]
   })
+}
+
+const OAUTH_SCOPE = 'atproto transition:generic'
+
+function isLoopbackHost(host: string) {
+  return host === 'localhost' || host === '127.0.0.1' || host === '[::1]'
+}
+
+async function loadOAuthClient(): Promise<BrowserOAuthClient> {
+  const isLocalDev = typeof window !== 'undefined' && isLoopbackHost(window.location.hostname)
+
+  let clientId = `${window.location.protocol}//${window.location.host}/client-metadata.json`
+
+  if (isLocalDev) {
+    const redirectUri = encodeURIComponent(
+      new URL(
+        `http://127.0.0.1${
+          window.location.port ? `:${window.location.port}` : ''
+        }`,
+      ).href,
+    )
+    clientId = `http://localhost?redirect_uri=${redirectUri}&scope=${OAUTH_SCOPE.split(' ').map(encodeURIComponent).join('+')}`
+  }
+
+  const client = await BrowserOAuthClient.load({
+    clientId,
+    handleResolver: 'https://api.bsky.app',
+    plcDirectoryUrl: 'https://plc.directory',
+  })
+
+  return client
+}
+
+export function useAuth() {
+  function getSession(did: string): OAuthSession {
+    const user = users.value.find(u => u.session?.did === did)
+    if (!user?.session)
+      throw new Error('Session not found')
+    return user.session
+  }
+
+  function getAgent(sessionOrDid: string | OAuthSession) {
+    const session = typeof sessionOrDid === 'string' ? getSession(sessionOrDid) : sessionOrDid
+    return new Agent(session)
+  }
+
+  function setUser(user: UserLogin) {
+    if (users.value.some(u => u.did === user.account.did))
+      users.value = users.value.map(u => u.did !== user.account.did ? u : user)
+    else
+      users.value.push(user)
+  }
+
+  async function getProfile(session: OAuthSession): Promise<ProfileViewDetailed> {
+    const agent = getAgent(session)
+    const response = await agent.getProfile({ actor: session.sub })
+    return response.data
+  }
+
+  async function init() {
+    isLoading.value = true
+    client.value = await loadOAuthClient()
+    const result = await client.value.init()
+    if (result) {
+      setUser({
+        did: result.session.did as string,
+        server: '', // TODO: get the server from the session
+        session: result.session,
+        account: await getProfile(result.session),
+      })
+      currentUserHandle.value = result.session.did
+      // TODO: redirect to the original URL if there was one
+    }
+
+    // TODO: handle session events
+    // client.value.addEventListener('updated', async (e) => {
+    // })
+    client.value.addEventListener('deleted', async (e) => {
+      users.value = users.value.filter(u => u.did !== e.detail.sub)
+      if (currentUserHandle.value === e.detail.sub)
+        currentUserHandle.value = undefined
+    })
+    isLoading.value = false
+  }
+
+  async function signIn(handle: string) {
+    const userSettings = useUserSettings()
+    await client.value?.signIn(handle, {
+      scope: OAUTH_SCOPE,
+      // prompt: users.value.length > 0 ? 'select_account' : 'login',
+      ui_locales: userSettings.value.language,
+      // redirect_uri: isLocalDev ? `http://localhost` : `https://${window.location.host}`, // TODO: not sure why this is not working
+    })
+  }
+
+  // auto-init
+  if (!client.value && import.meta.client) {
+    init()
+  }
+
+  return {
+    users,
+    signIn,
+  }
 }
