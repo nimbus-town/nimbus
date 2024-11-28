@@ -21,7 +21,7 @@ import type { Overwrite } from '~/types/utils'
 
 const mock = process.mock
 
-const client = ref<BrowserOAuthClient>()
+const oauthClient = ref<BrowserOAuthClient>()
 const isLoading = ref(false)
 const users: Ref<UserLogin[]> | RemovableRef<UserLogin[]> = import.meta.server ? ref<UserLogin[]>([]) : ref<UserLogin[]>([]) as RemovableRef<UserLogin[]>
 const sessions = ref<OAuthSession[]>([])
@@ -81,7 +81,7 @@ export async function loginTo(
   user: Overwrite<UserLogin, { account?: ProfileViewDetailed }>,
 ) {
   if (currentUserHandle.value !== user.account?.did) {
-    const session = await client.value?.restore(user.did)
+    const session = await oauthClient.value?.restore(user.did)
     if (session) {
       sessions.value.push(session)
       currentUserHandle.value = user.account?.did
@@ -407,8 +407,8 @@ export function useAuth() {
 
   async function init() {
     isLoading.value = true
-    client.value = await loadOAuthClient()
-    const result = await client.value.init()
+    oauthClient.value = await loadOAuthClient()
+    const result = await oauthClient.value.init()
 
     // TODO: remove after testing
     // eslint-disable-next-line no-console
@@ -427,7 +427,7 @@ export function useAuth() {
     // TODO: handle session events
     // client.value.addEventListener('updated', async (e) => {
     // })
-    client.value.addEventListener('deleted', async (e) => {
+    oauthClient.value.addEventListener('deleted', async (e) => {
       users.value = users.value.filter(u => u.did !== e.detail.sub)
       if (currentUserHandle.value === e.detail.sub)
         currentUserHandle.value = undefined
@@ -437,7 +437,7 @@ export function useAuth() {
 
   async function signIn(handle: string) {
     const userSettings = useUserSettings()
-    await client.value?.signIn(handle, {
+    await oauthClient.value?.signIn(handle, {
       scope: OAUTH_SCOPE,
       // prompt: users.value.length > 0 ? 'select_account' : 'login',
       ui_locales: userSettings.value.language,
@@ -445,8 +445,15 @@ export function useAuth() {
   }
 
   // auto-init
-  if (!client.value && import.meta.client) {
+  if (!oauthClient.value && import.meta.client) {
     init()
+  }
+  else {
+    // eslint-disable-next-line no-console
+    console.log('OAuth client already initialized', {
+      oauthClient: oauthClient.value,
+      client: import.meta.client,
+    })
   }
 
   return {

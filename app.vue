@@ -15,7 +15,7 @@ if (import.meta.server && !route.path.startsWith('/settings')) {
 }
 
 // We want to trigger rerendering the page when account changes
-const key = computed(() => currentUser.value?.did)
+const key = computed(() => currentUserHandle.value)
 </script>
 
 <template>
