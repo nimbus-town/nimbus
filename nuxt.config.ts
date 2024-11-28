@@ -141,7 +141,8 @@ export default defineNuxtConfig({
   },
   appConfig: {
     storage: {
-      driver: process.env.NUXT_STORAGE_DRIVER ?? (isCI ? 'cloudflare' : 'fs'),
+      // driver: process.env.NUXT_STORAGE_DRIVER ?? (isCI ? 'cloudflare' : 'fs'),
+      driver: 'fs',
     },
   },
   runtimeConfig: {
