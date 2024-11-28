@@ -11,7 +11,7 @@
     "authorized": "Du hast die Folgeanfrage erlaubt",
     "avatar_description": "Avatar von {0}",
     "blocked_by": "Du wurdest von diesem Account geblockt",
-    "blocked_domains": "Geblockte Mastodon-Instanzen",
+    "blocked_domains": "Geblockte Bluesky-Instanzen",
     "blocked_users": "Gesperrte Accounts",
     "blocking": "Blockiert",
     "bot": "BOT",
@@ -86,7 +86,7 @@
     "switch_account": "Account wechseln",
     "vote": "Abstimmen"
   },
-  "app_desc_short": "Ein flinker Mastodon Web-Client",
+  "app_desc_short": "Ein flinker Bluesky Web-Client",
   "app_logo": "Nimbus Logo",
   "app_name": "Nimbus",
   "attachment": {
@@ -198,7 +198,7 @@
       "title": "Vorschau bereitstellen"
     },
     "desc_highlight": "Erwarte hier und da einige Bugs und fehlende Funktionen.",
-    "desc_para1": "Danke für dein Interesse an Nimbus, unser noch in der Bearbeitung befindlicher, generischer Mastodon-Client!",
+    "desc_para1": "Danke für dein Interesse an Nimbus, unser noch in der Bearbeitung befindlicher, generischer Bluesky-Client!",
     "desc_para2": "Wir arbeiten stetig an der Entwicklung und verbessern ihn mit der Zeit. Und wir laden dich schon sehr bald ein uns zu helfen, sobald wir ihn Quelloffen machen!",
     "desc_para3": "Doch in der Zwischenzeit kannst du der Entwicklung aushelfen, indem du unsere Teammitglieder durch die unten stehenden Links unterstützt.",
     "desc_para4": "Nimbus ist Open Source. \nWenn du beim Testen helfen, Feedback geben oder einen Beitrag leisten möchtest,",
@@ -373,22 +373,22 @@
     "update_available_short": "Nimbus aktualisieren",
     "webmanifest": {
       "canary": {
-        "description": "Ein flinker Mastodon-Webclient (Canary)",
+        "description": "Ein flinker Bluesky-Webclient (Canary)",
         "name": "Nimbus (canary)",
         "short_name": "Nimbus (canary)"
       },
       "dev": {
-        "description": "Ein flinker Mastodon-Webclient (dev)",
+        "description": "Ein flinker Bluesky-Webclient (dev)",
         "name": "Nimbus (dev)",
         "short_name": "Nimbus (dev)"
       },
       "preview": {
-        "description": "Ein flinker Mastodon-Webclient (Vorschau)",
+        "description": "Ein flinker Bluesky-Webclient (Vorschau)",
         "name": "Nimbus (Vorschau)",
         "short_name": "Nimbus (Vorschau)"
       },
       "release": {
-        "description": "Ein flinker Mastodon-Webclient",
+        "description": "Ein flinker Bluesky-Webclient",
         "name": "Nimbus",
         "short_name": "Nimbus"
       }
@@ -448,7 +448,7 @@
       "version": "Version"
     },
     "account_settings": {
-      "description": "Bearbeite Kontoeinstellungen in der Mastodon-Benutzeroberfläche",
+      "description": "Bearbeite Kontoeinstellungen in der Bluesky-Benutzeroberfläche",
       "label": "Account Einstellungen"
     },
     "interface": {
@@ -736,12 +736,12 @@
   },
   "user": {
     "add_existing": "Bestehendes Konto hinzufügen",
-    "server_address_label": "Mastodon Server Adresse",
+    "server_address_label": "Bluesky Server Adresse",
     "sign_in_desc": "Melde dich an, um Profilen oder Hashtags zu folgen, Beiträge zu favorisieren, zu teilen und zu beantworten oder von deinem Konto auf einem anderen Server aus zu interagieren.",
     "sign_in_notice_title": "Anzeigen von {0} öffentlichen Daten",
     "sign_out_account": "{0} abmelden",
     "single_instance_sign_in_desc": "Melde dich an, um Profile oder Hashtags zu verfolgen, Beiträge zu favorisieren, zu teilen und darauf zu antworten.",
-    "tip_no_account": "Wenn du noch kein Mastodon-Konto hast, {0}.",
+    "tip_no_account": "Wenn du noch kein Bluesky-Konto hast, {0}.",
     "tip_register_account": "wähle einen Server aus und registriere einen"
   },
   "visibility": {

@@ -79,7 +79,7 @@
     "switch_account": "アカウントの切り替え",
     "vote": "投票"
   },
-  "app_desc_short": "軽快なMastodonウェブクライアント",
+  "app_desc_short": "軽快なBlueskyウェブクライアント",
   "app_logo": "Nimbusのロゴ",
   "app_name": "Nimbus",
   "attachment": {
@@ -179,7 +179,7 @@
       "title": "プレビューデプロイ"
     },
     "desc_highlight": "バグや足りない機能があちこちにある想定です。",
-    "desc_para1": "開発中のMastodonウェブクライアントのNimbusに興味を持って試してくれてありがとうございます！",
+    "desc_para1": "開発中のBlueskyウェブクライアントのNimbusに興味を持って試してくれてありがとうございます！",
     "desc_para2": "私たちは時間をかけて開発と改善に努めています。",
     "desc_para3": "開発を進めるために、GitHubスポンサーでチームをサポートできます。Nimbusを楽しんでくれることを願っています！",
     "desc_para4": "Nimbusはオープンソースです。テスト、フィードバックの提供、コントリビューションで開発を助けたい場合は",
@@ -340,22 +340,22 @@
     "update_available_short": "Nimbusをアップデート",
     "webmanifest": {
       "canary": {
-        "description": "軽快なMastodonウェブクライアント (canary)",
+        "description": "軽快なBlueskyウェブクライアント (canary)",
         "name": "Nimbus (canary)",
         "short_name": "Nimbus (canary)"
       },
       "dev": {
-        "description": "軽快なMastodonウェブクライアント (dev)",
+        "description": "軽快なBlueskyウェブクライアント (dev)",
         "name": "Nimbus (dev)",
         "short_name": "Nimbus (dev)"
       },
       "preview": {
-        "description": "軽快なMastodonウェブクライアント (preview)",
+        "description": "軽快なBlueskyウェブクライアント (preview)",
         "name": "Nimbus (preview)",
         "short_name": "Nimbus (preview)"
       },
       "release": {
-        "description": "軽快なMastodonウェブクライアント",
+        "description": "軽快なBlueskyウェブクライアント",
         "name": "Nimbus",
         "short_name": "Nimbus"
       }
@@ -415,7 +415,7 @@
       "version": "バージョン"
     },
     "account_settings": {
-      "description": "Mastodon UIでアカウントの設定を編集します",
+      "description": "Bluesky UIでアカウントの設定を編集します",
       "label": "アカウント設定"
     },
     "interface": {
@@ -692,12 +692,12 @@
   },
   "user": {
     "add_existing": "既存のアカウントを追加する",
-    "server_address_label": "Mastodonサーバーのアドレス",
+    "server_address_label": "Blueskyサーバーのアドレス",
     "sign_in_desc": "サインインすると、アカウントやハッシュタグのフォロー、お気に入りの追加、投稿の共有、投稿への返信のほか、異なるサーバー上のあなたのアカウントから交流できるようになります。",
     "sign_in_notice_title": "{0}の公開データを表示しています",
     "sign_out_account": "{0}からサインアウト",
     "single_instance_sign_in_desc": "サインインすると、プロファイルやハッシュタグのフォロー、投稿のお気に入り、共有、返信ができるようになります。",
-    "tip_no_account": "まだMastodonアカウントを持っていない場合は、{0}しましょう。",
+    "tip_no_account": "まだBlueskyアカウントを持っていない場合は、{0}しましょう。",
     "tip_register_account": "サーバーを選んでアカウントを登録"
   },
   "visibility": {

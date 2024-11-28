@@ -78,7 +78,7 @@
     "switch_account": "Changer de compte",
     "vote": "Voter"
   },
-  "app_desc_short": "Un client Mastodon fait avec 🧡",
+  "app_desc_short": "Un client Bluesky fait avec 🧡",
   "app_logo": "Logo Nimbus",
   "app_name": "Nimbus",
   "attachment": {
@@ -178,7 +178,7 @@
       "title": "Aperçu du déploiement"
     },
     "desc_highlight": "Il est possible de rencontrer, par-ci par-là, quelques bugs et fonctionnalités manquantes.",
-    "desc_para1": "Merci de l'intérêt pour Nimbus, notre client Mastodon en cours de développement !",
+    "desc_para1": "Merci de l'intérêt pour Nimbus, notre client Bluesky en cours de développement !",
     "desc_para2": "Nous travaillons dur sur le développement et l'améliorons au fur et à mesure. Nous allons open-sourcer l'application une fois qu'elle sera prête pour un usage public.",
     "desc_para3": "Pour supporter son développement, vous pouvez parrainer les membres de l'équipe avec les liens ci-dessous. Nous espérons que vous apprécierez Nimbus!",
     "desc_para4": "Avant cela, si vous voulez aider à tester, donner des retours ou contribuer",
@@ -338,22 +338,22 @@
     "update_available_short": "Mettre à jour Nimbus",
     "webmanifest": {
       "canary": {
-        "description": "Un client Web Mastodon (canary)",
+        "description": "Un client Web Bluesky (canary)",
         "name": "Nimbus (canary)",
         "short_name": "Nimbus (canary)"
       },
       "dev": {
-        "description": "Un client Web Mastodon (dev)",
+        "description": "Un client Web Bluesky (dev)",
         "name": "Nimbus (dev)",
         "short_name": "Nimbus (dev)"
       },
       "preview": {
-        "description": "Un client Web Mastodon (aperçu)",
+        "description": "Un client Web Bluesky (aperçu)",
         "name": "Nimbus (aperçu)",
         "short_name": "Nimbus (aperçu)"
       },
       "release": {
-        "description": "Un client Web Mastodon",
+        "description": "Un client Web Bluesky",
         "name": "Nimbus",
         "short_name": "Nimbus"
       }
@@ -413,7 +413,7 @@
       "version": "Version"
     },
     "account_settings": {
-      "description": "Modifiez les paramètres de votre compte dans l'interface de Mastodon",
+      "description": "Modifiez les paramètres de votre compte dans l'interface de Bluesky",
       "label": "Paramètres de compte"
     },
     "interface": {
@@ -694,7 +694,7 @@
     "sign_in_notice_title": "Affichage de {0} données publiques",
     "sign_out_account": "Se déconnecter de {0}",
     "single_instance_sign_in_desc": "Connectez-vous pour suivre des profils ou des hashtags, aimer, partager et répondre aux messages.",
-    "tip_no_account": "Si vous n'avez pas encore de compte Mastodon, {0}.",
+    "tip_no_account": "Si vous n'avez pas encore de compte Bluesky, {0}.",
     "tip_register_account": "choisissez votre serveur et enregistrez-en un"
   },
   "visibility": {
