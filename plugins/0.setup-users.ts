@@ -41,13 +41,15 @@ export default defineNuxtPlugin({
       const { readIDB } = await useAsyncIDBKeyval<UserLogin[]>(STORAGE_KEY_USERS, defaultUsers, users)
 
       function reload() {
-        setTimeout(() => {
-          window.location.reload()
-        }, 0)
+        // eslint-disable-next-line no-console
+        console.log('todo, do we need to reload?')
+        // setTimeout(() => {
+        //   window.location.reload()
+        // }, 0)
       }
 
       debouncedWatch(
-        () => [currentUserHandle.value, users.value.length] as const,
+        () => [currentUserDid.value, users.value.length] as const,
         async ([handle, currentUsers], old) => {
           if (initialLoad.value) {
             return

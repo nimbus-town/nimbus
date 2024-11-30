@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
       '/pwa-192x192.png',
       requestUrl,
     ).href,
-    redirect_uris: [new URL('/', requestUrl).href],
+    redirect_uris: [new URL('/oauth/callback', requestUrl).href],
     scope: OAUTH_SCOPE,
     grant_types: ['authorization_code', 'refresh_token'],
     application_type: 'web',

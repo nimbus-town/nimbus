@@ -1,10 +1,10 @@
 import type { ProfileViewDetailed } from '@atproto/api/dist/client/types/app/bsky/actor/defs'
-import type { BrowserOAuthClient, OAuthSession } from '@atproto/oauth-client-browser'
 import type { MaybeRefOrGetter, RemovableRef } from '@vueuse/core'
 import type { mastodon } from 'masto'
 import type { EffectScope, Ref } from 'vue'
 import type { ElkMasto } from './masto/masto'
-import { Agent } from '@atproto/api'
+import { XRPC } from '@atcute/client'
+import { configureOAuth, createAuthorizationUrl, finalizeAuthorization, getSession, OAuthUserAgent, resolveFromIdentity, type Session } from '@atcute/oauth-browser-client'
 import { withoutProtocol } from 'ufo'
 import type { PushNotificationPolicy, PushNotificationRequest } from '~/composables/push-notifications/types'
 import {
@@ -21,12 +21,14 @@ import type { Overwrite } from '~/types/utils'
 
 const mock = process.mock
 
-const oauthClient = ref<BrowserOAuthClient>()
+const oauthInitialized = ref(false)
 const users: Ref<UserLogin[]> | RemovableRef<UserLogin[]> = import.meta.server ? ref<UserLogin[]>([]) : ref<UserLogin[]>([]) as RemovableRef<UserLogin[]>
-const sessions = ref<OAuthSession[]>([])
-const nodes = useLocalStorage<Record<string, any>>(STORAGE_KEY_NODES, {}, { deep: true })
-export const currentUserHandle = useLocalStorage<string>(STORAGE_KEY_CURRENT_USER_HANDLE, mock ? mock.user.account.id : '')
+export const currentUserDid = useLocalStorage<`did:${string}`>(STORAGE_KEY_CURRENT_USER_HANDLE, mock ? mock.user.account.id : '')
+const currentSession = ref<Session | null>(null)
+
+// TODO: remove
 export const instanceStorage = useLocalStorage<Record<string, mastodon.v1.Instance>>(STORAGE_KEY_SERVERS, mock ? mock.server : {}, { deep: true })
+const nodes = useLocalStorage<Record<string, any>>(STORAGE_KEY_NODES, {}, { deep: true })
 
 export type ElkInstance = Partial<mastodon.v1.Instance> & {
   uri: string
@@ -38,7 +40,7 @@ export function getInstanceCache(server: string): mastodon.v1.Instance | undefin
 }
 
 export const currentUser = computed<UserLogin | undefined>(() => {
-  const did = currentUserHandle.value
+  const did = currentUserDid.value
   const currentUsers = users.value
   if (did) {
     const user = currentUsers.find(user => user.account.did === did)
@@ -73,6 +75,46 @@ export function useSelfAccount(user: MaybeRefOrGetter<mastodon.v1.Account | unde
   return computed(() => currentUser.value && resolveUnref(user)?.id === currentUser.value.account.id)
 }
 
+function getClient(session = currentSession.value) {
+  if (!session)
+    throw new Error('No session found')
+
+  const _session = session
+
+  const agent = new OAuthUserAgent(session)
+  const client = new XRPC({ handler: agent })
+
+  // TODO: this should be done in the tsky client
+  async function getProfile(): Promise<ProfileViewDetailed> {
+    const response = await client.get('app.bsky.actor.getProfile' as any, {
+      params: {
+        actor: _session.info.sub,
+      },
+    }) as any
+
+    return {
+      did: response.data.did,
+      displayName: response.data.displayName,
+      handle: response.data.handle,
+      avatar: response.data.avatar,
+      banner: response.data.banner,
+      description: response.data.description,
+      createdAt: response.data.createdAt,
+      updatedAt: response.data.updatedAt,
+      postsCount: response.data.postsCount,
+      followersCount: response.data.followersCount,
+      followsCount: response.data.followsCount,
+      indexedAt: response.data.indexedAt,
+      labels: response.data.labels,
+    }
+  }
+
+  return {
+    client,
+    getProfile,
+  }
+}
+
 export const characterLimit = computed(() => currentInstance.value?.configuration?.statuses.maxCharacters ?? DEFAULT_POST_CHARS_LIMIT)
 
 export async function loginTo(
@@ -81,17 +123,9 @@ export async function loginTo(
 ) {
   mastoLogin(masto, user)
 
-  if (currentUserHandle.value !== user.did) {
-    const session = await oauthClient.value?.restore(user.did)
-    if (session) {
-      sessions.value.push(session)
-      currentUserHandle.value = user.did
-    }
-    else {
-      // remove session if it's not found
-      sessions.value.splice(sessions.value.findIndex(s => s.did === user.did), 1)
-      users.value.splice(users.value.findIndex(u => u.did === user.did), 1)
-    }
+  if (currentUserDid.value !== user.did) {
+    currentSession.value = await getSession(user.did, { allowStale: true })
+    currentUserDid.value = user.did
   }
 }
 
@@ -241,9 +275,9 @@ export async function signOut() {
   }
 
   // Set currentUserId to next user if available
-  currentUserHandle.value = users.value[0]?.account?.did
+  currentUserDid.value = users.value[0]?.did
 
-  if (!currentUserHandle.value)
+  if (!currentUserDid.value)
     await useRouter().push('/')
 
   await loginTo(masto, currentUser.value || { server: publicServer.value })
@@ -334,49 +368,7 @@ function isLoopbackHost(host: string) {
   return host === 'localhost' || host === '127.0.0.1' || host === '[::1]'
 }
 
-async function loadOAuthClient(): Promise<BrowserOAuthClient> {
-  const isLocalDev = typeof window !== 'undefined' && isLoopbackHost(window.location.hostname)
-
-  let clientId = `${window.location.protocol}//${window.location.host}/api/oauth/client-metadata.json`
-
-  if (isLocalDev) {
-    const redirectUri = new URL(
-      `http://127.0.0.1${
-        window.location.port ? `:${window.location.port}` : ''
-      }`,
-    ).href
-
-    clientId = `http://localhost?${new URLSearchParams({
-      scope: OAUTH_SCOPE,
-      redirect_uri: redirectUri,
-    })}`
-  }
-
-  // import dynamically to avoid SSR issues
-  const { BrowserOAuthClient } = await import('@atproto/oauth-client-browser')
-
-  const client = await BrowserOAuthClient.load({
-    clientId,
-    handleResolver: 'https://api.bsky.app',
-    plcDirectoryUrl: 'https://plc.directory',
-  })
-
-  return client
-}
-
 export function useAuth() {
-  function getSession(did: string): OAuthSession {
-    const session = sessions.value.find(s => s.did === did)
-    if (!session)
-      throw new Error('Session not found')
-    return session as OAuthSession
-  }
-
-  function getAgent(sessionOrDid: string | OAuthSession) {
-    const session = typeof sessionOrDid === 'string' ? getSession(sessionOrDid) : sessionOrDid
-    return new Agent(session)
-  }
-
   function setUser(user: UserLogin) {
     const userIndex = users.value.findIndex(u => u.account.did === user.account.did)
     if (userIndex !== -1)
@@ -385,79 +377,116 @@ export function useAuth() {
       users.value.push(user)
   }
 
-  async function getProfile(session: OAuthSession): Promise<ProfileViewDetailed> {
-    const agent = getAgent(session)
-    const response = await agent.getProfile({ actor: session.did })
-    return {
-      did: response.data.did,
-      displayName: response.data.displayName,
-      handle: response.data.handle,
-      avatar: response.data.avatar,
-      banner: response.data.banner,
-      description: response.data.description,
-      createdAt: response.data.createdAt,
-      updatedAt: response.data.updatedAt,
-      postsCount: response.data.postsCount,
-      followersCount: response.data.followersCount,
-      followsCount: response.data.followsCount,
-      indexedAt: response.data.indexedAt,
-      labels: response.data.labels,
-    }
+  // TODO: should be part of tsky
+
+  async function callback() {
+    const params = new URLSearchParams(location.hash.slice(1))
+
+    // We've captured the search params, we don't want this to be replayed.
+    // Do this on global history instance so it doesn't affect this page rendering.
+    history.replaceState(null, '', '/')
+
+    const session = await finalizeAuthorization(params)
+
+    const client = getClient(session)
+
+    setUser({
+      did: session.info.sub,
+      account: await client.getProfile(),
+      server: '', // TODO: get the server from the session
+    })
+
+    currentSession.value = session
+    currentUserDid.value = session.info.sub
+
+    // TODO: redirect to the original URL if there was one
   }
 
   async function init() {
-    oauthClient.value = await loadOAuthClient()
-    const result = await oauthClient.value.init()
+    oauthInitialized.value = true
+
+    const isLocalDev = typeof window !== 'undefined' && isLoopbackHost(window.location.hostname)
+
+    let clientId = `${window.location.protocol}//${window.location.host}/api/oauth/client-metadata.json`
+
+    if (isLocalDev) {
+      const redirectUri = new URL(
+        `http://127.0.0.1${
+          window.location.port ? `:${window.location.port}` : ''
+        }/oauth/callback`,
+      ).href
+
+      clientId = `http://localhost?${new URLSearchParams({
+        scope: OAUTH_SCOPE,
+        redirect_uri: redirectUri,
+      })}`
+
+      configureOAuth({
+        metadata: {
+          client_id: clientId,
+          redirect_uri: redirectUri,
+        },
+      })
+    }
+    else {
+      configureOAuth({
+        metadata: {
+          client_id: clientId,
+          redirect_uri: `${window.location.origin}/oauth/callback`,
+        },
+      })
+    }
+
+    // load the current user session from storage
+    if (currentUserDid.value) {
+      currentSession.value = await getSession(currentUserDid.value, { allowStale: true })
+    }
 
     // TODO: remove after testing
     // eslint-disable-next-line no-console
-    console.log('OAuth client initialized', result)
-
-    if (result) {
-      setUser({
-        did: result.session.did as string,
-        server: '', // TODO: get the server from the session
-        account: await getProfile(result.session),
-      })
-      currentUserHandle.value = result.session.did
-      // TODO: redirect to the original URL if there was one
-    }
-
-    // TODO: handle session events
-    // client.value.addEventListener('updated', async (e) => {
-    // })
-    oauthClient.value.addEventListener('deleted', async (e) => {
-      users.value = users.value.filter(u => u.did !== e.detail.sub)
-      if (currentUserHandle.value === e.detail.sub)
-        currentUserHandle.value = undefined
-    })
+    console.log('OAuth client initialized')
   }
 
   async function signIn(handle: string) {
-    const userSettings = useUserSettings()
-    await oauthClient.value?.signIn(handle, {
+    const { identity, metadata } = await resolveFromIdentity(handle)
+
+    // passing `identity` is optional,
+    // it allows for the login form to be autofilled with the user's handle or DID
+    const authUrl = await createAuthorizationUrl({
+      metadata,
+      identity,
       scope: OAUTH_SCOPE,
-      // prompt: users.value.length > 0 ? 'select_account' : 'login',
-      ui_locales: userSettings.value.language,
+    })
+
+    // recommended to wait for the browser to persist local storage before proceeding
+    const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+    await sleep(200)
+
+    // redirect the user to sign in and authorize the app
+    window.location.assign(authUrl)
+
+    // if this is on an async function, ideally the function should never ever resolve.
+    // the only way it should resolve at this point is if the user aborted the authorization
+    // by returning back to this page (thanks to back-forward page caching)
+    await new Promise((_resolve, reject) => {
+      const listener = () => {
+        reject(new Error(`user aborted the login request`))
+      }
+
+      window.addEventListener('pageshow', listener, { once: true })
     })
   }
 
   // auto-init
-  if (!oauthClient.value && import.meta.client) {
+  if (!oauthInitialized.value && import.meta.client) {
     // eslint-disable-next-line no-console
     console.log('Initializing OAuth client')
     init()
   }
-  else {
-    // eslint-disable-next-line no-console
-    console.log('OAuth client already initialized', {
-      oauthClient: oauthClient.value,
-      client: import.meta.client,
-    })
-  }
 
   return {
     users,
+    callback,
     signIn,
   }
 }

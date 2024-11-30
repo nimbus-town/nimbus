@@ -14,7 +14,7 @@ export interface AppInfo {
 }
 
 export interface UserLogin {
-  did: string
+  did: `did:${string}`
   /** @deprecated */
   server: string
   /** @deprecated use session instead */
