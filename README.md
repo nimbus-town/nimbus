@@ -1,12 +1,12 @@
 # **Nimbus** — Bluesky Client Built for the Web
 <a href="https://nimbus.town" target="_blank" rel="noopener noreferrer">
-  <img align="right" width="108" src="./public/nimbus_logo.svg" alt="A nimbus cloud similar to the one Goku rides, in front a moon, representing the Nimbus logo.">
+  <img align="right" width="128" src="./public/nimbus_logo.svg" alt="A nimbus cloud similar to the one Goku rides, in front a moon, representing the Nimbus logo.">
 </a>
 
-> [!WARNING]  
-> ⚠️ **Here be dragons!** Nimbus is in a pre-alpha state. It is not production-ready. Any and all developers are encouraged to [contribute to the project](https://github.com/nimbus-town/nimbus/labels/good-first-issue)! **Note that all major discussion occurs within the [Discord server](https://discord.gg/4Kx9WVw8dP).**
-
 **Nimbus** is a Bluesky web client, built as a reasonably lightweight web alternative to the bloated Bluesky React Native experience. Nimbus is a fork of [Elk](https://github.com/elk-zone/elk) built by Vite.
+
+> [!WARNING]  
+> **Here be dragons!** Nimbus is in a pre-alpha state. It is not production-ready. Any and all developers are encouraged to [contribute to the project](https://github.com/nimbus-town/nimbus/labels/good-first-issue)! **Note that all major discussion occurs within the [Discord server](https://discord.gg/4Kx9WVw8dP).**
 
 <!-- <p align="center">
   <a href="https://nimbus.town/" target="_blank" rel="noopener noreferrer" >
@@ -17,9 +17,9 @@
 ## 🧑‍💻 Contributing to Nimbus
 
 ### Local Setup
-Before you can contribute to Nimbus, here is a step-by-step guide on how to setup Nimbus on a local machine.
+Before you can contribute to Nimbus, here is a short step-by-step guide on how to setup Nimbus on a local machine.
 
-First, clone the repository. Then run the following commands in the root folder:
+First, clone the repository. Then, run the following commands in the root folder:
 ```ts
 pnpm i --frozen-lockfile
 pnpm run dev
@@ -35,8 +35,8 @@ As Nimbus uses [Vitest](https://vitest.dev), you can simply run the test suite b
 pnpm test
 ```
 
-## 📲 PWA
-Currently, our focus is on creating the client. When the time comes, you can consult the [PWA documentation](https://docs.nimbus.town/pwa) to learn more about the PWA capabilities on Nimbus, how to install Nimbus PWA in your desktop or mobile device, and PWA hints.
+## 📲 Progressive Web App (PWA)
+Currently, our focus is on the client becoming functional for browsers, without using PWAs. When the time comes, you can consult the [PWA documentation](https://docs.nimbus.town/pwa) to learn more about the PWA capabilities of Nimbus, how to install Nimbus PWA onto a desktop or mobile device, and hints regarding the progressive web app.
 
 ## 🦄 Stack
 - [Vite](https://vitejs.dev/) - Next Generation Frontend Tooling
@@ -50,7 +50,7 @@ Currently, our focus is on creating the client. When the time comes, you can con
 - [shiki](https://shiki.style/) - A beautiful yet powerful syntax highlighter
 - [vite-plugin-pwa](https://github.com/vite-pwa/vite-plugin-pwa) - Prompt for update and Web Share Target API
 
-- Elk was built using [Masto.js](https://neet.github.io/masto.js), Mastodon API client in TypeScript.
+- Nimbus is being built with [Tsky](https://github.com/tsky-dev/tsky/), a Bluesky API client written in TypeScript.
 
 ## Elk
 
