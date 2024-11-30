@@ -1,58 +1,44 @@
-<p align="center">
-  <a href="https://nimbus.town" target="_blank" rel="noopener noreferrer">
-    <img width="160" height="160" src="./public/nimbus.svg" alt="Nimbus logo">
-  </a>
-</p>
+# **Nimbus** — Bluesky Client Built for the Web
+<a href="https://nimbus.town" target="_blank" rel="noopener noreferrer">
+  <img align="right" width="108" src="./public/nimbus_logo.svg" alt="A nimbus cloud similar to the one Goku rides, in front a moon, representing the Nimbus logo.">
+</a>
 
-<h1 align="center"/>Nimbus <sup><em>WIP</em></sup></h1>
+> [!WARNING]  
+> ⚠️ **Here be dragons!** Nimbus is in a pre-alpha state. It is not production-ready. Any and all developers are encouraged to [contribute to the project](https://github.com/nimbus-town/nimbus/labels/good-first-issue)! **Note that all major discussion occurs within the [Discord server](https://discord.gg/4Kx9WVw8dP).**
 
-<p align="center">
-A nimble Bluesky web client
-</p>
+**Nimbus** is a Bluesky web client, built as a reasonably lightweight web alternative to the bloated Bluesky React Native experience. Nimbus is a fork of [Elk](https://github.com/elk-zone/elk) built by Vite.
 
-<br/>
-
-<p align="center">
+<!-- <p align="center">
   <a href="https://nimbus.town/" target="_blank" rel="noopener noreferrer" >
     <img src="./public/elk-og.png" alt="Nimbus screenshots" width="600" height="auto">
   </a>
-</p>
+</p> -->
 
-## ⚠️ Nimbus is Work In Progress
-
-**Nimbus doesn't work at this point. It's just an idea and playground.**
-
-We welcome PRs if you'd like to help and would like to play too.
-
-## 🧑‍💻 Contributing
-
-We're really excited that you're interested in contributing to Nimbus! Before submitting your contribution, please read through the following guide.
+## 🧑‍💻 Contributing to Nimbus
 
 ### Local Setup
+Before you can contribute to Nimbus, here is a step-by-step guide on how to setup Nimbus on a local machine.
 
-Clone the repository and run on the root folder:
-
-```
+First, clone the repository. Then run the following commands in the root folder:
+```ts
 pnpm i --frozen-lockfile
 pnpm run dev
 ```
 
-`Warning`: you will need `corepack` enabled, check out the [Nimbus Contributing Guide](./CONTRIBUTING.md) for a detailed guide on how to set up the project locally.
+> [!IMPORTANT]  
+> You'll need to enable `corepack` before installing. For a more detailed guide, see the [Contributing Guide](./CONTRIBUTING.md).
 
 ### Testing
+As Nimbus uses [Vitest](https://vitest.dev), you can simply run the test suite by running:
 
-Nimbus uses [Vitest](https://vitest.dev). You can run the test suite with:
-
-```
+```ts
 pnpm test
 ```
 
 ## 📲 PWA
-
-You can consult the [PWA documentation](https://docs.nimbus.town/pwa) to learn more about the PWA capabilities on Nimbus, how to install Nimbus PWA in your desktop or mobile device and some hints about PWA stuff on Nimbus.
+Currently, our focus is on creating the client. When the time comes, you can consult the [PWA documentation](https://docs.nimbus.town/pwa) to learn more about the PWA capabilities on Nimbus, how to install Nimbus PWA in your desktop or mobile device, and PWA hints.
 
 ## 🦄 Stack
-
 - [Vite](https://vitejs.dev/) - Next Generation Frontend Tooling
 - [Nuxt](https://nuxt.com/) - The Intuitive Web Framework
 - [Vue](https://vuejs.org/) - The Progressive JavaScript Framework
