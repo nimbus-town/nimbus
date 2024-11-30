@@ -2,9 +2,8 @@ import type { ProfileViewDetailed } from '@atproto/api/dist/client/types/app/bsk
 import type { MaybeRefOrGetter, RemovableRef } from '@vueuse/core'
 import type { mastodon } from 'masto'
 import type { EffectScope, Ref } from 'vue'
-import type { ElkMasto } from './masto/masto'
 import { XRPC } from '@atcute/client'
-import { configureOAuth, createAuthorizationUrl, finalizeAuthorization, getSession, OAuthUserAgent, resolveFromIdentity, type Session } from '@atcute/oauth-browser-client'
+import { configureOAuth, createAuthorizationUrl, deleteStoredSession, finalizeAuthorization, getSession, OAuthUserAgent, resolveFromIdentity, type Session } from '@atcute/oauth-browser-client'
 import { withoutProtocol } from 'ufo'
 import type { PushNotificationPolicy, PushNotificationRequest } from '~/composables/push-notifications/types'
 import {
@@ -17,7 +16,6 @@ import {
   STORAGE_KEY_SERVERS,
 } from '~/constants'
 import type { UserLogin } from '~/types'
-import type { Overwrite } from '~/types/utils'
 
 const mock = process.mock
 
@@ -118,14 +116,14 @@ function getClient(session = currentSession.value) {
 export const characterLimit = computed(() => currentInstance.value?.configuration?.statuses.maxCharacters ?? DEFAULT_POST_CHARS_LIMIT)
 
 export async function loginTo(
-  masto: ElkMasto,
-  user: Overwrite<UserLogin, { account?: ProfileViewDetailed }>,
+  did: `did:${string}`,
 ) {
-  mastoLogin(masto, user)
+  // TODO: remove mastodon code
+  mastoLogin(useMasto(), { server: publicServer.value })
 
-  if (currentUserDid.value !== user.did) {
-    currentSession.value = await getSession(user.did, { allowStale: true })
-    currentUserDid.value = user.did
+  if (currentUserDid.value !== did) {
+    currentSession.value = await getSession(did, { allowStale: true })
+    currentUserDid.value = did
   }
 }
 
@@ -191,7 +189,7 @@ export function getInstanceDomainFromServer(server: string) {
 }
 
 export async function refreshAccountInfo() {
-  const account = await fetchAccountInfo(useMastoClient(), currentServer.value)
+  const account = await getClient().getProfile()
   currentUser.value!.account = account
   return account
 }
@@ -199,11 +197,11 @@ export async function refreshAccountInfo() {
 export async function removePushNotificationData(user: UserLogin, fromSWPushManager = true) {
   // clear push subscription
   user.pushSubscription = undefined
-  const { acct } = user.account
+  const { did } = user.account
   // clear request notification permission
-  delete useLocalStorage<PushNotificationRequest>(STORAGE_KEY_NOTIFICATION, {}).value[acct]
+  delete useLocalStorage<PushNotificationRequest>(STORAGE_KEY_NOTIFICATION, {}).value[did]
   // clear push notification policy
-  delete useLocalStorage<PushNotificationPolicy>(STORAGE_KEY_NOTIFICATION_POLICY, {}).value[acct]
+  delete useLocalStorage<PushNotificationPolicy>(STORAGE_KEY_NOTIFICATION_POLICY, {}).value[did]
 
   const pwaEnabled = useAppConfig().pwaEnabled
   const pwa = useNuxtApp().$pwa
@@ -234,14 +232,12 @@ export async function removePushNotifications(user: UserLogin) {
 }
 
 export async function switchUser(user: UserLogin) {
-  const masto = useMasto()
-
-  await loginTo(masto, user)
+  await loginTo(user.did)
 
   // This only cleans up the URL; page content should stay the same
   const route = useRoute()
   const router = useRouter()
-  if ('server' in route.params && user?.token && !useNuxtApp()._processingMiddleware) {
+  if ('server' in route.params && user?.did && !useNuxtApp()._processingMiddleware) {
     await router.push({
       ...route,
       force: true,
@@ -254,21 +250,28 @@ export async function signOut() {
   if (!currentUser.value)
     return
 
-  const masto = useMasto()
-
-  const _currentUserDid = currentUser.value.account.did
+  const _currentUserDid = currentUser.value.did
 
   const index = users.value.findIndex(u => u.account?.did === _currentUserDid)
 
   if (index !== -1) {
     // Clear stale data
     clearUserLocalStorage()
-    if (!users.value.some((u, i) => u.server === currentUser.value!.server && i !== index))
-      delete instanceStorage.value[currentUser.value.server]
 
     await removePushNotifications(currentUser.value)
 
     await removePushNotificationData(currentUser.value)
+
+    try {
+      const session = await getSession(_currentUserDid, { allowStale: true })
+      const agent = new OAuthUserAgent(session)
+      await agent.signOut()
+    }
+    catch (err) {
+      console.error('Failed to sign out', err)
+      // `signOut` also deletes the session, we only serve as fallback if it fails.
+      deleteStoredSession(_currentUserDid)
+    }
 
     // Remove the current user from the users
     users.value.splice(index, 1)
@@ -280,7 +283,7 @@ export async function signOut() {
   if (!currentUserDid.value)
     await useRouter().push('/')
 
-  await loginTo(masto, currentUser.value || { server: publicServer.value })
+  await loginTo(currentUserDid.value)
 }
 
 export function checkLogin() {
@@ -314,28 +317,26 @@ export function useUserLocalStorage<T extends object>(key: string, initial: () =
       const all = useLocalStorage<Record<string, T>>(key, {}, { deep: true })
 
       return computed(() => {
-        const id = currentUser.value?.account.id
-          ? currentUser.value.account.acct
-          : '[anonymous]'
+        const did = currentUser.value?.did ?? '[anonymous]'
 
         // Backward compatibility, respect webDomain in acct
         // In previous versions, acct was username@server instead of username@webDomain
         // for example: elk@m.webtoo.ls instead of elk@webtoo.ls
-        if (!all.value[id]) {
-          const [username, webDomain] = id.split('@')
+        if (!all.value[did]) {
+          const [username, webDomain] = did.split('@')
           const server = currentServer.value
           if (webDomain && server && server !== webDomain) {
             const oldId = `${username}@${server}`
             const outdatedSettings = all.value[oldId]
             if (outdatedSettings) {
-              const newAllValue = { ...all.value, [id]: outdatedSettings }
+              const newAllValue = { ...all.value, [did]: outdatedSettings }
               delete newAllValue[oldId]
               all.value = newAllValue
             }
           }
-          all.value[id] = Object.assign(initial(), all.value[id] || {})
+          all.value[did] = Object.assign(initial(), all.value[did] || {})
         }
-        return all.value[id]
+        return all.value[did]
       })
     })
     map.set(key, { scope, value: value! })
