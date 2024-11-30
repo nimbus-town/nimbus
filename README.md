@@ -1,6 +1,6 @@
 # **Nimbus** — Bluesky Client Built for the Web
 <a href="https://nimbus.town" target="_blank" rel="noopener noreferrer">
-  <img align="right" width="128" src="./public/nimbus_logo.svg" alt="A nimbus cloud similar to the one Goku rides, in front a moon, representing the Nimbus logo.">
+  <img align="right" width="95" src="./public/nimbus_logo.svg" alt="A nimbus cloud similar to the one Goku rides, in front a moon, representing the Nimbus logo.">
 </a>
 
 **Nimbus** is a Bluesky web client, built as a reasonably lightweight web alternative to the bloated Bluesky React Native experience. Nimbus is a fork of [Elk](https://github.com/elk-zone/elk) built by Vite.
