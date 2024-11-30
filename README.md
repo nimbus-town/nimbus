@@ -3,7 +3,7 @@
   <img align="right" width="95" src="./public/nimbus_logo.svg" alt="A nimbus cloud similar to the one Goku rides, in front a moon, representing the Nimbus logo.">
 </a>
 
-**Nimbus** is a Bluesky web client, built as a reasonably lightweight web alternative to the bloated Bluesky React Native experience. Nimbus is a fork of [Elk](https://github.com/elk-zone/elk) built by Vite.
+**Nimbus** is a Bluesky web client, built as a reasonably lightweight web alternative to the bloated Bluesky React Native experience. Nimbus is a fork of [Elk](https://github.com/elk-zone/elk).
 
 > [!WARNING]  
 > **Here be dragons!** Nimbus is in a pre-alpha state. It is not production-ready. Any and all developers are encouraged to [contribute to the project](https://github.com/nimbus-town/nimbus/labels/good-first-issue)! **Note that all major discussion occurs within the [Discord server](https://discord.gg/4Kx9WVw8dP).**
