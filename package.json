@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@atcute/client": "^2.0.6",
-    "@atcute/oauth-browser-client": "^1.0.6",
+    "@atcute/oauth-browser-client": "^1.0.7",
     "@atproto/api": "^0.13.18",
     "@emoji-mart/data": "^1.1.2",
     "@fnando/sparkline": "^0.3.10",
