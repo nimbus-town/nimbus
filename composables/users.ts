@@ -16,6 +16,7 @@ import {
   STORAGE_KEY_SERVERS,
 } from '~/constants'
 import type { UserLogin } from '~/types'
+import type { Overwrite } from '~/types/utils'
 
 const mock = process.mock
 
@@ -116,14 +117,15 @@ function getClient(session = currentSession.value) {
 export const characterLimit = computed(() => currentInstance.value?.configuration?.statuses.maxCharacters ?? DEFAULT_POST_CHARS_LIMIT)
 
 export async function loginTo(
-  did: `did:${string}`,
+  masto: ElkMasto,
+  user: Overwrite<UserLogin, { account?: mastodon.v1.AccountCredentials }>,
 ) {
   // TODO: remove mastodon code
-  mastoLogin(useMasto(), { server: publicServer.value })
+  mastoLogin(masto, { server: publicServer.value })
 
-  if (currentUserDid.value !== did) {
-    currentSession.value = await getSession(did, { allowStale: true })
-    currentUserDid.value = did
+  if (user.did && currentUserDid.value !== user.did) {
+    currentSession.value = await getSession(user.did, { allowStale: true })
+    currentUserDid.value = user.did
   }
 }
 
@@ -232,7 +234,7 @@ export async function removePushNotifications(user: UserLogin) {
 }
 
 export async function switchUser(user: UserLogin) {
-  await loginTo(user.did)
+  await loginTo(useMasto(), user)
 
   // This only cleans up the URL; page content should stay the same
   const route = useRoute()
