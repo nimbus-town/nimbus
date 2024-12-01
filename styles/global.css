@@ -60,7 +60,8 @@ em-emoji-picker {
 .content-rich {
   overflow-wrap: break-word;
 
-  a {
+  a,
+  button {
     --at-apply: 'text-primary hover:underline hover:text-primary-active';
     .invisible {
       --at-apply: 'hidden';

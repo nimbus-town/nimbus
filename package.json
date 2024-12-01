@@ -32,6 +32,10 @@
     "release": "stale-dep && bumpp && tsx scripts/release.ts"
   },
   "dependencies": {
+    "@atcute/bluesky": "^1.0.9",
+    "@atcute/bluesky-richtext-parser": "^1.0.6",
+    "@atcute/bluesky-richtext-segmenter": "^1.0.5",
+    "@atcute/client": "^2.0.6",
     "@emoji-mart/data": "^1.1.2",
     "@fnando/sparkline": "^0.3.10",
     "@iconify-emoji/twemoji": "^1.0.2",
