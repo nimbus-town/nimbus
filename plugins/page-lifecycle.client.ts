@@ -1,6 +1,6 @@
 import lifecycle from 'page-lifecycle/dist/lifecycle.mjs'
 import { NIMBUS_PAGE_LIFECYCLE_FROZEN } from '~/constants'
-import { closeDatabases } from '~/utils/elk-idb'
+import { closeDatabases } from '~/utils/nimbus-idb'
 
 export default defineNuxtPlugin(() => {
   const state = ref(lifecycle.state)
