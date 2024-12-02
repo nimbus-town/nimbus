@@ -74,7 +74,7 @@ export default defineNuxtPlugin({
             sameDid = handle === oldHandle
           }
           else {
-            const did = currentUser.value?.account?.did
+            const did = currentUser.value?.did
             // 2. detect sign-in?
             sameDid = !did || did === handle
           }
@@ -87,21 +87,14 @@ export default defineNuxtPlugin({
       )
     }
 
-    const { params, query } = useRoute()
+    const { params } = useRoute()
 
     publicServer.value = params.server as string || useRuntimeConfig().public.defaultServer
 
     const masto = createMasto()
-    const user = (typeof query.server === 'string' && typeof query.token === 'string')
-      ? {
-          server: query.server,
-          token: query.token,
-          vapidKey: typeof query.vapid_key === 'string' ? query.vapid_key : undefined,
-        }
-      : (currentUser.value || { server: publicServer.value })
 
     if (import.meta.client) {
-      loginTo(masto, user).finally(callback)
+      loginTo(masto, currentUserDid.value).finally(callback)
     }
 
     return {

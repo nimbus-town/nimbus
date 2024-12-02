@@ -8,7 +8,7 @@ export interface PushManagerSubscriptionInfo {
   subscription: PushSubscription | null
 }
 
-export interface RequiredUserLogin extends Required<Omit<UserLogin, 'account' | 'pushSubscription'>> {
+export interface RequiredUserLogin extends Required<Omit<UserLogin, 'account' | 'pushSubscription' | 'profile'>> {
   pushSubscription?: mastodon.v1.WebPushSubscription
 }
 

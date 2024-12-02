@@ -13,14 +13,6 @@ import {
 
 const handlers = [
   {
-    route: '/api/:server/oauth',
-    handler: defineLazyEventHandler(() => import('~/server/api/[server]/oauth/[origin]').then(r => r.default || r)),
-  },
-  {
-    route: '/api/:server/login',
-    handler: defineLazyEventHandler(() => import('~/server/api/[server]/login').then(r => r.default || r)),
-  },
-  {
     route: '/api/list-servers',
     handler: defineLazyEventHandler(() => import('~/server/api/list-servers').then(r => r.default || r)),
   },

@@ -25,7 +25,7 @@ useHydratedHead({
     </template>
 
     <template v-if="currentUser">
-      <p>Hello {{ currentUser?.account.handle }}!</p>
+      <p>Hello {{ currentUser?.profile.handle }}!</p>
       <p>Here you will see your timeline later on</p>
     </template>
     <template v-else>

@@ -17,7 +17,7 @@ const sorted = computed(() => {
 
 const router = useRouter()
 function clickUser(user: UserLogin) {
-  if (user.account.did === currentUser.value?.account.did)
+  if (user.did === currentUser.value?.did)
     router.push(getAccountRoute(user.account))
   else
     switchUser(user)

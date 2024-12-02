@@ -328,13 +328,13 @@ export function provideGlobalCommands() {
     parent: 'account-switch',
     scope: 'Switch account',
 
-    visible: () => user.account.id !== currentUser.value?.account.id,
+    visible: () => user.did !== currentUser.value?.did,
 
     name: () => t('command.switch_account', [getFullHandle(user.account)]),
     icon: 'i-ri:user-shared-line',
 
     onActivate() {
-      loginTo(masto, user)
+      loginTo(masto, user.did)
     },
   })))
   useCommand({

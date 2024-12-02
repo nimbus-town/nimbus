@@ -14,15 +14,18 @@ export interface AppInfo {
 }
 
 export interface UserLogin {
-  did: `did:${string}`
   /** @deprecated */
   server: string
   /** @deprecated use session instead */
   token?: string
-  account: ProfileViewDetailed
+  /** @deprecated for bsky we now use profile */
+  account: mastodon.v1.AccountCredentials
   /** @deprecated use session instead */
   vapidKey?: string
   pushSubscription?: mastodon.v1.WebPushSubscription
+
+  did: `did:${string}`
+  profile: ProfileViewDetailed
 }
 
 export type PaginatorState = 'idle' | 'loading' | 'done' | 'error'

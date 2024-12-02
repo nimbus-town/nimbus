@@ -16,7 +16,6 @@ import {
   STORAGE_KEY_SERVERS,
 } from '~/constants'
 import type { UserLogin } from '~/types'
-import type { Overwrite } from '~/types/utils'
 
 const mock = process.mock
 
@@ -42,7 +41,7 @@ export const currentUser = computed<UserLogin | undefined>(() => {
   const did = currentUserDid.value
   const currentUsers = users.value
   if (did) {
-    const user = currentUsers.find(user => user.account.did === did)
+    const user = currentUsers.find(user => user.did === did)
     if (user)
       return user
   }
@@ -83,7 +82,7 @@ function getClient(session = currentSession.value) {
   const agent = new OAuthUserAgent(session)
   const client = new XRPC({ handler: agent })
 
-  // TODO: this should be done in the tsky client
+  // TODO: this should be part of the tsky client
   async function getProfile(): Promise<ProfileViewDetailed> {
     const response = await client.get('app.bsky.actor.getProfile' as any, {
       params: {
@@ -118,14 +117,13 @@ export const characterLimit = computed(() => currentInstance.value?.configuratio
 
 export async function loginTo(
   masto: ElkMasto,
-  user: Overwrite<UserLogin, { account?: mastodon.v1.AccountCredentials }>,
+  did: `did:${string}`,
 ) {
-  // TODO: remove mastodon code
-  mastoLogin(masto, { server: publicServer.value })
+  mastoLogin(masto, { server: publicServer.value }) // TODO: remove mastodon code
 
-  if (user.did && currentUserDid.value !== user.did) {
-    currentSession.value = await getSession(user.did, { allowStale: true })
-    currentUserDid.value = user.did
+  if (did && currentUserDid.value !== did) {
+    currentSession.value = await getSession(did, { allowStale: true })
+    currentUserDid.value = did
   }
 }
 
@@ -191,15 +189,16 @@ export function getInstanceDomainFromServer(server: string) {
 }
 
 export async function refreshAccountInfo() {
-  const account = await getClient().getProfile()
-  currentUser.value!.account = account
-  return account
+  const profile = await getClient().getProfile()
+  currentUser.value!.account = profile as unknown as mastodon.v1.AccountCredentials // HACK: this needs to be replaced
+  currentUser.value!.profile = profile
+  return profile
 }
 
 export async function removePushNotificationData(user: UserLogin, fromSWPushManager = true) {
   // clear push subscription
   user.pushSubscription = undefined
-  const { did } = user.account
+  const { did } = user
   // clear request notification permission
   delete useLocalStorage<PushNotificationRequest>(STORAGE_KEY_NOTIFICATION, {}).value[did]
   // clear push notification policy
@@ -234,7 +233,7 @@ export async function removePushNotifications(user: UserLogin) {
 }
 
 export async function switchUser(user: UserLogin) {
-  await loginTo(useMasto(), user)
+  await loginTo(useMasto(), user.did)
 
   // This only cleans up the URL; page content should stay the same
   const route = useRoute()
@@ -254,7 +253,7 @@ export async function signOut() {
 
   const _currentUserDid = currentUser.value.did
 
-  const index = users.value.findIndex(u => u.account?.did === _currentUserDid)
+  const index = users.value.findIndex(u => u.did === _currentUserDid)
 
   if (index !== -1) {
     // Clear stale data
@@ -285,7 +284,7 @@ export async function signOut() {
   if (!currentUserDid.value)
     await useRouter().push('/')
 
-  await loginTo(currentUserDid.value)
+  await loginTo(useMasto(), currentUserDid.value)
 }
 
 export function checkLogin() {
@@ -351,7 +350,7 @@ export function useUserLocalStorage<T extends object>(key: string, initial: () =
  * Clear all storages for the given account
  * @param account
  */
-export function clearUserLocalStorage(account?: ProfileViewDetailed) {
+export function clearUserLocalStorage(account?: mastodon.v1.AccountCredentials) {
   if (!account)
     account = currentUser.value?.account
   if (!account)
@@ -373,7 +372,7 @@ function isLoopbackHost(host: string) {
 
 export function useAuth() {
   function setUser(user: UserLogin) {
-    const userIndex = users.value.findIndex(u => u.account.did === user.account.did)
+    const userIndex = users.value.findIndex(u => u.did === user.did)
     if (userIndex !== -1)
       users.value.splice(userIndex, 1, user)
     else
@@ -393,10 +392,13 @@ export function useAuth() {
 
     const client = getClient(session)
 
+    const profile = await client.getProfile()
+
     setUser({
       did: session.info.sub,
-      account: await client.getProfile(),
-      server: '', // TODO: get the server from the session
+      account: profile as unknown as mastodon.v1.AccountCredentials, // HACK: this needs to be replaced
+      server: '', // TODO: remove
+      profile,
     })
 
     currentSession.value = session
@@ -444,10 +446,6 @@ export function useAuth() {
     if (currentUserDid.value) {
       currentSession.value = await getSession(currentUserDid.value, { allowStale: true })
     }
-
-    // TODO: remove after testing
-    // eslint-disable-next-line no-console
-    console.log('OAuth client initialized')
   }
 
   async function signIn(handle: string) {
@@ -482,8 +480,6 @@ export function useAuth() {
 
   // auto-init
   if (!oauthInitialized.value && import.meta.client) {
-    // eslint-disable-next-line no-console
-    console.log('Initializing OAuth client')
     init()
   }
 
