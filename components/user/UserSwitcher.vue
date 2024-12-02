@@ -6,25 +6,25 @@ const emit = defineEmits<{
 }>()
 
 const all = useUsers()
-const { singleInstanceServer, oauth } = useSignIn()
+const { singleInstanceServer, signIn } = useSignIn()
 
 const sorted = computed(() => {
   return [
     currentUser.value!,
-    ...all.value.filter(account => account.token !== currentUser.value?.token),
+    ...all.value.filter(account => account.did !== currentUser.value?.did),
   ].filter(Boolean)
 })
 
 const router = useRouter()
 function clickUser(user: UserLogin) {
-  if (user.account.id === currentUser.value?.account.id)
+  if (user.did === currentUser.value?.did)
     router.push(getAccountRoute(user.account))
   else
     switchUser(user)
 }
 function processSignIn() {
   if (singleInstanceServer)
-    oauth()
+    signIn()
   else
     openSigninDialog()
 }
@@ -41,7 +41,7 @@ function processSignIn() {
       >
         <AccountInfo :account="user.account" :hover-card="false" square />
         <div flex-auto />
-        <div v-if="user.token === currentUser?.token" i-ri:check-line text-primary mya text-2xl />
+        <div v-if="user.did === currentUser?.did" i-ri:check-line text-primary mya text-2xl />
       </button>
     </template>
     <div border="t base" pt2>

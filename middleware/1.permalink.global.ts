@@ -10,8 +10,9 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   const masto = useMasto()
   if (!user) {
     const fromServer = from.params.server || currentServer.value
-    if (fromServer !== server)
-      loginTo(masto, { server })
+    if (fromServer !== server) {
+      // loginTo(masto, did) // TODO: do we need to change accounts for links?
+    }
     return
   }
 

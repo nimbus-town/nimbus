@@ -41,13 +41,15 @@ export default defineNuxtPlugin({
       const { readIDB } = await useAsyncIDBKeyval<UserLogin[]>(STORAGE_KEY_USERS, defaultUsers, users)
 
       function reload() {
-        setTimeout(() => {
-          window.location.reload()
-        }, 0)
+        // eslint-disable-next-line no-console
+        console.log('todo, do we need to reload?')
+        // setTimeout(() => {
+        //   window.location.reload()
+        // }, 0)
       }
 
       debouncedWatch(
-        () => [currentUserHandle.value, users.value.length] as const,
+        () => [currentUserDid.value, users.value.length] as const,
         async ([handle, currentUsers], old) => {
           if (initialLoad.value) {
             return
@@ -66,18 +68,18 @@ export default defineNuxtPlugin({
             return
           }
 
-          let sameAcct: boolean
+          let sameDid: boolean
           // 1. detect account switching
           if (oldHandle) {
-            sameAcct = handle === oldHandle
+            sameDid = handle === oldHandle
           }
           else {
-            const acct = currentUser.value?.account?.acct
+            const did = currentUser.value?.did
             // 2. detect sign-in?
-            sameAcct = !acct || acct === handle
+            sameDid = !did || did === handle
           }
 
-          if (!sameAcct) {
+          if (!sameDid) {
             reload()
           }
         },
@@ -85,21 +87,14 @@ export default defineNuxtPlugin({
       )
     }
 
-    const { params, query } = useRoute()
+    const { params } = useRoute()
 
     publicServer.value = params.server as string || useRuntimeConfig().public.defaultServer
 
     const masto = createMasto()
-    const user = (typeof query.server === 'string' && typeof query.token === 'string')
-      ? {
-          server: query.server,
-          token: query.token,
-          vapidKey: typeof query.vapid_key === 'string' ? query.vapid_key : undefined,
-        }
-      : (currentUser.value || { server: publicServer.value })
 
     if (import.meta.client) {
-      loginTo(masto, user).finally(callback)
+      loginTo(masto, currentUserDid.value).finally(callback)
     }
 
     return {

@@ -1,11 +1,14 @@
+import type { ProfileViewDetailed } from '@atproto/api/dist/client/types/app/bsky/actor/defs'
 import type { MaybeRefOrGetter, RemovableRef } from '@vueuse/core'
 import type { mastodon } from 'masto'
 import type { EffectScope, Ref } from 'vue'
-import type { ElkMasto } from './masto/masto'
+import { XRPC } from '@atcute/client'
+import { configureOAuth, createAuthorizationUrl, deleteStoredSession, finalizeAuthorization, getSession, OAuthUserAgent, resolveFromIdentity, type Session } from '@atcute/oauth-browser-client'
 import { withoutProtocol } from 'ufo'
 import type { PushNotificationPolicy, PushNotificationRequest } from '~/composables/push-notifications/types'
 import {
   DEFAULT_POST_CHARS_LIMIT,
+  OAUTH_SCOPE,
   STORAGE_KEY_CURRENT_USER_HANDLE,
   STORAGE_KEY_NODES,
   STORAGE_KEY_NOTIFICATION,
@@ -13,14 +16,17 @@ import {
   STORAGE_KEY_SERVERS,
 } from '~/constants'
 import type { UserLogin } from '~/types'
-import type { Overwrite } from '~/types/utils'
 
 const mock = process.mock
 
+const oauthInitialized = ref(false)
 const users: Ref<UserLogin[]> | RemovableRef<UserLogin[]> = import.meta.server ? ref<UserLogin[]>([]) : ref<UserLogin[]>([]) as RemovableRef<UserLogin[]>
-const nodes = useLocalStorage<Record<string, any>>(STORAGE_KEY_NODES, {}, { deep: true })
-export const currentUserHandle = useLocalStorage<string>(STORAGE_KEY_CURRENT_USER_HANDLE, mock ? mock.user.account.id : '')
+export const currentUserDid = useLocalStorage<`did:${string}`>(STORAGE_KEY_CURRENT_USER_HANDLE, mock ? mock.user.account.id : '')
+const currentSession = ref<Session | null>(null)
+
+// TODO: remove
 export const instanceStorage = useLocalStorage<Record<string, mastodon.v1.Instance>>(STORAGE_KEY_SERVERS, mock ? mock.server : {}, { deep: true })
+const nodes = useLocalStorage<Record<string, any>>(STORAGE_KEY_NODES, {}, { deep: true })
 
 export type ElkInstance = Partial<mastodon.v1.Instance> & {
   uri: string
@@ -32,10 +38,10 @@ export function getInstanceCache(server: string): mastodon.v1.Instance | undefin
 }
 
 export const currentUser = computed<UserLogin | undefined>(() => {
-  const handle = currentUserHandle.value
+  const did = currentUserDid.value
   const currentUsers = users.value
-  if (handle) {
-    const user = currentUsers.find(user => user.account?.acct === handle)
+  if (did) {
+    const user = currentUsers.find(user => user.did === did)
     if (user)
       return user
   }
@@ -45,10 +51,8 @@ export const currentUser = computed<UserLogin | undefined>(() => {
 
 const publicInstance = ref<ElkInstance | null>(null)
 export const currentInstance = computed<null | ElkInstance>(() => {
-  const user = currentUser.value
-  const storage = instanceStorage.value
   const instance = publicInstance.value
-  return user ? storage[user.server] ?? null : instance
+  return instance
 })
 
 export function getInstanceDomain(instance: ElkInstance) {
@@ -56,7 +60,7 @@ export function getInstanceDomain(instance: ElkInstance) {
 }
 
 export const publicServer = ref('')
-export const currentServer = computed<string>(() => currentUser.value?.server || publicServer.value)
+export const currentServer = computed<string>(() => publicServer.value)
 
 export const currentNodeInfo = computed<null | Record<string, any>>(() => nodes.value[currentServer.value] || null)
 export const isGotoSocial = computed(() => currentNodeInfo.value?.software?.name === 'gotosocial')
@@ -69,58 +73,58 @@ export function useSelfAccount(user: MaybeRefOrGetter<mastodon.v1.Account | unde
   return computed(() => currentUser.value && resolveUnref(user)?.id === currentUser.value.account.id)
 }
 
+function getClient(session = currentSession.value) {
+  if (!session)
+    throw new Error('No session found')
+
+  const _session = session
+
+  const agent = new OAuthUserAgent(session)
+  const client = new XRPC({ handler: agent })
+
+  // TODO: this should be part of the tsky client
+  async function getProfile(): Promise<ProfileViewDetailed> {
+    const response = await client.get('app.bsky.actor.getProfile' as any, {
+      params: {
+        actor: _session.info.sub,
+      },
+    }) as any
+
+    return {
+      did: response.data.did,
+      displayName: response.data.displayName,
+      handle: response.data.handle,
+      avatar: response.data.avatar,
+      banner: response.data.banner,
+      description: response.data.description,
+      createdAt: response.data.createdAt,
+      updatedAt: response.data.updatedAt,
+      postsCount: response.data.postsCount,
+      followersCount: response.data.followersCount,
+      followsCount: response.data.followsCount,
+      indexedAt: response.data.indexedAt,
+      labels: response.data.labels,
+    }
+  }
+
+  return {
+    client,
+    getProfile,
+  }
+}
+
 export const characterLimit = computed(() => currentInstance.value?.configuration?.statuses.maxCharacters ?? DEFAULT_POST_CHARS_LIMIT)
 
 export async function loginTo(
   masto: ElkMasto,
-  user: Overwrite<UserLogin, { account?: mastodon.v1.AccountCredentials }>,
+  did: `did:${string}`,
 ) {
-  const { client } = masto
-  const instance = mastoLogin(masto, user)
+  mastoLogin(masto, { server: publicServer.value }) // TODO: remove mastodon code
 
-  // GoToSocial only API
-  const url = `https://${user.server}`
-  fetch(`${url}/nodeinfo/2.0`).then(r => r.json()).then((info) => {
-    nodes.value[user.server] = info
-  }).catch(() => undefined)
-
-  if (!user?.token) {
-    publicServer.value = user.server
-    publicInstance.value = instance
-    return
+  if (did && currentUserDid.value !== did) {
+    currentSession.value = await getSession(did, { allowStale: true })
+    currentUserDid.value = did
   }
-
-  function getUser() {
-    return users.value.find(u => u.server === user.server && u.token === user.token)
-  }
-
-  const account = getUser()?.account
-  if (account)
-    currentUserHandle.value = account.acct
-
-  const [me, pushSubscription] = await Promise.all([
-    fetchAccountInfo(client.value, user.server),
-    // if PWA is not enabled, don't get push subscription
-    useAppConfig().pwaEnabled
-    // we get 404 response instead empty data
-      ? client.value.v1.push.subscription.fetch().catch(() => Promise.resolve(undefined))
-      : Promise.resolve(undefined),
-  ])
-
-  const existingUser = getUser()
-  if (existingUser) {
-    existingUser.account = me
-    existingUser.pushSubscription = pushSubscription
-  }
-  else {
-    users.value.push({
-      ...user,
-      account: me,
-      pushSubscription,
-    })
-  }
-
-  currentUserHandle.value = me.acct
 }
 
 const accountPreferencesMap = new Map<string, Partial<mastodon.v1.Preference>>()
@@ -185,19 +189,20 @@ export function getInstanceDomainFromServer(server: string) {
 }
 
 export async function refreshAccountInfo() {
-  const account = await fetchAccountInfo(useMastoClient(), currentServer.value)
-  currentUser.value!.account = account
-  return account
+  const profile = await getClient().getProfile()
+  currentUser.value!.account = profile as unknown as mastodon.v1.AccountCredentials // HACK: this needs to be replaced
+  currentUser.value!.profile = profile
+  return profile
 }
 
 export async function removePushNotificationData(user: UserLogin, fromSWPushManager = true) {
   // clear push subscription
   user.pushSubscription = undefined
-  const { acct } = user.account
+  const { did } = user
   // clear request notification permission
-  delete useLocalStorage<PushNotificationRequest>(STORAGE_KEY_NOTIFICATION, {}).value[acct]
+  delete useLocalStorage<PushNotificationRequest>(STORAGE_KEY_NOTIFICATION, {}).value[did]
   // clear push notification policy
-  delete useLocalStorage<PushNotificationPolicy>(STORAGE_KEY_NOTIFICATION_POLICY, {}).value[acct]
+  delete useLocalStorage<PushNotificationPolicy>(STORAGE_KEY_NOTIFICATION_POLICY, {}).value[did]
 
   const pwaEnabled = useAppConfig().pwaEnabled
   const pwa = useNuxtApp().$pwa
@@ -228,14 +233,12 @@ export async function removePushNotifications(user: UserLogin) {
 }
 
 export async function switchUser(user: UserLogin) {
-  const masto = useMasto()
-
-  await loginTo(masto, user)
+  await loginTo(useMasto(), user.did)
 
   // This only cleans up the URL; page content should stay the same
   const route = useRoute()
   const router = useRouter()
-  if ('server' in route.params && user?.token && !useNuxtApp()._processingMiddleware) {
+  if ('server' in route.params && user?.did && !useNuxtApp()._processingMiddleware) {
     await router.push({
       ...route,
       force: true,
@@ -248,34 +251,40 @@ export async function signOut() {
   if (!currentUser.value)
     return
 
-  const masto = useMasto()
+  const _currentUserDid = currentUser.value.did
 
-  const _currentUserId = currentUser.value.account.id
-
-  const index = users.value.findIndex(u => u.account?.id === _currentUserId)
+  const index = users.value.findIndex(u => u.did === _currentUserDid)
 
   if (index !== -1) {
     // Clear stale data
     clearUserLocalStorage()
-    if (!users.value.some((u, i) => u.server === currentUser.value!.server && i !== index))
-      delete instanceStorage.value[currentUser.value.server]
 
     await removePushNotifications(currentUser.value)
 
     await removePushNotificationData(currentUser.value)
 
-    currentUserHandle.value = ''
+    try {
+      const session = await getSession(_currentUserDid, { allowStale: true })
+      const agent = new OAuthUserAgent(session)
+      await agent.signOut()
+    }
+    catch (err) {
+      console.error('Failed to sign out', err)
+      // `signOut` also deletes the session, we only serve as fallback if it fails.
+      deleteStoredSession(_currentUserDid)
+    }
+
     // Remove the current user from the users
     users.value.splice(index, 1)
   }
 
   // Set currentUserId to next user if available
-  currentUserHandle.value = users.value[0]?.account?.acct
+  currentUserDid.value = users.value[0]?.did
 
-  if (!currentUserHandle.value)
+  if (!currentUserDid.value)
     await useRouter().push('/')
 
-  await loginTo(masto, currentUser.value || { server: publicServer.value })
+  await loginTo(useMasto(), currentUserDid.value)
 }
 
 export function checkLogin() {
@@ -309,28 +318,26 @@ export function useUserLocalStorage<T extends object>(key: string, initial: () =
       const all = useLocalStorage<Record<string, T>>(key, {}, { deep: true })
 
       return computed(() => {
-        const id = currentUser.value?.account.id
-          ? currentUser.value.account.acct
-          : '[anonymous]'
+        const did = currentUser.value?.did ?? '[anonymous]'
 
         // Backward compatibility, respect webDomain in acct
         // In previous versions, acct was username@server instead of username@webDomain
         // for example: elk@m.webtoo.ls instead of elk@webtoo.ls
-        if (!all.value[id]) {
-          const [username, webDomain] = id.split('@')
+        if (!all.value[did]) {
+          const [username, webDomain] = did.split('@')
           const server = currentServer.value
           if (webDomain && server && server !== webDomain) {
             const oldId = `${username}@${server}`
             const outdatedSettings = all.value[oldId]
             if (outdatedSettings) {
-              const newAllValue = { ...all.value, [id]: outdatedSettings }
+              const newAllValue = { ...all.value, [did]: outdatedSettings }
               delete newAllValue[oldId]
               all.value = newAllValue
             }
           }
-          all.value[id] = Object.assign(initial(), all.value[id] || {})
+          all.value[did] = Object.assign(initial(), all.value[did] || {})
         }
-        return all.value[id]
+        return all.value[did]
       })
     })
     map.set(key, { scope, value: value! })
@@ -343,7 +350,7 @@ export function useUserLocalStorage<T extends object>(key: string, initial: () =
  * Clear all storages for the given account
  * @param account
  */
-export function clearUserLocalStorage(account?: mastodon.v1.Account) {
+export function clearUserLocalStorage(account?: mastodon.v1.AccountCredentials) {
   if (!account)
     account = currentUser.value?.account
   if (!account)
@@ -358,3 +365,130 @@ export function clearUserLocalStorage(account?: mastodon.v1.Account) {
       delete value.value[id]
   })
 }
+
+function isLoopbackHost(host: string) {
+  return host === 'localhost' || host === '127.0.0.1' || host === '[::1]'
+}
+
+export function useAuth() {
+  function setUser(user: UserLogin) {
+    const userIndex = users.value.findIndex(u => u.did === user.did)
+    if (userIndex !== -1)
+      users.value.splice(userIndex, 1, user)
+    else
+      users.value.push(user)
+  }
+
+  // TODO: should be part of tsky
+
+  async function callback() {
+    const params = new URLSearchParams(location.hash.slice(1))
+
+    // We've captured the search params, we don't want this to be replayed.
+    // Do this on global history instance so it doesn't affect this page rendering.
+    history.replaceState(null, '', '/')
+
+    const session = await finalizeAuthorization(params)
+
+    const client = getClient(session)
+
+    const profile = await client.getProfile()
+
+    setUser({
+      did: session.info.sub,
+      account: profile as unknown as mastodon.v1.AccountCredentials, // HACK: this needs to be replaced
+      server: '', // TODO: remove
+      profile,
+    })
+
+    currentSession.value = session
+    currentUserDid.value = session.info.sub
+
+    // TODO: redirect to the original URL if there was one
+  }
+
+  async function init() {
+    oauthInitialized.value = true
+
+    const isLocalDev = typeof window !== 'undefined' && isLoopbackHost(window.location.hostname)
+
+    let clientId = `${window.location.protocol}//${window.location.host}/api/oauth/client-metadata.json`
+
+    if (isLocalDev) {
+      const redirectUri = new URL(
+        `http://127.0.0.1${
+          window.location.port ? `:${window.location.port}` : ''
+        }/oauth/callback`,
+      ).href
+
+      clientId = `http://localhost?${new URLSearchParams({
+        scope: OAUTH_SCOPE,
+        redirect_uri: redirectUri,
+      })}`
+
+      configureOAuth({
+        metadata: {
+          client_id: clientId,
+          redirect_uri: redirectUri,
+        },
+      })
+    }
+    else {
+      configureOAuth({
+        metadata: {
+          client_id: clientId,
+          redirect_uri: `${window.location.origin}/oauth/callback`,
+        },
+      })
+    }
+
+    // load the current user session from storage
+    if (currentUserDid.value) {
+      currentSession.value = await getSession(currentUserDid.value, { allowStale: true })
+    }
+  }
+
+  async function signIn(handle: string) {
+    const { identity, metadata } = await resolveFromIdentity(handle)
+
+    // passing `identity` is optional,
+    // it allows for the login form to be autofilled with the user's handle or DID
+    const authUrl = await createAuthorizationUrl({
+      metadata,
+      identity,
+      scope: OAUTH_SCOPE,
+    })
+
+    // recommended to wait for the browser to persist local storage before proceeding
+    const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+    await sleep(200)
+
+    // redirect the user to sign in and authorize the app
+    window.location.assign(authUrl)
+
+    // if this is on an async function, ideally the function should never ever resolve.
+    // the only way it should resolve at this point is if the user aborted the authorization
+    // by returning back to this page (thanks to back-forward page caching)
+    await new Promise((_resolve, reject) => {
+      const listener = () => {
+        reject(new Error(`user aborted the login request`))
+      }
+
+      window.addEventListener('pageshow', listener, { once: true })
+    })
+  }
+
+  // auto-init
+  if (!oauthInitialized.value && import.meta.client) {
+    init()
+  }
+
+  return {
+    users,
+    callback,
+    signIn,
+  }
+}
+
+// auto load
+useAuth()
