@@ -8,6 +8,7 @@ import { pwa } from './config/pwa'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
+  devtools: true,
   compatibilityDate: '2024-09-11',
   typescript: {
     tsConfig: {

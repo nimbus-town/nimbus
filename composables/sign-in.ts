@@ -6,6 +6,7 @@ export function useSignIn(_input?: Ref<HTMLInputElement | undefined>) {
   const busy = ref(false)
   const error = ref(false)
   const handle = ref('')
+  const user_password = ref('')
   const displayError = ref(false)
 
   async function signIn() {
@@ -32,5 +33,5 @@ export function useSignIn(_input?: Ref<HTMLInputElement | undefined>) {
   }
 
   // TODO: remove singleInstanceServer
-  return { busy, displayError, error, handle, signIn, singleInstanceServer: false }
+  return { busy, displayError, error, handle, signIn, singleInstanceServer: false, user_password }
 }

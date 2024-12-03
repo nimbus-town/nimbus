@@ -750,7 +750,8 @@
     "sign_out_account": "Sign out {0}",
     "single_instance_sign_in_desc": "Sign in to follow profiles or hashtags, favorite, share and reply to posts.",
     "tip_no_account": "If you don't have a Bluesky account yet, {0}.",
-    "tip_register_account": "pick your server and register one"
+    "tip_register_account": "pick your server and register one",
+    "user_password_label": "Password"
   },
   "visibility": {
     "direct": "Direct",
