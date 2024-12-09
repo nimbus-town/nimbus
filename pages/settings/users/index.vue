@@ -1,6 +1,6 @@
 <script setup lang="ts">
-/* eslint-disable no-alert */
 import { fileOpen } from 'browser-fs-access'
+/* eslint-disable no-alert */
 import type { UserLogin } from '~/types'
 
 const { t } = useI18n()

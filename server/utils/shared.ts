@@ -1,8 +1,10 @@
+import type { AppInfo } from '~/types'
 // @ts-expect-error virtual import
 import { env } from '#build-info'
 // @ts-expect-error virtual import
 import { driver } from '#storage-config'
 import { $fetch } from 'ofetch'
+
 import kv from 'unstorage/drivers/cloudflare-kv-http'
 
 import fs from 'unstorage/drivers/fs'
@@ -13,8 +15,6 @@ import vercelKVDriver from 'unstorage/drivers/vercel-kv'
 
 import { version } from '~/config/env'
 import { APP_NAME } from '~/constants'
-
-import type { AppInfo } from '~/types'
 import cached from '../cache-driver'
 
 const storage = useStorage<AppInfo>()
