@@ -44,14 +44,14 @@ export const nimbusTeamMembers: Team[] = [
     twitter: 'userquin',
     mastodon: 'userquin@webtoo.ls',
     link: '/m.webtoo.ls/@userquin',
-    sponsors: 'elk-zone', // sponsors/userquin isn't enabled
+    sponsors: 'nimbus-town', // sponsors/userquin isn't enabled
   },
   {
     github: 'shuuji3',
     display: 'TAKAHASHI Shuuji',
     mastodon: 'shuuji3@webtoo.ls',
     link: '/m.webtoo.ls/@shuuji3',
-    sponsors: 'elk-zone', // sponsors/shuuji3 isn't enabled
+    sponsors: 'nimbus-town', // sponsors/shuuji3 isn't enabled
   },
 ].sort(() => Math.random() - 0.5)
 
