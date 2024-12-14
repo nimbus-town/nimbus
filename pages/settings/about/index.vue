@@ -122,7 +122,7 @@ function handleShowCommit() {
       </p>
 
       <SettingsItem
-        v-for="team in elkTeamMembers" :key="team.github"
+        v-for="team in nimbusTeamMembers" :key="team.github"
         :text="team.display"
         :to="team.link"
         external target="_blank"

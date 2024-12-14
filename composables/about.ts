@@ -9,7 +9,7 @@ export interface Team {
   sponsors?: string
 }
 
-export const elkTeamMembers: Team[] = [
+export const nimbusTeamMembers: Team[] = [
   {
     github: 'antfu',
     display: 'Anthony Fu',
