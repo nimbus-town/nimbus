@@ -128,7 +128,7 @@ async function copyToClipboard() {
               </td>
               <td>
                 <NuxtLink
-                  :href="`https://pr.new/github.com/elk-zone/elk/tree/main/locales/${useFile}`"
+                  :href="`https://pr.new/github.com/nimbus-town/nimbus/tree/main/locales/${useFile}`"
                   target="_blank"
                   class="codeflow"
                   title="Raise a PR with Codeflow (opens in new window)"
@@ -154,7 +154,7 @@ async function copyToClipboard() {
               <td><strong>{{ `${total}` }}</strong></td>
               <td>
                 <NuxtLink
-                  :href="`https://pr.new/github.com/elk-zone/elk/tree/main/locales/${useFile}`"
+                  :href="`https://pr.new/github.com/nimbus-town/nimbus/tree/main/locales/${useFile}`"
                   target="_blank"
                   class="codeflow"
                   title="Raise a PR with Codeflow (opens in new window)"
