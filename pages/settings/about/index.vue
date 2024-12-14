@@ -34,7 +34,7 @@ function handleShowCommit() {
     <template v-if="isHydrated">
       <SettingsItem
         :text="$t('settings.about.version')"
-        :to="showCommit ? `https://github.com/elk-zone/elk/commit/${buildInfo.commit}` : undefined"
+        :to="showCommit ? `https://github.com/nimbus-town/nimbus/commit/${buildInfo.commit}` : undefined"
         external target="_blank"
         @click="handleShowCommit"
       >
@@ -61,26 +61,19 @@ function handleShowCommit() {
     <SettingsItem
       :text="$t('nav.docs')"
       icon="i-ri:book-open-line"
-      to="https://docs.elk.zone/"
-      large target="_blank"
-    />
-
-    <SettingsItem
-      text="Mastodon"
-      icon="i-ri:mastodon-line"
-      to="/m.webtoo.ls/@elk"
+      to="https://docs.nimbus.town/"
       large target="_blank"
     />
     <SettingsItem
       text="Discord"
       icon="i-ri:discord-fill"
-      to="https://chat.elk.zone"
+      to="https://chat.nimbus.town"
       external large target="_blank"
     />
     <SettingsItem
       text="GitHub"
       icon="i-ri:github-fill"
-      to="https://github.com/elk-zone/elk"
+      to="https://github.com/nimbus-town/nimbus"
       external large target="_blank"
     />
 
@@ -105,7 +98,7 @@ function handleShowCommit() {
 
     <SettingsItem
       :text="$t('settings.about.sponsor_action')"
-      to="https://github.com/sponsors/elk-zone"
+      to="https://github.com/sponsors/nimbus-town"
       :description="$t('settings.about.sponsor_action_desc')"
       external large target="_blank"
     >
@@ -122,7 +115,7 @@ function handleShowCommit() {
       </p>
 
       <SettingsItem
-        v-for="team in elkTeamMembers" :key="team.github"
+        v-for="team in nimbusTeamMembers" :key="team.github"
         :text="team.display"
         :to="team.link"
         external target="_blank"

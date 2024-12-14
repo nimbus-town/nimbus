@@ -2,7 +2,7 @@ import { writeFile } from 'node:fs/promises'
 import fs from 'fs-extra'
 import { ofetch } from 'ofetch'
 import { join, resolve } from 'pathe'
-import { elkTeamMembers } from '../composables/about'
+import { nimbusTeamMembers } from '../composables/about'
 
 const avatarsDir = resolve('./public/avatars/')
 
@@ -22,7 +22,7 @@ async function download(url: string, fileName: string) {
 async function fetchAvatars() {
   await fs.ensureDir(avatarsDir)
 
-  await Promise.all(elkTeamMembers.reduce((acc, { github }) => {
+  await Promise.all(nimbusTeamMembers.reduce((acc, { github }) => {
     acc.push(...sizes.map(s => download(`https://github.com/${github}.png?size=${s}`, join(avatarsDir, `${github}-${s}x${s}.png`))))
     return acc
   }, [] as Promise<void>[]))
