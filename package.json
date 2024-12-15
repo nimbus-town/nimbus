@@ -32,6 +32,12 @@
     "release": "stale-dep && bumpp && tsx scripts/release.ts"
   },
   "dependencies": {
+    "@atcute/base32": "^1.0.0",
+    "@atcute/bluesky": "^1.0.6",
+    "@atcute/cbor": "^1.0.1",
+    "@atcute/cid": "^1.0.0",
+    "@atcute/client": "^2.0.1",
+    "@atcute/tid": "^1.0.0",
     "@emoji-mart/data": "^1.1.2",
     "@fnando/sparkline": "^0.3.10",
     "@iconify-emoji/twemoji": "^1.0.2",

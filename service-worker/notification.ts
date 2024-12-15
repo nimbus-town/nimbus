@@ -1,8 +1,8 @@
 import type { MastoNotification, NotificationInfo, PushPayload, UserLogin } from './types'
-import { closeDatabases, get } from '../utils/elk-idb'
+import { closeDatabases, get } from '../utils/nimbus-idb'
 
 export async function findNotification({ access_token, notification_id/* , notification_type */ }: PushPayload): Promise<NotificationInfo | undefined> {
-  const users = await get<UserLogin[]>('elk-users')
+  const users = await get<UserLogin[]>('nimbus-users')
   if (!users)
     return undefined
 
