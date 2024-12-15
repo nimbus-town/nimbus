@@ -5,7 +5,7 @@ const all = useUsers()
 const router = useRouter()
 
 function clickUser(user: UserLogin) {
-  if (user.account.acct === currentUser.value?.account.acct)
+  if (user.did === currentUser.value?.did)
     router.push(getAccountRoute(user.account))
   else
     switchUser(user)
@@ -21,7 +21,7 @@ function clickUser(user: UserLogin) {
             flex rounded
             cursor-pointer
             :aria-label="$t('action.switch_account')"
-            :class="user.account.acct === currentUser?.account.acct ? '' : 'op25 grayscale'"
+            :class="user.did === currentUser?.did ? '' : 'op25 grayscale'"
             hover="filter-none op100"
             @click="clickUser(user)"
           >

@@ -1,17 +1,14 @@
 import type { Ref } from 'vue'
 
-export function useSignIn(input?: Ref<HTMLInputElement | undefined>) {
-  const singleInstanceServer = useRuntimeConfig().public.singleInstance
-  const userSettings = useUserSettings()
-  const users = useUsers()
-  const { t } = useI18n()
+export function useSignIn(_input?: Ref<HTMLInputElement | undefined>) {
+  const auth = useAuth()
 
   const busy = ref(false)
   const error = ref(false)
-  const server = ref('')
+  const handle = ref('')
   const displayError = ref(false)
 
-  async function oauth() {
+  async function signIn() {
     if (busy.value)
       return
 
@@ -21,57 +18,19 @@ export function useSignIn(input?: Ref<HTMLInputElement | undefined>) {
 
     await nextTick()
 
-    if (!singleInstanceServer && server.value)
-      server.value = server.value.split('/')[0]
-
     try {
-      let href: string
-      if (singleInstanceServer) {
-        href = await (globalThis.$fetch as any)(`/api/${publicServer.value}/login`, {
-          method: 'POST',
-          body: {
-            force_login: users.value.length > 0,
-            origin: location.origin,
-            lang: userSettings.value.language,
-          },
-        })
-        busy.value = false
-      }
-      else {
-        href = await (globalThis.$fetch as any)(`/api/${server.value || publicServer.value}/login`, {
-          method: 'POST',
-          body: {
-            force_login: users.value.some(u => u.server === server.value),
-            origin: location.origin,
-            lang: userSettings.value.language,
-          },
-        })
-      }
-      location.href = href
+      await auth.signIn(handle.value)
+      busy.value = false
+      displayError.value = false
     }
-    catch (err) {
-      if (singleInstanceServer) {
-        console.error(err)
-        busy.value = false
-        await openErrorDialog({
-          title: t('common.error'),
-          messages: [t('error.sign_in_error')],
-          close: t('action.close'),
-        })
-      }
-      else {
-        displayError.value = true
-        error.value = true
-        await nextTick()
-        input?.value?.focus()
-        await nextTick()
-        setTimeout(() => {
-          busy.value = false
-          error.value = false
-        }, 512)
-      }
+    catch (e) {
+      console.error('error', e)
+      error.value = true
+      displayError.value = true
+      busy.value = false
     }
   }
 
-  return { busy, displayError, error, server, singleInstanceServer, oauth }
+  // TODO: remove singleInstanceServer
+  return { busy, displayError, error, handle, signIn, singleInstanceServer: false }
 }

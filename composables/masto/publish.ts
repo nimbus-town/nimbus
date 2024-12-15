@@ -1,7 +1,7 @@
-import type { DraftItem } from '~~/types'
 import type { mastodon } from 'masto'
 import type { Ref } from 'vue'
 import { fileOpen } from 'browser-fs-access'
+import type { DraftItem } from '~/types'
 
 export function usePublish(options: {
   draftItem: Ref<DraftItem>
