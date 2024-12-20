@@ -620,6 +620,12 @@
       "dismiss": "Dispensar",
       "read": "Ler descrição de {0}"
     },
+    "pinned": "Publicação afixada",
+    "poll": {
+      "count": "{0} votos|{0} voto|{0} votos",
+      "ends": "termina {0}",
+      "finished": "terminou {0}"
+    },
     "replying_to": "Em resposta a {0}",
     "show_full_thread": "Mostrar toda a conversa",
     "someone": "alguém",
