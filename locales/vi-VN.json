@@ -620,6 +620,12 @@
       "dismiss": "Bỏ qua",
       "read": "Đọc {0} mô tả"
     },
+    "pinned": "Tút đã ghim",
+    "poll": {
+      "count": "{0} bình chọn|{0} bình chọn|{0} bình chọn",
+      "ends": "đóng {0}",
+      "finished": "kết thúc {0}"
+    },
     "replying_to": "Trả lời {0}",
     "show_full_thread": "Chuỗi tút liên quan",
     "someone": "ai đó",
