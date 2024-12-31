@@ -620,6 +620,12 @@
       "dismiss": "Baztertu",
       "read": "Irakurri {0} deskribapena"
     },
+    "pinned": "Finkatutako bidalketa",
+    "poll": {
+      "count": "{0} boto|boto {0}|{0} boto",
+      "ends": "epemuga: {0}",
+      "finished": "amaiera: {0}"
+    },
     "replying_to": "{0}(r)i erantzunez",
     "show_full_thread": "Erakutsi hari osoa",
     "someone": "norbait",
