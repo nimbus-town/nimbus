@@ -2,7 +2,7 @@
   "name": "@nimbus-town/nimbus",
   "type": "module",
   "version": "0.15.1",
-  "packageManager": "pnpm@9.15.2",
+  "packageManager": "pnpm@9.15.3",
   "license": "MIT",
   "homepage": "https://github.com/nimbus-town/nimbus",
   "main": "./nuxt.config.ts",
