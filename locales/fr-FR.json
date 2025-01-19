@@ -313,18 +313,6 @@
     "reply_to_account": "Répondre à {0}",
     "replying": "Répondre"
   },
-  "polls": {
-    "allow_multiple": "Autoriser plusieurs choix",
-    "cancel": "Annuler",
-    "create": "Créer un sondage",
-    "disallow_multiple": "Désactiver le choix multiple",
-    "expiration": "Expiration du sondage",
-    "hide_votes": "Masquer le total des votes jusqu'à la fin",
-    "option_placeholder": "Option du sondage {current}/{max}",
-    "remove_option": "Retirer l'option",
-    "settings": "Options du sondage",
-    "show_votes": "Toujours montrer le total des votes"
-  },
   "pwa": {
     "dismiss": "Fermer",
     "install": "Installer",
@@ -449,7 +437,6 @@
           "favourite": "Messages aimés",
           "follow": "Nouveaux abonnés",
           "mention": "Mentions",
-          "poll": "Sondages",
           "reblog": "Messages partagés",
           "title": "Quelles notifications recevoir ?"
         },
@@ -582,11 +569,6 @@
       "dismiss": "Fermer",
       "read": "Lire la description de {0}"
     },
-    "poll": {
-      "count": "{0} votes",
-      "ends": "se clôt {0}",
-      "finished": "clos {0}"
-    },
     "replying_to": "Répondre à {0}",
     "show_full_thread": "Voir le fil de discussion complet",
     "someone": "quelqu'un",
@@ -617,7 +599,6 @@
     "notifications_follow_request": "Demande de suivi",
     "notifications_mention": "Mentions",
     "notifications_more_tooltip": "Filtrer les notifications par type",
-    "notifications_poll": "Sondage",
     "notifications_reblog": "Partager",
     "notifications_status": "Statut",
     "notifications_update": "Mise à jour",

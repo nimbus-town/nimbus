@@ -315,18 +315,6 @@
     "reply_to_account": "پاسخ به {0}",
     "replying": "در حال پاسخ دادن"
   },
-  "polls": {
-    "allow_multiple": "امکان انتخاب چندگزینه‌ای",
-    "cancel": "لغو",
-    "create": "ایجاد نظرسنجی",
-    "disallow_multiple": "عدم امکان انتخاب چندگزینه‌ای",
-    "expiration": "انقضای نظرسنجی",
-    "hide_votes": "مخفی کردن تعداد آرا تا پایان",
-    "option_placeholder": "گزینه نظرسنجی {current}/{max}",
-    "remove_option": "حذف گزینه",
-    "settings": "تنظیمات نظرسنجی",
-    "show_votes": "نمایش دائمی تعداد آرا"
-  },
   "pwa": {
     "dismiss": "رد کردن",
     "install": "نصب کردن",
@@ -451,7 +439,6 @@
           "favourite": "مورد علاقه‌ها",
           "follow": "دنبال‌کنندگان جدید",
           "mention": "اشاره‌ها",
-          "poll": "نظرسنجی‌ها",
           "reblog": "انتشارات",
           "title": "کدام اعلان‌ها را دریافت کنیم؟"
         },
@@ -587,11 +574,6 @@
       "dismiss": "رد کردن",
       "read": "خواندن توصیف {0}"
     },
-    "poll": {
-      "count": "{0} رای|{0} رای|{0} رای",
-      "ends": "پایان {0}",
-      "finished": "به پایان رسید {0}"
-    },
     "replying_to": "در پاسخ به {0}",
     "show_full_thread": "نمایش کامل رشته",
     "someone": "یک نفر",
@@ -622,7 +604,6 @@
     "notifications_follow_request": "درخواست دنبال کردن",
     "notifications_mention": "اشاره",
     "notifications_more_tooltip": "نوع اعلان‌ها را بر اساس نوع فیلتر کنید",
-    "notifications_poll": "نظرسنجی",
     "notifications_reblog": "بازنشر",
     "notifications_status": "وضعیت",
     "notifications_update": "بروزرسانی",

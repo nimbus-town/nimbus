@@ -43,7 +43,6 @@ export function usePushManager() {
       || current.reblog !== previous.reblog
       || current.mention !== previous.mention
       || current.follow !== previous.follow
-      || current.poll !== previous.poll
       || current.policy !== previous.policy
   })
 
@@ -98,7 +97,6 @@ export function usePushManager() {
           favourite: true,
           reblog: true,
           mention: true,
-          poll: true,
         },
       },
       policy ?? 'all',
@@ -129,7 +127,6 @@ export function usePushManager() {
       reblog: current.reblog,
       mention: current.mention,
       follow: current.follow,
-      poll: current.poll,
       policy: current.policy,
     }
 
@@ -148,7 +145,6 @@ export function usePushManager() {
       reblog: previous.reblog,
       mention: previous.mention,
       follow: previous.follow,
-      poll: previous.poll,
       policy: previous.policy,
     }
     configuredPolicy.value[currentUser.value!.account.acct ?? ''] = previous.policy
@@ -164,7 +160,6 @@ export function usePushManager() {
           favourite: pushNotificationData.value.favourite,
           reblog: pushNotificationData.value.reblog,
           mention: pushNotificationData.value.mention,
-          poll: pushNotificationData.value.poll,
         },
       }
 
@@ -209,7 +204,6 @@ function createRawSettings(
     favourite: pushSubscription?.alerts.favourite ?? true,
     reblog: pushSubscription?.alerts.reblog ?? true,
     mention: pushSubscription?.alerts.mention ?? true,
-    poll: pushSubscription?.alerts.poll ?? true,
     policy: subscriptionPolicy ?? 'all',
   }
 }

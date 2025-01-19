@@ -350,18 +350,6 @@
     "reply_to_account": "Erantzun {0}(r)i",
     "replying": "Erantzuten"
   },
-  "polls": {
-    "allow_multiple": "Baimendu aukera anitzak",
-    "cancel": "Utzi",
-    "create": "Sortu bozketa",
-    "disallow_multiple": "Ezgaitu aukera anitzak",
-    "expiration": "Bozketaren epemuga",
-    "hide_votes": "Ezkutatu emaitza bozketa amaitu arte",
-    "option_placeholder": "{current}. aukera (gehienez {max})",
-    "remove_option": "Kendu aukera",
-    "settings": "Bozketaren ezarpenak",
-    "show_votes": "Erakutsi uneoro bozketaren emaitza"
-  },
   "pwa": {
     "dismiss": "Baztertu",
     "install": "Instalatu",
@@ -489,7 +477,6 @@
           "favourite": "Gogokoak",
           "follow": "Jarraitzaile berriak",
           "mention": "Aipamenak",
-          "poll": "Bozketak",
           "reblog": "Zure bidalketen bultzadak",
           "title": "Zer jakinarazpen jaso nahi duzu?"
         },
@@ -633,11 +620,6 @@
       "dismiss": "Baztertu",
       "read": "Irakurri {0} deskribapena"
     },
-    "poll": {
-      "count": "{0} boto|boto {0}|{0} boto",
-      "ends": "epemuga: {0}",
-      "finished": "amaiera: {0}"
-    },
     "replying_to": "{0}(r)i erantzunez",
     "show_full_thread": "Erakutsi hari osoa",
     "someone": "norbait",
@@ -668,7 +650,6 @@
     "notifications_follow_request": "Jarraipen-eskaerak",
     "notifications_mention": "Aipamenak",
     "notifications_more_tooltip": "Iragazi jakinarazpenak motaren arabera",
-    "notifications_poll": "Bozketak",
     "notifications_reblog": "Bultzadak",
     "notifications_status": "Egoerak",
     "notifications_update": "Eguneraketak",

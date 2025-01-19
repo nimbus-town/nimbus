@@ -357,7 +357,6 @@
           "favourite": "Preferits",
           "follow": "Nous seguidors",
           "mention": "Mencions",
-          "poll": "Enquestes",
           "reblog": "Reblogueu la vostra publicació",
           "title": "Quines notificacions rebre?"
         },
@@ -477,11 +476,6 @@
       "desc": "Descripció",
       "dismiss": "Descartar",
       "read": "Llegeix la descripció de {0}"
-    },
-    "poll": {
-      "count": "{0} vots|{0} vot|{0} vots",
-      "ends": "acaba {0}",
-      "finished": "acabat {0}"
     },
     "replying_to": "Responent a {0}",
     "show_full_thread": "Mostra el fil complet",

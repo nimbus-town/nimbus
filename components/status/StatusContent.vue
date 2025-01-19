@@ -46,7 +46,6 @@ const allowEmbeddedMedia = computed(() => status.card?.html && embeddedMediaPref
       </template>
       <StatusBody v-if="!(isSensitiveNonSpoiler || hideAllMedia)" :status="status" :newer="newer" :with-action="!isDetails" :class="isDetails ? 'text-xl' : ''" />
       <StatusTranslation :status="status" />
-      <StatusPoll v-if="status.poll" :status="status" />
       <StatusMedia
         v-if="status.mediaAttachments?.length"
         :status="status"

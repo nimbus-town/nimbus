@@ -257,18 +257,6 @@
     "reply_to_account": "{0}에게 답글",
     "replying": "답글"
   },
-  "polls": {
-    "allow_multiple": "복수 투표 허용",
-    "cancel": "취소",
-    "create": "투표 만들기",
-    "disallow_multiple": "복수 투표 불허",
-    "expiration": "투표 종료 시점",
-    "hide_votes": "투표가 끝날때 까지 총 득표수 숨기기",
-    "option_placeholder": "투표 선택지 {current}/{max}",
-    "remove_option": "선택지 지우기",
-    "settings": "투표 설정",
-    "show_votes": "항상 총 득표수 보이기"
-  },
   "pwa": {
     "dismiss": "설치하지 않기",
     "install": "설치",
@@ -353,7 +341,6 @@
           "favourite": "좋아요",
           "follow": "새로운 팔로워",
           "mention": "멘션",
-          "poll": "투표",
           "reblog": "리블로그",
           "title": "어느 알림을 받을까요?"
         },
@@ -448,11 +435,6 @@
       "desc": "설명",
       "dismiss": "닫기",
       "read": "{0} 설명 읽기"
-    },
-    "poll": {
-      "count": "{0}투표|{0}투표|{0}투표",
-      "ends": "{0} 후 마감",
-      "finished": "{0} 마감됨"
     },
     "replying_to": "{0} 님에게 답글을 달았습니다",
     "show_full_thread": "스레드 전체보기",

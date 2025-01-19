@@ -343,18 +343,6 @@
     "reply_to_account": "Sagot kay {0}",
     "replying": "Sumasagot"
   },
-  "polls": {
-    "allow_multiple": "Payagan ang maramihang pagboto",
-    "cancel": "Kanselahin",
-    "create": "Likhain ang poll",
-    "disallow_multiple": "Huwag payagan ang maramihang pagboto",
-    "expiration": "Katapusan ng pagboto",
-    "hide_votes": "Itago ang bilang ng mga boto hanggang sa katapusan",
-    "option_placeholder": "Poll choice {current}/{max}",
-    "remove_option": "Remove choice",
-    "settings": "Poll options",
-    "show_votes": "Always show vote totals"
-  },
   "pwa": {
     "dismiss": "I-dismiss",
     "install": "I-install",
@@ -479,7 +467,6 @@
           "favourite": "Mga Paborito",
           "follow": "Mga Bagong Tagasunod",
           "mention": "Mga Tugon",
-          "poll": "Mga Poll",
           "reblog": "Mga Reblog ng iyong Post",
           "title": "Anong mga abiso ang nais mong matanggap?"
         },
@@ -616,11 +603,6 @@
       "dismiss": "I-dismiss",
       "read": "Basahin ang {0} paglalarawan"
     },
-    "poll": {
-      "count": "{0} boto|{0} boto|{0} mga boto",
-      "ends": "magtatapos {0}",
-      "finished": "natapos {0}"
-    },
     "replying_to": "Sumasagot kay {0}",
     "show_full_thread": "Ipakita ang buong thread",
     "someone": "isa",
@@ -651,7 +633,6 @@
     "notifications_follow_request": "Mga Hiling ng Pagsunod",
     "notifications_mention": "Mga Tugon",
     "notifications_more_tooltip": "I-filter ang mga notification ayon sa uri",
-    "notifications_poll": "Mga Poll",
     "notifications_reblog": "Mga Boost",
     "notifications_status": "Mga Sinusundang Status",
     "notifications_update": "Mga Update",

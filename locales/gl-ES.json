@@ -319,18 +319,6 @@
     "reply_to_account": "Responder a {0}",
     "replying": "Responde aquí"
   },
-  "polls": {
-    "allow_multiple": "Permitir selección múltiple",
-    "cancel": "Desbotar",
-    "create": "Crear enquisa",
-    "disallow_multiple": "Desactivar selección múltiple",
-    "expiration": "Caducidade da enquisa",
-    "hide_votes": "Agochar resultados ata o remate",
-    "option_placeholder": "Número de opcións {current}/{max}",
-    "remove_option": "Retirar opción",
-    "settings": "Opcións da enquisa",
-    "show_votes": "Mostrar sempre o total de votos"
-  },
   "pwa": {
     "dismiss": "Desbotar",
     "install": "Instalar",
@@ -455,7 +443,6 @@
           "favourite": "Favoritas",
           "follow": "Novas seguidoras",
           "mention": "Mencións",
-          "poll": "Enquisas",
           "reblog": "Promoción recibida",
           "title": "Que notificacións queres recibir?"
         },
@@ -591,11 +578,6 @@
       "dismiss": "Desbotar",
       "read": "Ler a descrición de {0}"
     },
-    "poll": {
-      "count": "{0} votos|{0} voto|{0} votos",
-      "ends": "remata en {0}",
-      "finished": "rematou o {0}"
-    },
     "replying_to": "En resposta a {0}",
     "show_full_thread": "Mostrar conversa completa",
     "someone": "alguén",
@@ -626,7 +608,6 @@
     "notifications_follow_request": "Solicitude de seguimento",
     "notifications_mention": "Mención",
     "notifications_more_tooltip": "Filtrar notificacións por tipo",
-    "notifications_poll": "Enquisa",
     "notifications_reblog": "Promoción",
     "notifications_status": "Estado",
     "notifications_update": "Actualización",

@@ -229,7 +229,6 @@
           "favourite": "Favorieten",
           "follow": "Nieuwe volgers",
           "mention": " Vermeldingen",
-          "poll": "Peilingen",
           "reblog": "Herblogt jou post",
           "title": "Welke notificaties wil je krijgen?"
         },
@@ -307,11 +306,6 @@
     "img_alt": {
       "desc": "Omschrijving",
       "dismiss": "Afwijzen"
-    },
-    "poll": {
-      "count": "{0} stemmen|{0} stem|{0} stemmen",
-      "ends": "eindigt {0}",
-      "finished": "geëindigd {0}"
     },
     "someone": "Iemand",
     "spoiler_show_less": "Minder zien",

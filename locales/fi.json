@@ -350,18 +350,6 @@
     "reply_to_account": "Vastaus käyttäjälle {0}",
     "replying": "Vastaus"
   },
-  "polls": {
-    "allow_multiple": "Salli monen valinta",
-    "cancel": "Peruuta",
-    "create": "Luo äänestys",
-    "disallow_multiple": "Estä monen valinta",
-    "expiration": "Äänestyksen päättyminen",
-    "hide_votes": "Piilota äänestystulokset vastausaikana",
-    "option_placeholder": "Vastausvaihtoehto {current}/{max}",
-    "remove_option": "Poista vaihtoehto",
-    "settings": "Äänestyksen asetukset",
-    "show_votes": "Näytä äänestystulokset koko ajan"
-  },
   "pwa": {
     "dismiss": "Hylkää",
     "install": "Asenna",
@@ -489,7 +477,6 @@
           "favourite": "Suosikit",
           "follow": "Uudet seuraajat",
           "mention": "Maininnat",
-          "poll": "Äänestykset",
           "reblog": "Tehostukset",
           "title": "Mitä ilmoituksia haluat saada?"
         },
@@ -633,11 +620,6 @@
       "dismiss": "Sulje",
       "read": "Lue {0}n kuvaus"
     },
-    "poll": {
-      "count": "{0} ääntä|{0} ääni|{0} ääntä",
-      "ends": "päättyy {0}",
-      "finished": "päättyi {0}"
-    },
     "replying_to": "Vastaa käyttäjälle {0}",
     "show_full_thread": "Näytä koko ketju",
     "someone": "jollekulle",
@@ -668,7 +650,6 @@
     "notifications_follow_request": "Seuraamispyyntö",
     "notifications_mention": "Maininnat",
     "notifications_more_tooltip": "Suodata ilmoitustyypin perusteella",
-    "notifications_poll": "Äänestys",
     "notifications_reblog": "Tehostus",
     "notifications_status": "Tila",
     "notifications_update": "Päivitys",

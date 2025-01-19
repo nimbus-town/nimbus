@@ -350,18 +350,6 @@
     "reply_to_account": "Rispondi a {0}",
     "replying": "Rispondi"
   },
-  "polls": {
-    "allow_multiple": "Consenti risposte multiple",
-    "cancel": "Annulla",
-    "create": "Crea sondaggio",
-    "disallow_multiple": "Vieta risposte multiple",
-    "expiration": "Scadenza sondaggio",
-    "hide_votes": "Nascondi conteggio totale fino alla scadenza",
-    "option_placeholder": "Scelta sondaggio {current}/{max}",
-    "remove_option": "Rimuovi scelta",
-    "settings": "Opzioni sondaggio",
-    "show_votes": "Mostra sempre conteggi totali"
-  },
   "pwa": {
     "dismiss": "Ignora",
     "install": "Installa",
@@ -489,7 +477,6 @@
           "favourite": "Apprezzamenti",
           "follow": "Nuovi seguaci",
           "mention": "Menzioni",
-          "poll": "Risultati dei sondaggi",
           "reblog": "Potenziamenti",
           "title": "Quali notifiche vuoi ricevere?"
         },
@@ -633,11 +620,6 @@
       "dismiss": "Ignora",
       "read": "Leggi descrizione {0}"
     },
-    "poll": {
-      "count": "{0} voti|{0} voto|{0} voti",
-      "ends": "termina {0}",
-      "finished": "terminato {0}"
-    },
     "replying_to": "In risposta a {0}",
     "show_full_thread": "Mostra discussione",
     "someone": "qualcuno",
@@ -668,7 +650,6 @@
     "notifications_follow_request": "Richiesta di seguire",
     "notifications_mention": "Menzioni",
     "notifications_more_tooltip": "Filtra notifiche per tipo",
-    "notifications_poll": "Sondaggio",
     "notifications_reblog": "Potenziamento",
     "notifications_status": "Stato",
     "notifications_update": "Aggiornamento",

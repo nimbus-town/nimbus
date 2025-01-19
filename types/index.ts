@@ -48,7 +48,7 @@ export type TranslateFn = ReturnType<typeof useI18n>['t']
 export interface DraftItem {
   editingStatus?: mastodon.v1.Status
   initialText?: string
-  params: MarkNonNullable<Mutable<Omit<mastodon.rest.v1.CreateStatusParams, 'poll'>>, 'status' | 'language' | 'sensitive' | 'spoilerText'> & { poll: Mutable<mastodon.rest.v1.CreateStatusParams['poll']> }
+  params: MarkNonNullable<Mutable<mastodon.rest.v1.CreateStatusParams>, 'status' | 'language' | 'sensitive' | 'spoilerText'>
   attachments: mastodon.v1.MediaAttachment[]
   lastUpdated: number
   mentions?: string[]
