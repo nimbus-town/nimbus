@@ -307,18 +307,6 @@
     "reply_to_account": "ตอบ {0}",
     "replying": "กำลังชอบ"
   },
-  "polls": {
-    "allow_multiple": "อนุญาตหลายตัวเลือก",
-    "cancel": "ยกเลิก",
-    "create": "สร้างโพล",
-    "disallow_multiple": "ไม่อนุญาตให้มีหลายตัวเลือก",
-    "expiration": "ตั้งเวลาสิ้นสุดโพล",
-    "hide_votes": "ซ่อนคะแนนทั้งหมดจนกว่าจะสิ้นสุด",
-    "option_placeholder": "ตัวเลือกโพล",
-    "remove_option": "ลบตัวเลือก",
-    "settings": "ตั้งค่าโพล",
-    "show_votes": "แสดงผลรวมคะแนนทุกครั้ง"
-  },
   "pwa": {
     "dismiss": "ยกเลิก",
     "install": "ติดตั้ง",
@@ -402,7 +390,6 @@
           "favourite": "Favorites",
           "follow": "New followers",
           "mention": "Mentions",
-          "poll": "Polls",
           "reblog": "Reblog your post",
           "title": "What notifications to receive?"
         },
@@ -530,11 +517,6 @@
       "desc": "คำอธิบาบ",
       "dismiss": "ยกเลิก",
       "read": "อ่าน {0} คำอธิบาย"
-    },
-    "poll": {
-      "count": "{0} โหวต|{0} โหวต|{0} โหวต",
-      "ends": "จบ {0}",
-      "finished": "สิ้นสุด {0}"
     },
     "replying_to": "ตอบกลับ {0}",
     "show_full_thread": "แสดงเธรดเต็ม",

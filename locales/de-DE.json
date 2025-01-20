@@ -348,18 +348,6 @@
     "reply_to_account": "Antwort an {0}",
     "replying": "Antworten"
   },
-  "polls": {
-    "allow_multiple": "Mehrfachauswahl erlauben",
-    "cancel": "Abbrechen",
-    "create": "Umfrage erstellen",
-    "disallow_multiple": "Mehrfachauswahl nicht erlauben",
-    "expiration": "Ablauf der Umfrage",
-    "hide_votes": "Abstimmungsergebnisse bis zum Ende verbergen",
-    "option_placeholder": "Umfrageoption {current}/{max}",
-    "remove_option": "Option entfernen",
-    "settings": "Umfrageoptionen",
-    "show_votes": "Abstimmungsergebnisse immer anzeigen"
-  },
   "pwa": {
     "dismiss": "Ignorieren",
     "install": "Installieren",
@@ -485,7 +473,6 @@
           "favourite": "Favorisierung deiner Beiträge",
           "follow": "Neue Follower",
           "mention": "Erwähnungen",
-          "poll": "Umfragen",
           "reblog": "Teilen deiner Beiträge",
           "title": "Welche Benachrichtigungen erhalten?"
         },
@@ -629,11 +616,6 @@
       "dismiss": "Schließen",
       "read": "{0}-Beschreibung lesen"
     },
-    "poll": {
-      "count": "{0} Stimmen|{0} Stimme|{0} Stimmen",
-      "ends": "Endet: {0}",
-      "finished": "Beendet: {0}"
-    },
     "replying_to": "Antwort auf {0}",
     "show_full_thread": "Vollständigen Thread anzeigen",
     "someone": "jemand",
@@ -660,7 +642,6 @@
     "notifications_follow_request": "Folgeanfrage",
     "notifications_mention": "Erwähnung",
     "notifications_more_tooltip": "Benachrichtigungen nach Typ filtern",
-    "notifications_poll": "Umfrage",
     "notifications_reblog": "Geteilt",
     "notifications_status": "Status",
     "notifications_update": "Bearbeitet",

@@ -344,18 +344,6 @@
     "reply_to_account": "Απάντηση σε {0}",
     "replying": "Απαντάται"
   },
-  "polls": {
-    "allow_multiple": "Επιτρέπεται πολλαπλή επιλογή",
-    "cancel": "Ακύρωση",
-    "create": "Δημιουργία δημοσκόπησης",
-    "disallow_multiple": "Να μην επιτρέπεται πολλαπλή επιλογή",
-    "expiration": "Λήξη δημοσκόπησης",
-    "hide_votes": "Απόκρυψη συνολικών ψήφων μέχρι το τέλος",
-    "option_placeholder": "Επιλογή δημοσκόπησης {current}/{max}",
-    "remove_option": "Αφαίρεση επιλογής",
-    "settings": "Επιλογές δημοσκόπησης",
-    "show_votes": "Εμφάνιση συνολικών ψήφων πάντα"
-  },
   "pwa": {
     "dismiss": "Απόρριψη",
     "install": "Εγκατάσταση",
@@ -480,7 +468,6 @@
           "favourite": "Αγαπημένα",
           "follow": "Νέοι ακόλουθοι",
           "mention": "Αναφορές",
-          "poll": "Δημοσκοπήσεις",
           "reblog": "Ενισχύσεις",
           "title": "Τί ειδοποιήσεις να λαμβάνω;"
         },
@@ -618,11 +605,6 @@
       "dismiss": "Απόρριψη",
       "read": "Ανάγνωση {0} περιγραφής"
     },
-    "poll": {
-      "count": "{0} ψήφοι|{0} ψήφος|{0} ψήφοι",
-      "ends": "μέχρι {0}",
-      "finished": "ολοκληρώθηκε στις {0}"
-    },
     "replying_to": "Απάντηση σε {0}",
     "show_full_thread": "Εμφάνιση Πλήρους Νήματος",
     "someone": "κάποιος",
@@ -653,7 +635,6 @@
     "notifications_follow_request": "Αιτήματα ακολούθησης",
     "notifications_mention": "Αναφορές",
     "notifications_more_tooltip": "Φιλτράρισμα ειδοποιήσεων βάσει τύπου",
-    "notifications_poll": "Δημοσκόπηση",
     "notifications_reblog": "Ενίσχυση",
     "notifications_status": "Κατάσταση",
     "notifications_update": "Ενημέρωση",

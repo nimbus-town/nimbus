@@ -315,18 +315,6 @@
     "reply_to_account": "{0}さんに返信",
     "replying": "返信する"
   },
-  "polls": {
-    "allow_multiple": "複数の選択肢を許可する",
-    "cancel": "キャンセル",
-    "create": "投票を追加",
-    "disallow_multiple": "複数の選択肢を許可しない",
-    "expiration": "投票の期限",
-    "hide_votes": "終了まで投票数の合計を隠す",
-    "option_placeholder": "投票の選択肢 {current}/{max}",
-    "remove_option": "選択肢を削除する",
-    "settings": "投票オプション",
-    "show_votes": "常に投票数の合計を表示する"
-  },
   "pwa": {
     "dismiss": "閉じる",
     "install": "インストール",
@@ -451,7 +439,6 @@
           "favourite": "お気に入り",
           "follow": "新しいフォロワー",
           "mention": "メンション",
-          "poll": "投票",
           "reblog": "投稿のリブログ",
           "title": "受け取りたい通知を選択してください"
         },
@@ -585,11 +572,6 @@
       "dismiss": "閉じる",
       "read": "{0} の説明文を読む"
     },
-    "poll": {
-      "count": "{0} 票",
-      "ends": "{0}に終了",
-      "finished": "{0}に完了"
-    },
     "replying_to": "{0}さんへの返信",
     "show_full_thread": "スレッド全体を表示",
     "someone": "誰か",
@@ -620,7 +602,6 @@
     "notifications_follow_request": "フォローリクエスト",
     "notifications_mention": "メンション",
     "notifications_more_tooltip": "通知を種類別にフィルタする",
-    "notifications_poll": "投稿",
     "notifications_reblog": "ブースト",
     "notifications_status": "ステータス",
     "notifications_update": "更新",

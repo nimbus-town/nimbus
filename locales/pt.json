@@ -350,18 +350,6 @@
     "reply_to_account": "Responder a {0}",
     "replying": "Respondendo"
   },
-  "polls": {
-    "allow_multiple": "Permitir múltiplas escolhas",
-    "cancel": "Cancelar",
-    "create": "Criar sondagem",
-    "disallow_multiple": "Não permitir múltiplas escolhas",
-    "expiration": "Validade da sondagem",
-    "hide_votes": "Esconder o total de votos até ao término da sondagem",
-    "option_placeholder": "Opção da sondagem {current}/{max}",
-    "remove_option": "Remover opção",
-    "settings": "Opções da sondagem",
-    "show_votes": "Mostrar sempre o total de votos"
-  },
   "pwa": {
     "dismiss": "Dispensar",
     "install": "Instalar",
@@ -489,7 +477,6 @@
           "favourite": "Favoritos",
           "follow": "Novos seguidores",
           "mention": "Menções",
-          "poll": "Votações",
           "reblog": "Partilha das sua publicação",
           "title": "Que notificações quer receber?"
         },
@@ -633,11 +620,6 @@
       "dismiss": "Dispensar",
       "read": "Ler descrição de {0}"
     },
-    "poll": {
-      "count": "{0} votos|{0} voto|{0} votos",
-      "ends": "termina {0}",
-      "finished": "terminou {0}"
-    },
     "replying_to": "Em resposta a {0}",
     "show_full_thread": "Mostrar toda a conversa",
     "someone": "alguém",
@@ -668,7 +650,6 @@
     "notifications_follow_request": "Pedidos para seguir",
     "notifications_mention": "Menções",
     "notifications_more_tooltip": "Filtra notificações por tipo",
-    "notifications_poll": "Sondagens",
     "notifications_reblog": "Partilhas",
     "notifications_status": "Publicações",
     "notifications_update": "Atualizações",

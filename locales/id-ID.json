@@ -319,18 +319,6 @@
     "reply_to_account": "Balas ke {0}",
     "replying": "Membalas"
   },
-  "polls": {
-    "allow_multiple": "Izinkan pilihan ganda",
-    "cancel": "Batalkan",
-    "create": "Buat jajak pendapat",
-    "disallow_multiple": "Larang pilihan ganda",
-    "expiration": "Kedaluwarsa jajak pendapat",
-    "hide_votes": "Sembunyikan total suara hingga akhir",
-    "option_placeholder": "Pilihan jajak pendapat {current}/{max}",
-    "remove_option": "Hapus pilihan",
-    "settings": "Opsi jajak pendapat",
-    "show_votes": "Selalu tampilkan total suara"
-  },
   "pwa": {
     "dismiss": "Batalkan",
     "install": "Instal",
@@ -455,7 +443,6 @@
           "favourite": "Favorit",
           "follow": "Pengikut baru",
           "mention": "Sebutan",
-          "poll": "Polling",
           "reblog": "Reblog posting Anda",
           "title": "Pemberitahuan apa yang harus diterima?"
         },
@@ -591,11 +578,6 @@
       "dismiss": "Batalkan",
       "read": "Baca deskripsi {0}"
     },
-    "poll": {
-      "count": "{0} suara|{0} suara|{0} suara",
-      "ends": "berakhir {0}",
-      "finished": "selesai {0}"
-    },
     "replying_to": "Membalas ke {0}",
     "show_full_thread": "Tampilkan utas Penuh",
     "someone": "seseorang",
@@ -626,7 +608,6 @@
     "notifications_follow_request": "Permintaan mengikuti",
     "notifications_mention": "Penyebutan",
     "notifications_more_tooltip": "Filter pemberitahuan berdasarkan jenis",
-    "notifications_poll": "Polling",
     "notifications_reblog": "Menggiatkan",
     "notifications_status": "Status",
     "notifications_update": "Pembaruan",

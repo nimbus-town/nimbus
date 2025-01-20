@@ -81,57 +81,6 @@ const { editor } = useTiptap({
   onPaste: handlePaste,
 })
 
-function trimPollOptions() {
-  const indexLastNonEmpty = draft.value.params.poll!.options.findLastIndex(option => option.trim().length > 0)
-  const trimmedOptions = draft.value.params.poll!.options.slice(0, indexLastNonEmpty + 1)
-
-  if (currentInstance.value?.configuration
-    && trimmedOptions.length >= currentInstance.value?.configuration?.polls.maxOptions) {
-    draft.value.params.poll!.options = trimmedOptions
-  }
-  else {
-    draft.value.params.poll!.options = [...trimmedOptions, '']
-  }
-}
-
-function editPollOptionDraft(event: Event, index: number) {
-  draft.value.params.poll!.options = Object.assign(draft.value.params.poll!.options.slice(), { [index]: (event.target as HTMLInputElement).value })
-
-  trimPollOptions()
-}
-
-function deletePollOption(index: number) {
-  const newPollOptions = draft.value.params.poll!.options.slice()
-  newPollOptions.splice(index, 1)
-  draft.value.params.poll!.options = newPollOptions
-  trimPollOptions()
-}
-
-const expiresInOptions = computed(() => [
-  {
-    seconds: 1 * 60 * 60,
-    label: t('time_ago_options.hour_future', 1),
-  },
-  {
-    seconds: 2 * 60 * 60,
-    label: t('time_ago_options.hour_future', 2),
-  },
-  {
-    seconds: 1 * 24 * 60 * 60,
-    label: t('time_ago_options.day_future', 1),
-  },
-  {
-    seconds: 2 * 24 * 60 * 60,
-    label: t('time_ago_options.day_future', 2),
-  },
-  {
-    seconds: 7 * 24 * 60 * 60,
-    label: t('time_ago_options.day_future', 7),
-  },
-])
-
-const expiresInDefaultOptionIndex = 2
-
 const characterCount = computed(() => {
   const text = htmlToText(editor.value?.getHTML() || '')
 
@@ -350,31 +299,6 @@ function stopQuestionMarkPropagation(e: KeyboardEvent) {
         </div>
 
         <div flex="~ col 1" max-w-full>
-          <form v-if="isExpanded && draft.params.poll" my-4 flex="~ 1 col" gap-3 m="s--1">
-            <div v-for="(option, index) in draft.params.poll.options" :key="index" flex="~ row" gap-3>
-              <input
-                :value="option" bg-base border="~ base" flex-1 h10 pe-4 rounded-2 w-full flex="~ row" items-center
-                relative focus-within:box-shadow-outline gap-3 px-4 py-2
-                :placeholder="$t('polls.option_placeholder', { current: index + 1, max: currentInstance?.configuration?.polls.maxOptions })"
-                class="option-input" @input="editPollOptionDraft($event, index)"
-              >
-              <CommonTooltip placement="top" :content="$t('polls.remove_option')" class="delete-button">
-                <button
-                  btn-action-icon class="hover:bg-red/75"
-                  :disabled="index === draft.params.poll!.options.length - 1 && (index + 1 !== currentInstance?.configuration?.polls.maxOptions || draft.params.poll!.options[index].length === 0)"
-                  @click.prevent="deletePollOption(index)"
-                >
-                  <div i-ri:delete-bin-line />
-                </button>
-              </CommonTooltip>
-              <span
-                v-if="currentInstance?.configuration?.polls.maxCharactersPerOption" class="char-limit-radial"
-                aspect-ratio-1 h-10
-                :style="{ background: `radial-gradient(closest-side, rgba(var(--rgb-bg-base)) 79%, transparent 80% 100%), conic-gradient(${draft.params.poll!.options[index].length / currentInstance?.configuration?.polls.maxCharactersPerOption > 1 ? 'var(--c-danger)' : 'var(--c-primary)'} ${draft.params.poll!.options[index].length / currentInstance?.configuration?.polls.maxCharactersPerOption * 100}%, var(--c-primary-fade) 0)` }"
-              >{{
-                draft.params.poll!.options[index].length }}</span>
-            </div>
-          </form>
           <div v-if="shouldExpanded" flex="~ gap-1 1 wrap" m="s--1" pt-2 justify="end" max-w-full border="t base">
             <PublishEmojiPicker @select="insertEmoji">
               <button btn-action-icon :title="$t('tooltip.emojis')" :aria-label="$t('tooltip.add_emojis')">
@@ -382,74 +306,11 @@ function stopQuestionMarkPropagation(e: KeyboardEvent) {
               </button>
             </PublishEmojiPicker>
 
-            <CommonTooltip
-              v-if="draft.params.poll === undefined" placement="top" :content="$t('tooltip.add_media')"
-            >
+            <CommonTooltip placement="top" :content="$t('tooltip.add_media')">
               <button btn-action-icon :aria-label="$t('tooltip.add_media')" @click="pickAttachments">
                 <div i-ri:image-add-line />
               </button>
             </CommonTooltip>
-
-            <template v-if="draft.attachments.length === 0">
-              <CommonTooltip v-if="!draft.params.poll" placement="top" :content="$t('polls.create')">
-                <button
-                  btn-action-icon :aria-label="$t('polls.create')"
-                  @click="draft.params.poll = { options: [''], expiresIn: expiresInOptions[expiresInDefaultOptionIndex].seconds }"
-                >
-                  <div i-ri:chat-poll-line />
-                </button>
-              </CommonTooltip>
-              <div v-else rounded-full b-1 border-dark flex="~ row" gap-1>
-                <CommonTooltip placement="top" :content="$t('polls.cancel')">
-                  <button
-                    btn-action-icon b-r border-dark :aria-label="$t('polls.cancel')"
-                    @click="draft.params.poll = undefined"
-                  >
-                    <div i-ri:close-line />
-                  </button>
-                </CommonTooltip>
-                <CommonDropdown placement="top">
-                  <CommonTooltip placement="top" :content="$t('polls.settings')">
-                    <button :aria-label="$t('polls.settings')" btn-action-icon w-12>
-                      <div i-ri:list-settings-line />
-                      <div i-ri:arrow-down-s-line text-sm text-secondary me--1 />
-                    </button>
-                  </CommonTooltip>
-                  <template #popper>
-                    <div flex="~ col" gap-1 p-2>
-                      <CommonCheckbox
-                        v-model="draft.params.poll.multiple"
-                        :label="draft.params.poll.multiple ? $t('polls.disallow_multiple') : $t('polls.allow_multiple')"
-                        px-2 gap-3 h-9 flex justify-center hover:bg-active rounded-full
-                        icon-checked="i-ri:checkbox-multiple-blank-line"
-                        icon-unchecked="i-ri:checkbox-blank-circle-line"
-                      />
-                      <CommonCheckbox
-                        v-model="draft.params.poll.hideTotals"
-                        :label="draft.params.poll.hideTotals ? $t('polls.show_votes') : $t('polls.hide_votes')" px-2 gap-3
-                        h-9 flex justify-center hover:bg-active rounded-full icon-checked="i-ri:eye-close-line"
-                        icon-unchecked="i-ri:eye-line"
-                      />
-                    </div>
-                  </template>
-                </CommonDropdown>
-                <CommonDropdown placement="bottom">
-                  <CommonTooltip placement="top" :content="$t('polls.expiration')">
-                    <button :aria-label="$t('polls.expiration')" btn-action-icon w-12>
-                      <div i-ri:hourglass-line />
-                      <div i-ri:arrow-down-s-line text-sm text-secondary me--1 />
-                    </button>
-                  </CommonTooltip>
-                  <template #popper>
-                    <CommonDropdownItem
-                      v-for="expiresInOption in expiresInOptions" :key="expiresInOption.seconds"
-                      :text="expiresInOption.label" :checked="draft.params.poll!.expiresIn === expiresInOption.seconds"
-                      @click="draft.params.poll!.expiresIn = expiresInOption.seconds"
-                    />
-                  </template>
-                </CommonDropdown>
-              </div>
-            </template>
 
             <PublishEditorTools v-if="editor" :editor="editor" />
 

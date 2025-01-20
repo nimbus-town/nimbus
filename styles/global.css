@@ -227,9 +227,6 @@ allows controlling them individually
 [data-mode="grayscale"] pre {
   filter: grayscale(var(--code-grayscale, 1));
 }
-[data-mode="grayscale"] .poll-wrapper {
-  filter: grayscale(var(--poll-grayscale, 1));
-}
 [data-mode="grayscale"] .status-actions,
 [data-mode="grayscale"] .status-boosted {
   filter: grayscale(var(--status-grayscale, 1));

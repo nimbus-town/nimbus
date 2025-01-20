@@ -321,10 +321,6 @@
       "dismiss": "Descarta",
       "read": "Llig la descripció de: {0}"
     },
-    "poll": {
-      "ends": "acaba en {0}",
-      "finished": "finalitzada {0}"
-    },
     "replying_to": "En resposta a {0}",
     "spoiler_show_less": "Mostra'm menys",
     "spoiler_show_more": "Mostra'm més",

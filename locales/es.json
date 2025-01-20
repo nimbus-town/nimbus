@@ -350,18 +350,6 @@
     "reply_to_account": "Responder a {0}",
     "replying": "Respondiendo"
   },
-  "polls": {
-    "allow_multiple": "Permitir múltiples opciones",
-    "cancel": "Cancelar",
-    "create": "Crear encuesta",
-    "disallow_multiple": "No permitir múltiples opciones",
-    "expiration": "Caducidad de la encuesta",
-    "hide_votes": "Ocultar el total de votos hasta el final de la encuesta",
-    "option_placeholder": "Opción de encuesta {current}/{max}",
-    "remove_option": "Eliminar opción",
-    "settings": "Opciones de la encuesta",
-    "show_votes": "Mostrar siempre el total de votos"
-  },
   "pwa": {
     "dismiss": "Descartar",
     "install": "Instalar",
@@ -489,7 +477,6 @@
           "favourite": "Favoritas",
           "follow": "Nuevos seguidores",
           "mention": "Menciones",
-          "poll": "Encuestas",
           "reblog": "Retooteo de tus publicaciones",
           "title": "¿Qué notificaciones recibir?"
         },
@@ -633,11 +620,6 @@
       "dismiss": "Descartar",
       "read": "Leer la descripción de la imagen {0}"
     },
-    "poll": {
-      "count": "{0} votos|{0} voto|{0} votos",
-      "ends": "finaliza {0}",
-      "finished": "finalizada {0}"
-    },
     "replying_to": "Respondiendo a {0}",
     "show_full_thread": "Mostrar hilo completo",
     "someone": "alguien",
@@ -668,7 +650,6 @@
     "notifications_follow_request": "Solicitudes de seguimiento",
     "notifications_mention": "Menciones",
     "notifications_more_tooltip": "Filtrar notificaciones por tipo",
-    "notifications_poll": "Encuestas",
     "notifications_reblog": "Retoots",
     "notifications_status": "Publicaciones",
     "notifications_update": "Actualizaciones",

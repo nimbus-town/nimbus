@@ -23,7 +23,6 @@ export function getDefaultDraftItem(options: Partial<Mutable<mastodon.rest.v1.Cr
     spoilerText,
     language,
     mentions,
-    poll,
   } = options
 
   return {
@@ -31,7 +30,6 @@ export function getDefaultDraftItem(options: Partial<Mutable<mastodon.rest.v1.Cr
     initialText,
     params: {
       status: status || '',
-      poll,
       inReplyToId,
       sensitive: sensitive ?? false,
       spoilerText: spoilerText || '',
@@ -54,17 +52,7 @@ export async function getDraftFromStatus(status: mastodon.v1.Status): Promise<Dr
 
   return getDefaultDraftItem((status.mediaAttachments !== undefined && status.mediaAttachments.length > 0)
     ? { ...info, mediaIds: status.mediaAttachments.map(att => att.id) }
-    : {
-        ...info,
-        poll: status.poll
-          ? {
-              expiresIn: Math.abs(new Date().getTime() - new Date(status.poll.expiresAt!).getTime()) / 1000,
-              options: [...status.poll.options.map(({ title }) => title), ''],
-              multiple: status.poll.multiple,
-              hideTotals: status.poll.options[0].votesCount === null,
-            }
-          : undefined,
-      })
+    : { ...info })
 }
 
 function getAccountsToMention(status: mastodon.v1.Status) {

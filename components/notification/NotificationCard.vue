@@ -92,7 +92,7 @@ if (unsupportedEmojiReactionTypes.includes(notification.type))
         </template>
       </StatusCard>
     </template>
-    <template v-else-if="notification.type === 'mention' || notification.type === 'poll' || notification.type === 'status'">
+    <template v-else-if="notification.type === 'mention' || notification.type === 'status'">
       <StatusCard :status="notification.status!" />
     </template>
     <template v-else-if="!unsupportedEmojiReactionTypes.includes(notification.type)">

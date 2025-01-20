@@ -346,18 +346,6 @@
     "reply_to_account": "Відповісти до {0}",
     "replying": "Відповiдь"
   },
-  "polls": {
-    "allow_multiple": "Дозволяти чисельний вибір",
-    "cancel": "Скасувати",
-    "create": "Створити опит",
-    "disallow_multiple": "Не дозволяти чисельний вибір",
-    "expiration": "Завершення опиту",
-    "hide_votes": "Сховати кількість голосів до завершення",
-    "option_placeholder": "Вибір опиту {current}/{max}",
-    "remove_option": "Вилучити вибір",
-    "settings": "Опції опиту",
-    "show_votes": "Завжди показувати кількість голосів"
-  },
   "pwa": {
     "dismiss": "Закрити",
     "install": "Встановити",
@@ -484,7 +472,6 @@
           "favourite": "Уподобання",
           "follow": "Нові підписники",
           "mention": "Згадки",
-          "poll": "Опит",
           "reblog": "Поширення",
           "title": "Які сповіщення отримувати?"
         },
@@ -627,11 +614,6 @@
       "dismiss": "Закрити",
       "read": "Читати {0} опис"
     },
-    "poll": {
-      "count": "{0} голосів|{0} голос|{0} голоси|{0} голосів",
-      "ends": "завершується {0}",
-      "finished": "зевершилось {0}"
-    },
     "replying_to": "Відповідь до {0}",
     "show_full_thread": "Показати ряд дописів",
     "someone": "когось",
@@ -662,7 +644,6 @@
     "notifications_follow_request": "Запит підписки",
     "notifications_mention": "Згадки",
     "notifications_more_tooltip": "Фільтрувати сповіщення за типом",
-    "notifications_poll": "Опити",
     "notifications_reblog": "Поширення",
     "notifications_status": "Статуси",
     "notifications_update": "Оновлення",

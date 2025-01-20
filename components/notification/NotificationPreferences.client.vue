@@ -130,7 +130,6 @@ onActivated(() => (busy.value = false))
                 <CommonCheckbox v-model="pushNotificationData.favourite" hover :label="$t('settings.notifications.push_notifications.alerts.favourite')" />
                 <CommonCheckbox v-model="pushNotificationData.reblog" hover :label="$t('settings.notifications.push_notifications.alerts.reblog')" />
                 <CommonCheckbox v-model="pushNotificationData.mention" hover :label="$t('settings.notifications.push_notifications.alerts.mention')" />
-                <CommonCheckbox v-model="pushNotificationData.poll" hover :label="$t('settings.notifications.push_notifications.alerts.poll')" />
               </fieldset>
               <fieldset flex="~ col" gap-y-1 py-1>
                 <legend>{{ $t('settings.notifications.push_notifications.policy.title') }}</legend>

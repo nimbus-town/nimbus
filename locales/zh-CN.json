@@ -350,18 +350,6 @@
     "reply_to_account": "回复 {0}",
     "replying": "回复"
   },
-  "polls": {
-    "allow_multiple": "允许多选",
-    "cancel": "取消",
-    "create": "新建投票",
-    "disallow_multiple": "禁止多选",
-    "expiration": "投票截止至",
-    "hide_votes": "结束前隐藏投票总数",
-    "option_placeholder": "投票项 {current}/{max}",
-    "remove_option": "移除投票项",
-    "settings": "投票设置",
-    "show_votes": "始终显示投票结果"
-  },
   "pwa": {
     "dismiss": "忽略",
     "install": "安装",
@@ -489,7 +477,6 @@
           "favourite": "喜欢的",
           "follow": "新的关注者",
           "mention": "提及",
-          "poll": "投票",
           "reblog": "转发了你的帖文",
           "title": "接收了什么通知？"
         },
@@ -633,11 +620,6 @@
       "dismiss": "关闭",
       "read": "查看 {0} 的描述"
     },
-    "poll": {
-      "count": "{0} 次投票",
-      "ends": "将在 {0} 结束",
-      "finished": "已在 {0} 结束"
-    },
     "replying_to": "回复{0}",
     "show_full_thread": "显示完整贴文串",
     "someone": "某人",
@@ -668,7 +650,6 @@
     "notifications_follow_request": "请求关注",
     "notifications_mention": "提及",
     "notifications_more_tooltip": "按类型筛选通知",
-    "notifications_poll": "投票",
     "notifications_reblog": "转发",
     "notifications_status": "状态",
     "notifications_update": "更新",

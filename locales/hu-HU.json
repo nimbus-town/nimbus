@@ -350,18 +350,6 @@
     "reply_to_account": "Válasz erre {0}",
     "replying": "Válaszol"
   },
-  "polls": {
-    "allow_multiple": "Több választás megengedése",
-    "cancel": "Mégsem",
-    "create": "Szavazás készítése",
-    "disallow_multiple": "Több válasz tiltása",
-    "expiration": "Szavazás ideje",
-    "hide_votes": "Összes szavazat elrejtése a szavazás végéig",
-    "option_placeholder": "Szavazás választás {current}/{max}",
-    "remove_option": "Választás eltávolítása",
-    "settings": "Szavazás beállítások",
-    "show_votes": "Összes szavazat mutatása"
-  },
   "pwa": {
     "dismiss": "Elvetés",
     "install": "Telepítés",
@@ -489,7 +477,6 @@
           "favourite": "Kedvencek",
           "follow": "Új követők",
           "mention": "megjegyzések",
-          "poll": "Szavazások",
           "reblog": "Kiemelések",
           "title": "Milyen értesítéseket kapj?"
         },
@@ -633,11 +620,6 @@
       "dismiss": "Elvetés",
       "read": "Olvassa el a {0} leírását"
     },
-    "poll": {
-      "count": "{0} szavazat|{0} szavazat|{0} szavazat",
-      "ends": "véget ér {0}",
-      "finished": "véget ért {0}"
-    },
     "replying_to": "Válasz {0}-nak",
     "show_full_thread": "Teljes szál megjelenítése",
     "someone": "valaki",
@@ -668,7 +650,6 @@
     "notifications_follow_request": "Követés kérése",
     "notifications_mention": "Említések",
     "notifications_more_tooltip": "Az értesítések szűrése tipus szerint",
-    "notifications_poll": "Szavazás",
     "notifications_reblog": "Kiemelés",
     "notifications_status": "Státusz",
     "notifications_update": "Frissítés",

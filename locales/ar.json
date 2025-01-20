@@ -319,18 +319,6 @@
     "reply_to_account": "الرد على {0}",
     "replying": "الرد"
   },
-  "polls": {
-    "allow_multiple": "السماح بالاختيار المتعدد",
-    "cancel": "إلغاء",
-    "create": "إنشاء استطلاع",
-    "disallow_multiple": "عدم السماح بالاختيار المتعدد",
-    "expiration": "انتهاء صلاحية الاستطلاع",
-    "hide_votes": "إخفاء إجمالي الأصوات حتى النهاية",
-    "option_placeholder": "اختيار الاستطلاع {current}/{max}",
-    "remove_option": "إزالة الاختيار",
-    "settings": "خيارات الاستطلاع",
-    "show_votes": "اعرض دائمًا إجمالي الأصوات"
-  },
   "pwa": {
     "dismiss": "تجاهل",
     "install": "تحميل",
@@ -455,7 +443,6 @@
           "favourite": "المفضلة",
           "follow": "متابعين جدد",
           "mention": "المنشورات التي تذكرني",
-          "poll": "استطلاعات الرأي",
           "reblog": "إعادة نشر منشورك",
           "title": "ما هي التنبيهات التي تريد تلقيها؟"
         },
@@ -588,11 +575,6 @@
       "dismiss": "تجاهل",
       "read": "اقرأ وصف {0}"
     },
-    "poll": {
-      "count": "لا توجد اصوات|صوت {0}|صوتين|{0} أصوات|{0} صوت|{0} صوت",
-      "ends": "ينتهي في {0}",
-      "finished": "انتهى في {0}"
-    },
     "replying_to": "الرد على {0}",
     "show_full_thread": "إظهار المحادثة كاملاً",
     "someone": "شخص ما",
@@ -623,7 +605,6 @@
     "notifications_follow_request": "طلب المتابعة",
     "notifications_mention": "موجهة إلي",
     "notifications_more_tooltip": "تصفية الإخطارات حسب النوع",
-    "notifications_poll": "استطلاع",
     "notifications_reblog": "إعادة المدونات",
     "notifications_status": "حالة",
     "notifications_update": "التحديثات",

@@ -390,7 +390,6 @@
           "favourite": "Favoriler",
           "follow": "Yeni takipçiler",
           "mention": "Bahsetmeler",
-          "poll": "Anketler",
           "reblog": "Gönderinizi yeniden bloglamalar",
           "title": "Hangi bildirimleri alacaksınız??"
         },
@@ -518,11 +517,6 @@
       "desc": "Açıklama",
       "dismiss": "Görmezden gel",
       "read": "{0} açıklamasını oku"
-    },
-    "poll": {
-      "count": "{0} oy",
-      "ends": "{0} biter",
-      "finished": "{0} bitti"
     },
     "replying_to": "{0} cevap veriliyor",
     "show_full_thread": "Tüm konuyu göster",

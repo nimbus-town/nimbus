@@ -208,7 +208,6 @@
       },
       "push_notifications": {
         "alerts": {
-          "poll": "Enquetes",
           "reblog": "Compartilhamentos",
           "title": "Quais notificações quero receber?"
         },
