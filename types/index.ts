@@ -1,4 +1,5 @@
 import type { RouteLocationRaw } from '#vue-router'
+import type { ProfileViewDetailed } from '@atproto/api/dist/client/types/app/bsky/actor/defs'
 import type { mastodon } from 'masto'
 import type { MarkNonNullable, Mutable } from './utils'
 
@@ -13,11 +14,18 @@ export interface AppInfo {
 }
 
 export interface UserLogin {
+  /** @deprecated */
   server: string
+  /** @deprecated use session instead */
   token?: string
+  /** @deprecated for bsky we now use profile */
   account: mastodon.v1.AccountCredentials
+  /** @deprecated use session instead */
   vapidKey?: string
   pushSubscription?: mastodon.v1.WebPushSubscription
+
+  did: `did:${string}`
+  profile: ProfileViewDetailed
 }
 
 export type PaginatorState = 'idle' | 'loading' | 'done' | 'error'

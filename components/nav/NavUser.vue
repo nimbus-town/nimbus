@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { busy, oauth, singleInstanceServer } = useSignIn()
+const { busy, signIn, singleInstanceServer } = useSignIn()
 </script>
 
 <template>
@@ -24,7 +24,7 @@ const { busy, oauth, singleInstanceServer } = useSignIn()
       flex="~ row"
       gap-x-1 items-center justify-center btn-solid text-sm px-2 py-1 xl:hidden
       :disabled="busy"
-      @click="oauth()"
+      @click="signIn()"
     >
       <span v-if="busy" aria-hidden="true" block animate animate-spin preserve-3d class="rtl-flip">
         <span block i-ri:loader-2-fill aria-hidden="true" />

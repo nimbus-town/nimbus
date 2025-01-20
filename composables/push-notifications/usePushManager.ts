@@ -30,11 +30,11 @@ export function usePushManager() {
   const configuredPolicy = useLocalStorage<PushNotificationPolicy>(STORAGE_KEY_NOTIFICATION_POLICY, {})
   const pushNotificationData = ref(createRawSettings(
     currentUser.value?.pushSubscription,
-    configuredPolicy.value[currentUser.value?.account?.acct ?? ''],
+    configuredPolicy.value[currentUser.value?.did ?? ''],
   ))
   const oldPushNotificationData = ref(createRawSettings(
     currentUser.value?.pushSubscription,
-    configuredPolicy.value[currentUser.value?.account?.acct ?? ''],
+    configuredPolicy.value[currentUser.value?.did ?? ''],
   ))
   const saveEnabled = computed(() => {
     const current = pushNotificationData.value
@@ -50,11 +50,11 @@ export function usePushManager() {
     isSubscribed.value = !!subscription
     pushNotificationData.value = createRawSettings(
       subscription,
-      configuredPolicy.value[currentUser.value?.account?.acct ?? ''],
+      configuredPolicy.value[currentUser.value?.did ?? ''],
     )
     oldPushNotificationData.value = createRawSettings(
       subscription,
-      configuredPolicy.value[currentUser.value?.account?.acct ?? ''],
+      configuredPolicy.value[currentUser.value?.did ?? ''],
     )
   }, { immediate: true, flush: 'post' })
 
@@ -69,7 +69,7 @@ export function usePushManager() {
     if (!currentUser.value)
       return 'no-user'
 
-    const { pushSubscription, server, token, vapidKey, account: { acct } } = currentUser.value
+    const { pushSubscription, server, token, vapidKey, did } = currentUser.value
 
     if (!token || !server || !vapidKey)
       return 'invalid-vapid-key'
@@ -90,6 +90,7 @@ export function usePushManager() {
         server,
         token,
         vapidKey,
+        did: currentUser.value.did,
       },
       notificationData ?? {
         alerts: {
@@ -104,7 +105,7 @@ export function usePushManager() {
     )
     await nextTick()
     notificationPermission.value = permission
-    hiddenNotification.value[acct] = true
+    hiddenNotification.value[did] = true
 
     return 'subscribed'
   }
@@ -131,9 +132,9 @@ export function usePushManager() {
     }
 
     if (policy)
-      configuredPolicy.value[currentUser.value!.account.acct ?? ''] = policy
+      configuredPolicy.value[currentUser.value!.did ?? ''] = policy
     else
-      configuredPolicy.value[currentUser.value!.account.acct ?? ''] = pushNotificationData.value.policy
+      configuredPolicy.value[currentUser.value!.did ?? ''] = pushNotificationData.value.policy
 
     await nextTick()
   }
@@ -147,7 +148,7 @@ export function usePushManager() {
       follow: previous.follow,
       policy: previous.policy,
     }
-    configuredPolicy.value[currentUser.value!.account.acct ?? ''] = previous.policy
+    configuredPolicy.value[currentUser.value!.did ?? ''] = previous.policy
   }
 
   const updateSubscription = async () => {

@@ -24,6 +24,14 @@ useHydratedHead({
       </NuxtLink>
     </template>
 
-    <TimelineHome v-if="isHydrated" />
+    <template v-if="currentUser">
+      <p>Hello {{ currentUser?.profile.handle }}!</p>
+      <p>Here you will see your timeline later on</p>
+    </template>
+    <template v-else>
+      <p>You are currently not authenticated.</p>
+      <p>Here you will see a public timeline later on</p>
+    </template>
+    <!-- <TimelineHome v-if="isHydrated" /> -->
   </MainContent>
 </template>

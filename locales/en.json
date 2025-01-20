@@ -187,7 +187,7 @@
     "account_not_found": "Account {0} not found",
     "explore_list_empty": "Nothing is trending right now. Check back later!",
     "file_size_cannot_exceed_n_mb": "File size cannot exceed {0}MB",
-    "sign_in_error": "Cannot connect to the server.",
+    "sign_in_error": "Cannot login using handle.",
     "status_not_found": "Post not found",
     "unsupported_file_format": "Unsupported file format"
   },
@@ -725,7 +725,7 @@
   },
   "user": {
     "add_existing": "Add an existing account",
-    "server_address_label": "Bluesky Server Address",
+    "handle_label": "Enter your handle",
     "sign_in_desc": "Sign in to follow profiles or hashtags, favorite, share and reply to posts, or interact from your account on a different server.",
     "sign_in_notice_title": "Viewing {0} public data",
     "sign_out_account": "Sign out {0}",
