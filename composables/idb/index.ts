@@ -1,6 +1,6 @@
 import type { MaybeRefOrGetter, RemovableRef } from '@vueuse/core'
 import type { UseIDBOptions } from '@vueuse/integrations/useIDBKeyval'
-import { del, get, set, update } from '~/utils/elk-idb'
+import { del, get, set, update } from '~/utils/nimbus-idb'
 
 export interface UseAsyncIDBKeyvalReturn<T> {
   set: (value: T) => Promise<void>

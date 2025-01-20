@@ -25,6 +25,24 @@ importers:
 
   .:
     dependencies:
+      '@atcute/base32':
+        specifier: ^1.0.0
+        version: 1.0.1
+      '@atcute/bluesky':
+        specifier: ^1.0.6
+        version: 1.0.9(@atcute/client@2.0.6)
+      '@atcute/cbor':
+        specifier: ^1.0.1
+        version: 1.0.6
+      '@atcute/cid':
+        specifier: ^1.0.0
+        version: 1.0.2
+      '@atcute/client':
+        specifier: ^2.0.1
+        version: 2.0.6
+      '@atcute/tid':
+        specifier: ^1.0.0
+        version: 1.0.1
       '@emoji-mart/data':
         specifier: ^1.1.2
         version: 1.1.2
@@ -435,6 +453,29 @@ packages:
     engines: {node: '>=10'}
     peerDependencies:
       ajv: '>=8'
+
+  '@atcute/base32@1.0.1':
+    resolution: {integrity: sha512-oHnrPXDlkLd4283rz5C4KLnL46/D9mjpFgK17iTPU7OooyNSz+elr8kXN9ReZgzgnjWZHIr8Dp2splEm9hjNhg==}
+
+  '@atcute/bluesky@1.0.9':
+    resolution: {integrity: sha512-06UbqlnREobZB5vVlstJXsJJVNBPr/RhauVVWQk9k8eIfzyiV9uxklc5olv+wULld+iBL6OQItnTEyZPv8QFLw==}
+    peerDependencies:
+      '@atcute/client': ^1.0.0 || ^2.0.0
+
+  '@atcute/cbor@1.0.6':
+    resolution: {integrity: sha512-ONqrK37COOTkp92gzmxI5a3per9DLPJf60SSlK3Z9vIps7sYEnTq+mL5PLYzbP8l+/V3GVdzpULLphj37eNuXg==}
+
+  '@atcute/cid@1.0.2':
+    resolution: {integrity: sha512-aRtt4/5pHCpKVvqtuvxWC8Koet9A7mT8t3fWspOJSj6lcP2QyKKpSUx3z0jSZ+M1Kf2UZ25eo6btcM5zmmhK3g==}
+
+  '@atcute/client@2.0.6':
+    resolution: {integrity: sha512-mhdqEicGUx0s5HTFOLpz91rcLS9j/g63de0nmAqv7blhU3j+xBf4le54qr2YIXNfnReZI7EwLYLX/YIBez4LGA==}
+
+  '@atcute/tid@1.0.1':
+    resolution: {integrity: sha512-3CjXIauzpIXi86MS1HLCDTzXmxtghSynNpWygd6pD/hnwJX4CK04ZU7S44qGVcLQmpiuAiGtqABkBAAK3V8BRw==}
+
+  '@atcute/varint@1.0.1':
+    resolution: {integrity: sha512-GXWu+CIfpQGSMSOSUskjwU/licxH8WcyX4t11mRKafQIE4Yi3v5GuchMYVOu89YX15tY93QzY/0zMQDCWoke8Q==}
 
   '@babel/code-frame@7.24.7':
     resolution: {integrity: sha512-BcYH1CVJBO9tvyIZ2jVeXgSIMvGZ2FDRvDdOIVQyuklNKSsx+eppDEBq/g47Ayw+RqNFE+URvOShmf+f/qwAlA==}
@@ -8744,6 +8785,28 @@ snapshots:
       json-schema: 0.4.0
       jsonpointer: 5.0.1
       leven: 3.1.0
+
+  '@atcute/base32@1.0.1': {}
+
+  '@atcute/bluesky@1.0.9(@atcute/client@2.0.6)':
+    dependencies:
+      '@atcute/client': 2.0.6
+
+  '@atcute/cbor@1.0.6':
+    dependencies:
+      '@atcute/base32': 1.0.1
+      '@atcute/cid': 1.0.2
+
+  '@atcute/cid@1.0.2':
+    dependencies:
+      '@atcute/base32': 1.0.1
+      '@atcute/varint': 1.0.1
+
+  '@atcute/client@2.0.6': {}
+
+  '@atcute/tid@1.0.1': {}
+
+  '@atcute/varint@1.0.1': {}
 
   '@babel/code-frame@7.24.7':
     dependencies:

@@ -70,6 +70,18 @@ export default defineNuxtConfig({
     'change-case': 'scule',
     'semver': resolve('./mocks/semver'),
   },
+  // Once we're done (don't change order):
+  // - remove components folder
+  // - rename bsky-components folder to components
+  // - remove this entry
+  components: [
+    {
+      path: '~/bsky-components',
+    },
+    {
+      path: '~/components',
+    },
+  ],
   imports: {
     dirs: [
       './composables/masto',
