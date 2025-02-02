@@ -479,6 +479,7 @@
           "favourite": "Favoritos",
           "follow": "Novos seguidores",
           "mention": "Menções",
+          "poll": "Sondagens",
           "reblog": "Partilha das sua publicação",
           "title": "Que notificações quer receber?"
         },
@@ -626,7 +627,8 @@
     "poll": {
       "count": "{0} votos|{0} voto|{0} votos",
       "ends": "termina {0}",
-      "finished": "terminou {0}"
+      "finished": "terminou {0}",
+      "update": "Atualizar sondagem"
     },
     "replying_to": "Em resposta a {0}",
     "show_full_thread": "Mostrar toda a conversa",
