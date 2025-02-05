@@ -117,7 +117,7 @@ We've added some `UnoCSS` utilities styles to help you with that:
 
 We are using [vue-i18n](https://vue-i18n.intlify.dev/) via [nuxt-i18n](https://i18n.nuxtjs.org/) to handle internationalization.
 
-You can check the current [translation status](https://docs.nimbus.town/docs/guide/contributing#translation-status): more instructions on the table caption.
+You can check the current [translation status](https://docs.nimbus.town/guide/contributing#translation-status): more instructions on the table caption.
 
 If you are updating a translation in your local environment, you can run the following commands to check the status:
 
