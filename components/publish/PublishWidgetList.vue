@@ -5,9 +5,6 @@ const {
   draftKey,
   initial = getDefaultDraftItem,
   expanded = false,
-  placeholder,
-  dialogLabelledBy,
-  inReplyToId,
 } = defineProps<{
   draftKey: string
   initial?: () => DraftItem
