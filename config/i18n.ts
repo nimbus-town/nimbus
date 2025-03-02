@@ -257,6 +257,11 @@ const locales: (LocaleObjectData<LocaleVariantKeys> | LocaleObjectData<Locale>)[
     file: 'vi-VN.json',
     name: 'Tiếng Việt',
   },
+  {
+    code: 'cy',
+    file: 'cy.json',
+    name: 'Cymraeg',
+  },
 ]
 
 export function isLocaleVariantKey(val: string): val is LocaleVariantKeys {

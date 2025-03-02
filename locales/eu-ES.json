@@ -334,10 +334,12 @@
     "zen_mode": "ZEN modua"
   },
   "notification": {
+    "and": "eta",
     "favourited_post": "(e)k zure bidalketa gogoko egin du",
     "followed_you": "(e)k jarraitu dizu",
     "followed_you_count": "{0} pertsonak jarraitu dizute|pertsona {0}ek jarraitu dizu|{0} pertsonak jarraitu dizute",
     "missing_type": "MISSING notification.type:",
+    "others": "beste {0}(e)k|beste {0}ek|beste {0}(e)k",
     "reblogged_post": "(e)k zure bidalketari bultzada eman dio",
     "reported": "{0}(e)k {1} salatu du",
     "request_to_follow": "(e)k jarraipen-eskaera bidali dizu",
@@ -432,7 +434,7 @@
       "sponsor_action": "Eman babesa",
       "sponsor_action_desc": "Nimbus garatzen duen taldeari babesa emateko",
       "sponsors": "Babesleak",
-      "sponsors_body_1": "Nimbus ondorengoen babes eskuzabalari eta laguntzari esker izan da posible egitea:",
+      "sponsors_body_1": "Nimbus honakoen babes eskuzabalari eta laguntzari esker izan da posible egitea:",
       "sponsors_body_2": "Baita Nimbus taldea eta bere kideak babesten dituzten enpresa eta norbanakoei esker.",
       "sponsors_body_3": "Aplikazioa gogoko baduzu, agian babesa eman diezagukezu:",
       "version": "Bertsioa"
@@ -463,7 +465,7 @@
         "add": "Gehitu",
         "choose_language": "Hautatu hizkuntza",
         "heading": "Itzulpenak",
-        "hide_specific": "Ezkutatu itzulpena ondorengo hizkuntzetarako:",
+        "hide_specific": "Ezkutatu itzulpena honako hizkuntzetarako:",
         "remove": "Kendu"
       }
     },
@@ -619,6 +621,13 @@
       "desc": "Deskribapena",
       "dismiss": "Baztertu",
       "read": "Irakurri {0} deskribapena"
+    },
+    "pinned": "Finkatutako bidalketa",
+    "poll": {
+      "count": "{0} boto|boto {0}|{0} boto",
+      "ends": "epemuga: {0}",
+      "finished": "amaiera: {0}",
+      "update": "Freskatu"
     },
     "replying_to": "{0}(r)i erantzunez",
     "show_full_thread": "Erakutsi hari osoa",

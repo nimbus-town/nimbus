@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { CommonRouteTabMoreOption, CommonRouteTabOption } from '~/types'
 
-const { options, command, replace, preventScrollTop = false, moreOptions } = defineProps<{
+const { options, command, preventScrollTop = false } = defineProps<{
   options: CommonRouteTabOption[]
   moreOptions?: CommonRouteTabMoreOption
   command?: boolean
@@ -14,11 +14,11 @@ const router = useRouter()
 
 useCommands(() => command
   ? options.map(tab => ({
-    scope: 'Tabs',
-    name: tab.display,
-    icon: tab.icon ?? 'i-ri:file-list-2-line',
-    onActivate: () => router.replace(tab.to),
-  }))
+      scope: 'Tabs',
+      name: tab.display,
+      icon: tab.icon ?? 'i-ri:file-list-2-line',
+      onActivate: () => router.replace(tab.to),
+    }))
   : [])
 </script>
 

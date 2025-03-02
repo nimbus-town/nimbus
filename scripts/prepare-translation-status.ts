@@ -1,10 +1,10 @@
 import type { Locale } from '@intlify/core-base'
 import type { LocaleEntry } from '../docs/types'
+import type { NimbusTranslationStatus } from '~/types/translation-status'
 import { Buffer } from 'node:buffer'
 import { readFile, writeFile } from 'node:fs/promises'
 import { createResolver } from '@nuxt/kit'
 import { flatten } from 'flat'
-import type { NimbusTranslationStatus } from '~/types/translation-status'
 import { countryLocaleVariants, currentLocales, isLocaleVariantKey } from '../config/i18n'
 
 export const localeData: [code: Locale, file: string[], title: string][]

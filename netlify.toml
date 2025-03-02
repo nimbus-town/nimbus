@@ -11,3 +11,10 @@ from = "https://chat.nimbus.town"
 to = "https://discord.gg/JuFDMrTRSD"
 status = 301
 force = true
+
+# Redirect to Discord server
+[[redirects]]
+from = "https://code.elk.zone"
+to = "https://github.com/elk-zone/elk"
+status = 301
+force = true

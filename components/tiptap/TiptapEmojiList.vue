@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { getEmojiMatchesInText } from '@iconify/utils/lib/emoji/replace/find'
-import { emojiFilename, emojiPrefix, emojiRegEx } from '~~/config/emojis'
 import type { CommandHandler } from '~/composables/command'
 import type { Emoji } from '~/composables/tiptap/suggestion'
+import { getEmojiMatchesInText } from '@iconify/utils/lib/emoji/replace/find'
+import { emojiFilename, emojiPrefix, emojiRegEx } from '~~/config/emojis'
 
 const { items, command } = defineProps<{
   items: Emoji[]
