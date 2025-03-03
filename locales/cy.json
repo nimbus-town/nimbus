@@ -16,7 +16,6 @@
     "favourites": "Ffefrynnau",
     "follow": "Dilyn",
     "follow_back": "Dilyn yn ôl",
-    "follow_requested": "Wedi gofyn i ddilyn",
     "followers": "Dilynwyr",
     "followers_count": "{0} Dilynwr",
     "following": "Yn dilyn",
@@ -191,7 +190,6 @@
     "followed_you_count": "Gwnaeth {0} person eich dilyn",
     "missing_type": "HEB notification.type:",
     "reblogged_post": "bŵstiodd eich tŵt",
-    "request_to_follow": "gofynwyd i eich dilyn",
     "signed_up": "wedi ymuno",
     "update_status": "wedi golygu ei tŵt"
   },

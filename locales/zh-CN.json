@@ -7,8 +7,6 @@
     "route_loaded": "页面{0}已加载"
   },
   "account": {
-    "authorize": "同意关注请求",
-    "authorized": "你同意了关注请求",
     "avatar_description": "{0} 的头像",
     "blocked_by": "您已被此用户拉黑",
     "blocked_domains": "已拉黑的域名",
@@ -19,7 +17,6 @@
     "favourites": "喜欢的帖文",
     "follow": "关注",
     "follow_back": "回关",
-    "follow_requested": "已申请关注",
     "followers": "关注者",
     "followers_count": "被 {0} 人关注",
     "following": "正在关注",
@@ -40,16 +37,11 @@
     "profile_description": "{0} 的个人资料头图",
     "profile_personal_note": "私人备注",
     "profile_unavailable": "个人资料不可见",
-    "reject": "拒绝关注请求",
-    "rejected": "你拒绝了关注请求",
-    "request_follow": "请求关注",
-    "requested": "{0} 向你发送了关注请求",
     "unblock": "取消拉黑",
     "unfollow": "取消关注",
     "unmute": "取消屏蔽",
     "view_other_followers": "其他站点上的关注者可能不会在这里显示。",
-    "view_other_following": "其他站点上正在关注的人可能不会在这里显示。",
-    "withdraw_follow_request": "撤销关注请求"
+    "view_other_following": "其他站点上正在关注的人可能不会在这里显示。"
   },
   "action": {
     "apply": "应用",
@@ -340,7 +332,6 @@
     "missing_type": "未知的通知类型：",
     "reblogged_post": "转发了你的帖文",
     "reported": "{0} 举报了 {1}",
-    "request_to_follow": "请求关注你",
     "signed_up": "注册了",
     "update_status": "更新了他们的状态"
   },
@@ -647,7 +638,6 @@
     "notifications_all": "全部",
     "notifications_favourite": "喜欢",
     "notifications_follow": "关注",
-    "notifications_follow_request": "请求关注",
     "notifications_mention": "提及",
     "notifications_more_tooltip": "按类型筛选通知",
     "notifications_reblog": "转发",

@@ -7,8 +7,6 @@
     "route_loaded": "Seite {0} geladen"
   },
   "account": {
-    "authorize": "Erlauben zu folgen",
-    "authorized": "Du hast die Folgeanfrage erlaubt",
     "avatar_description": "Avatar von {0}",
     "blocked_by": "Du wurdest von diesem Account geblockt",
     "blocked_domains": "Geblockte Bluesky-Instanzen",
@@ -19,7 +17,6 @@
     "favourites": "Favoriten",
     "follow": "Folgen",
     "follow_back": "Zurück folgen",
-    "follow_requested": "Angefragt",
     "followers": "Follower",
     "followers_count": "{0} Follower",
     "following": "Du folgst",
@@ -40,16 +37,11 @@
     "profile_description": "Profil von {0}",
     "profile_personal_note": "Persönliche Notiz",
     "profile_unavailable": "Profil nicht verfügbar",
-    "reject": "Folgeanfrage ablehnen",
-    "rejected": "Du hast den Antrag abgelehnt",
-    "request_follow": "Folgeanfrage senden",
-    "requested": "{0} will dir folgen",
     "unblock": "Entblocken",
     "unfollow": "Entfolgen",
     "unmute": "Stummschaltung aufheben",
     "view_other_followers": "Follower aus anderen Instanzen werden möglicherweise nicht angezeigt.",
-    "view_other_following": "Das Folgen von anderen Instanzen wird möglicherweise nicht angezeigt.",
-    "withdraw_follow_request": "Folgeanfrage zurückziehen"
+    "view_other_following": "Das Folgen von anderen Instanzen wird möglicherweise nicht angezeigt."
   },
   "action": {
     "apply": "Anwenden",
@@ -341,7 +333,6 @@
     "missing_type": "Fehlender notification.type:",
     "reblogged_post": "hat deinen Beitrag geteilt",
     "reported": "{0} hat {1} gemeldet",
-    "request_to_follow": "möchte dir folgen",
     "signed_up": "hat sich registriert",
     "update_status": "hat diesen Beitrag aktualisiert"
   },
@@ -646,7 +637,6 @@
     "notifications_all": "Alle",
     "notifications_favourite": "Favorisiert",
     "notifications_follow": "Folgen",
-    "notifications_follow_request": "Folgeanfrage",
     "notifications_mention": "Erwähnung",
     "notifications_more_tooltip": "Benachrichtigungen nach Typ filtern",
     "notifications_reblog": "Geteilt",

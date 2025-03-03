@@ -7,8 +7,6 @@
     "route_loaded": "Sivu {0} ladattu"
   },
   "account": {
-    "authorize": "Valtuuta seurataksesi",
-    "authorized": "Olet valtuuttanut pyynnön",
     "avatar_description": "Käyttäjän {0} profiilikuva",
     "blocked_by": "Tämä käyttäjä on estänyt sinut.",
     "blocked_domains": "Estetyt verkkotunnukset",
@@ -19,7 +17,6 @@
     "favourites": "Suosikit",
     "follow": "Seuraa",
     "follow_back": "Seuraa takaisin",
-    "follow_requested": "Pyydetty",
     "followers": "Seuraajat",
     "followers_count": "{0} seuraajaa|{0} seuraaja|{0} seuraajaa",
     "following": "Seuratut",
@@ -40,16 +37,11 @@
     "profile_description": "Käyttäjän {0} profiilin ylätunniste",
     "profile_personal_note": "Henkilökohtainen merkintä",
     "profile_unavailable": "Profiili ei saatavilla",
-    "reject": "Hylkää seuraamispyyntö",
-    "rejected": "Olet hylännyt pyynnön",
-    "request_follow": "Pyydä lupaa seurata",
-    "requested": "{0} on pyytänyt lupaa saada seurata sinua",
     "unblock": "Poista esto",
     "unfollow": "Älä seuraa",
     "unmute": "Poista hiljennys",
     "view_other_followers": "Seuraajat muilta palvelimilta eivät välttämättä näy.",
-    "view_other_following": "Seuratut muilta palvelimilta eivät välttämättä näy.",
-    "withdraw_follow_request": "Peruuta seuraamispyyntö"
+    "view_other_following": "Seuratut muilta palvelimilta eivät välttämättä näy."
   },
   "action": {
     "apply": "Käytä",
@@ -340,7 +332,6 @@
     "missing_type": "MISSING notification.type:",
     "reblogged_post": "tehosti julkaisuasi",
     "reported": "{0} ilmiantoi käyttäjän {1}",
-    "request_to_follow": "pyysi saada seurata sinua",
     "signed_up": "rekisteröityi",
     "update_status": "päivitti julkaisunsa"
   },
@@ -647,7 +638,6 @@
     "notifications_all": "Kaikki",
     "notifications_favourite": "Suosikki",
     "notifications_follow": "Seuraaminen",
-    "notifications_follow_request": "Seuraamispyyntö",
     "notifications_mention": "Maininnat",
     "notifications_more_tooltip": "Suodata ilmoitustyypin perusteella",
     "notifications_reblog": "Tehostus",

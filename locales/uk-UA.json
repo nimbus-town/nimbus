@@ -17,7 +17,6 @@
     "favourites": "Уподобані",
     "follow": "Підписатися",
     "follow_back": "Підписатися взаємно",
-    "follow_requested": "Запитані",
     "followers": "Підписники",
     "followers_count": "{0} підписників|{0} підписник|{0} підписники|{0} підписників",
     "following": "Підписані",
@@ -38,16 +37,11 @@
     "profile_description": "Заголовок профілю {0}",
     "profile_personal_note": "Нотатка",
     "profile_unavailable": "Профіль недоступний",
-    "reject": "Відхилити підписку",
-    "rejected": "Ви відхилили запит",
-    "request_follow": "Запит підписки",
-    "requested": "{0} запитали підписку на вас",
     "unblock": "Розблочити",
     "unfollow": "Відписатися",
     "unmute": "Розіґнорити",
     "view_other_followers": "Підписники з інших серверів можуть не відображатися.",
-    "view_other_following": "Підписки з інших серверів можуть не відображатися.",
-    "withdraw_follow_request": "Відкликати запит підписки"
+    "view_other_following": "Підписки з інших серверів можуть не відображатися."
   },
   "action": {
     "apply": "Застосувати",
@@ -336,7 +330,6 @@
     "missing_type": "ВІДСУТНІЙ notification.type:",
     "reblogged_post": "поширили допис",
     "reported": "{0} поскаржилися на {1}",
-    "request_to_follow": "запитали підписку на вас",
     "signed_up": "долучилися",
     "update_status": "оновили допис"
   },
@@ -641,7 +634,6 @@
     "notifications_all": "Всі",
     "notifications_favourite": "Уподобані",
     "notifications_follow": "Підписки",
-    "notifications_follow_request": "Запит підписки",
     "notifications_mention": "Згадки",
     "notifications_more_tooltip": "Фільтрувати сповіщення за типом",
     "notifications_reblog": "Поширення",

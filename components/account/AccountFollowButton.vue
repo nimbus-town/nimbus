@@ -98,16 +98,12 @@ const buttonStyle = computed(() => {
         <span nimbus-group-hover="hidden">{{ relationship?.followedBy ? $t('account.mutuals') : $t('account.following') }}</span>
         <span hidden nimbus-group-hover="inline">{{ $t('account.unfollow') }}</span>
       </template>
-      <template v-else-if="relationship?.requested">
-        <span nimbus-group-hover="hidden">{{ $t('account.follow_requested') }}</span>
-        <span hidden nimbus-group-hover="inline">{{ $t('account.withdraw_follow_request') }}</span>
-      </template>
       <template v-else-if="relationship ? relationship.followedBy : context === 'followedBy'">
         <span nimbus-group-hover="hidden">{{ $t('account.follows_you') }}</span>
-        <span hidden nimbus-group-hover="inline">{{ account.locked ? $t('account.request_follow') : $t('account.follow_back') }}</span>
+        <span hidden nimbus-group-hover="inline">{{ $t('account.follow_back') }}</span>
       </template>
       <template v-else>
-        <span>{{ account.locked ? $t('account.request_follow') : $t('account.follow') }}</span>
+        <span>{{ $t('account.follow') }}</span>
       </template>
     </template>
   </button>
