@@ -17,7 +17,6 @@
     "favourites": "Aimés",
     "follow": "Suivre",
     "follow_back": "Suivre en retour",
-    "follow_requested": "Abonnement demandé",
     "followers": "Abonné·e·s",
     "followers_count": "{0} abonné·e|{0} abonné·e|{0} abonné·e·s",
     "following": "Suivi·e",
@@ -37,13 +36,11 @@
     "profile_description": "En-tête du profil de {0}",
     "profile_personal_note": "Note personnelle",
     "profile_unavailable": "Profil non accessible",
-    "request_follow": "Demander à suivre",
     "unblock": "Débloquer",
     "unfollow": "Ne plus suivre",
     "unmute": "Réafficher",
     "view_other_followers": "Les comptes abonnés d'autres instances peuvent ne pas être affichés.",
-    "view_other_following": "Les comptes suivis d'autres instances peuvent ne pas être affichés.",
-    "withdraw_follow_request": "Retirer la demande de suivi"
+    "view_other_following": "Les comptes suivis d'autres instances peuvent ne pas être affichés."
   },
   "action": {
     "apply": "Appliquer",
@@ -303,7 +300,6 @@
     "missing_type": "MISSING notification.type:",
     "reblogged_post": "a relayé votre message",
     "reported": "{0} a signalé {1}",
-    "request_to_follow": "vous demande de le suivre",
     "signed_up": "s'est inscrit·e",
     "update_status": "a posté un nouveau message"
   },
@@ -602,7 +598,6 @@
     "notifications_all": "Tout",
     "notifications_favourite": "f",
     "notifications_follow": "Suivre",
-    "notifications_follow_request": "Demande de suivi",
     "notifications_mention": "Mentions",
     "notifications_more_tooltip": "Filtrer les notifications par type",
     "notifications_reblog": "Partager",

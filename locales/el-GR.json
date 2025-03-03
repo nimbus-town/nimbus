@@ -7,8 +7,6 @@
     "route_loaded": "Η σελίδα {0} φορτώθηκε"
   },
   "account": {
-    "authorize": "Εξουσιοδότησε για να ακολουθήσεις",
-    "authorized": "You have Authorized the request",
     "avatar_description": "το άβαταρ του χρήστη {0}",
     "blocked_by": "Είσαι αποκλεισμένος από αυτόν τον χρήστη.",
     "blocked_domains": "Αποκλεισμένοι τομείς",
@@ -19,7 +17,6 @@
     "favourites": "Αγαπημένα",
     "follow": "Ακολούθησε",
     "follow_back": "Ακολούθησε και συ",
-    "follow_requested": "Αιτήθηκε",
     "followers": "Ακόλουθοι",
     "followers_count": "{0} Ακόλουθοι|{0} Ακόλουθος|{0} Ακόλουθοι",
     "following": "Ακολουθεί",
@@ -40,16 +37,11 @@
     "profile_description": "Κεφαλίδα προφίλ του χρήστη {0}",
     "profile_personal_note": "Προσωπική Σημείωση",
     "profile_unavailable": "Μη διαθέσιμο προφίλ",
-    "reject": "Άρνηση ακολούθησης",
-    "rejected": "Αρνήθηκες το αίτημα",
-    "request_follow": "Αίτημα ακολούθησης",
-    "requested": "Ο χρήστης {0} ζήτησε να σε ακολουθήσει",
     "unblock": "Άρση αποκλεισμού",
     "unfollow": "Άρση ακολούθησης",
     "unmute": "Άρση σίγασης",
     "view_other_followers": "Οι ακόλουθοι από άλλες οντότητες μπορεί να μην εμφανίζονται.",
-    "view_other_following": "Αυτοί που ακολουθείς από άλλες οντότητες μπορεί να μην εμφανίζονται.",
-    "withdraw_follow_request": "Ανάκληση αιτήματος ακολούθησης"
+    "view_other_following": "Αυτοί που ακολουθείς από άλλες οντότητες μπορεί να μην εμφανίζονται."
   },
   "action": {
     "apply": "Εφαρμογή",
@@ -334,7 +326,6 @@
     "missing_type": "ΛΕΙΠΕΙ ειδοποίηση.τύπος:",
     "reblogged_post": "ενίσχυσε την ανάρτησή σου",
     "reported": "Ο χρήστης {0} ανέφερε {1}",
-    "request_to_follow": "αιτήθηκε να σε ακολουθήσει",
     "signed_up": "έκανε εγγραφή",
     "update_status": "ενημέρωσε την ανάρτησή του"
   },
@@ -632,7 +623,6 @@
     "notifications_all": "Όλα",
     "notifications_favourite": "Αγαπημένα",
     "notifications_follow": "Ακολουθείς",
-    "notifications_follow_request": "Αιτήματα ακολούθησης",
     "notifications_mention": "Αναφορές",
     "notifications_more_tooltip": "Φιλτράρισμα ειδοποιήσεων βάσει τύπου",
     "notifications_reblog": "Ενίσχυση",

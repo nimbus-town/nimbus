@@ -7,8 +7,6 @@
     "route_loaded": "ページ{0}を読み込みました"
   },
   "account": {
-    "authorize": "フォローを承認",
-    "authorized": "リクエストを承認しました",
     "avatar_description": "{0}さんのアバター",
     "blocked_by": "あなたはこのユーザーからブロックされています。",
     "blocked_domains": "ブロックしたドメイン",
@@ -19,7 +17,6 @@
     "favourites": "お気に入り",
     "follow": "フォローする",
     "follow_back": "フォローバックする",
-    "follow_requested": "リクエスト済み",
     "followers": "フォロワー",
     "followers_count": "{0} フォロワー",
     "following": "フォロー中",
@@ -40,16 +37,11 @@
     "profile_description": "{0}さんのプロフィールヘッダー",
     "profile_personal_note": "個人メモ",
     "profile_unavailable": "プロフィールが利用できません",
-    "reject": "フォローを拒否",
-    "rejected": "リクエストを拒否しました",
-    "request_follow": "フォローをリクエスト",
-    "requested": "{0}さんがフォローをリクエストしました",
     "unblock": "ブロック解除",
     "unfollow": "フォロー解除",
     "unmute": "ミュート解除",
     "view_other_followers": "他のインスタンスからのフォロワーは表示されないことがあります。",
-    "view_other_following": "他のインスタンスからのフォローは表示されないことがあります。",
-    "withdraw_follow_request": "フォローリクエストを取り下げる"
+    "view_other_following": "他のインスタンスからのフォローは表示されないことがあります。"
   },
   "action": {
     "apply": "適用する",
@@ -340,7 +332,6 @@
     "missing_type": "MISSING notification.type:",
     "reblogged_post": "さんがあなたの投稿をブーストしました",
     "reported": "{0}さんが{1}を報告しました",
-    "request_to_follow": "さんがあなたへフォローをリクエストしました",
     "signed_up": "サインアップ",
     "update_status": "さんが投稿を更新しました"
   },
@@ -666,7 +657,6 @@
     "notifications_all": "すべて",
     "notifications_favourite": "お気に入り",
     "notifications_follow": "フォロー",
-    "notifications_follow_request": "フォローリクエスト",
     "notifications_mention": "メンション",
     "notifications_more_tooltip": "通知を種類別にフィルタする",
     "notifications_poll": "投稿",

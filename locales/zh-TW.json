@@ -17,7 +17,6 @@
     "favourites": "喜歡的貼文",
     "follow": "追蹤",
     "follow_back": "回追",
-    "follow_requested": "已要求追蹤",
     "followers": "粉絲",
     "followers_count": " {0} 位粉絲",
     "following": "正在追蹤",
@@ -36,7 +35,6 @@
     "posts_count": "{0} 則貼文",
     "profile_description": "{0} 的個人資料封面",
     "profile_unavailable": "個人資料不可見",
-    "request_follow": "要求追縱",
     "unblock": "取消封鎖",
     "unfollow": "取消追蹤",
     "unmute": "取消靜音",
@@ -258,7 +256,6 @@
     "followed_you_count": "{n} 人追蹤了你",
     "missing_type": "未知的通知類型：",
     "reblogged_post": "轉發了你的貼文",
-    "request_to_follow": "請求追蹤你",
     "signed_up": "註冊了",
     "update_status": "更新了他們的狀態"
   },

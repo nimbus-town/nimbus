@@ -7,8 +7,6 @@
     "route_loaded": "تم تحميل الصفحة {0}"
   },
   "account": {
-    "authorize": "إعطاء إذن المتابعة",
-    "authorized": "لقد أعطيت إذن المتابعة",
     "avatar_description": "صورة حساب {0}",
     "blocked_by": "تم حظرك من قبل هذا المستخدم",
     "blocked_domains": "النطاقات المحظورة",
@@ -19,7 +17,6 @@
     "favourites": "المفضلة",
     "follow": "إتبع",
     "follow_back": "إعادة متابعة",
-    "follow_requested": "طلبت المتابعة",
     "followers": "متابِعون",
     "followers_count": "لا يوجد متابعون|{0} متابِع|{0} متابِعين|{0} متابِعون|{0} متابِع|{0} متابِع",
     "following": "مُتابَع",
@@ -39,16 +36,11 @@
     "profile_description": "{0} رأسية حساب",
     "profile_personal_note": "ملاحظة شخصية",
     "profile_unavailable": "حساب غير متوفر",
-    "reject": "رفض طلب المتابعة",
-    "rejected": "لقد رفضت طلب المتابعة",
-    "request_follow": "طلب متابعة",
-    "requested": "لقد طلب(ت) {0} متابعتك",
     "unblock": "إلغاء حظر",
     "unfollow": "إلغاء متابعة",
     "unmute": "إلغاء كتم",
     "view_other_followers": "قد لا يتم عرض المتابعين من خوادم مختلفين عن الخاص بك.",
-    "view_other_following": "قد لا يتم عرض من تتابع من خوادم مختلفين عن الخاص بك.",
-    "withdraw_follow_request": "إلغاء طلب المتابعة"
+    "view_other_following": "قد لا يتم عرض من تتابع من خوادم مختلفين عن الخاص بك."
   },
   "action": {
     "apply": "تطبيق",
@@ -309,7 +301,6 @@
     "missing_type": "MISSING notification.type:",
     "reblogged_post": "اعاد نشر منشورك",
     "reported": "تم الإبلاغ من {0} عن {1}",
-    "request_to_follow": "طلب(ت) متابعتك",
     "signed_up": "تسجل",
     "update_status": "قام(ت) بتحديث حالته(ا)"
   },
@@ -602,7 +593,6 @@
     "notifications_all": "كل شىء",
     "notifications_favourite": "اضافة الى المفضلة",
     "notifications_follow": "اتبع",
-    "notifications_follow_request": "طلب المتابعة",
     "notifications_mention": "موجهة إلي",
     "notifications_more_tooltip": "تصفية الإخطارات حسب النوع",
     "notifications_reblog": "إعادة المدونات",

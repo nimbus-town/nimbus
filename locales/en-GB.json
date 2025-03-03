@@ -1,7 +1,5 @@
 {
   "account": {
-    "authorize": "Authorise to follow",
-    "authorized": "You have Authorised the request",
     "favourites": "Favourites"
   },
   "action": {

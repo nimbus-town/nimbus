@@ -17,7 +17,6 @@
     "favourites": "Избранное",
     "follow": "Читать",
     "follow_back": "Читать",
-    "follow_requested": "В ожидании",
     "followers": "Читатели",
     "followers_count": "{0} Читатель|{0} Читателя|{0} Читателей|{0} Читателей",
     "following": "Читаю",
@@ -37,7 +36,6 @@
     "profile_description": "Заголовок профиля {0}",
     "profile_personal_note": "Заметка к профилю",
     "profile_unavailable": "Профиль недоступен",
-    "request_follow": "Запрос на подписку",
     "unblock": "Перестать блокировать",
     "unfollow": "Перестать читать",
     "unmute": "Перестать игнорировать",
@@ -300,7 +298,6 @@
     "missing_type": "ОТСУТСТВУЕТ notification.type:",
     "reblogged_post": "сделали реблог вашего поста",
     "reported": "{0} пожаловался на {1}",
-    "request_to_follow": "запрос на чтение",
     "signed_up": "зарегистрировались",
     "update_status": "обновили свой пост"
   },

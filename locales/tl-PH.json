@@ -7,8 +7,6 @@
     "route_loaded": "Naloload na ang pahina {0}"
   },
   "account": {
-    "authorize": "Pahintulutan na sumunod",
-    "authorized": "Pinahintulutan mo ang kahilingan",
     "avatar_description": "Avatar ni {0}",
     "blocked_by": "Ika'y na-block ng user na ito.",
     "blocked_domains": "Mga naka-block na domain",
@@ -19,7 +17,6 @@
     "favourites": "Mga paborito",
     "follow": "Sundan",
     "follow_back": "Sundan pabalik",
-    "follow_requested": "Humiling ng pagsunod",
     "followers": "Mga tagasunod",
     "followers_count": "{0} Mga tagasunod|{0} Tagasunod|{0} Mga tagasunod",
     "following": "Sinusundan mo",
@@ -40,16 +37,11 @@
     "profile_description": "Header ng profile ni {0}",
     "profile_personal_note": "Personal na Tala",
     "profile_unavailable": "Hindi magamit ang profile",
-    "reject": "Tanggihan na sumunod",
-    "rejected": "Tinanggihan mo ang kahilingan",
-    "request_follow": "Humiling ng pagsunod",
-    "requested": "{0} ay humiling na sundan ka",
     "unblock": "Tanggalin ang pagka-block",
     "unfollow": "Huminto sa pagsunod",
     "unmute": "Tanggalin ang pagka-mute",
     "view_other_followers": "Ang mga tagasunod mula sa ibang mga instance ay hindi maipapakita.",
-    "view_other_following": "Ang mga sinusundan mula sa ibang mga instance ay hindi maipapakita.",
-    "withdraw_follow_request": "Bawiin ang kahilingan na sumunod"
+    "view_other_following": "Ang mga sinusundan mula sa ibang mga instance ay hindi maipapakita."
   },
   "action": {
     "apply": "Mag-apply",
@@ -342,7 +334,6 @@
     "others": "{0} iba pa|{0} iba pa|{0} iba pa",
     "reblogged_post": "bumoost ng iyong post",
     "reported": "ni-report ni {0} si {1}",
-    "request_to_follow": "humiling na sumunod sa iyo",
     "signed_up": "nag-sign up",
     "update_status": "nag-update ng kanilang post"
   },
@@ -656,7 +647,6 @@
     "notifications_all": "Lahat",
     "notifications_favourite": "Mga Paborito",
     "notifications_follow": "Mga Pagsunod",
-    "notifications_follow_request": "Mga Hiling ng Pagsunod",
     "notifications_mention": "Mga Tugon",
     "notifications_more_tooltip": "I-filter ang mga notification ayon sa uri",
     "notifications_reblog": "Mga Boost",

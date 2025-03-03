@@ -11,7 +11,6 @@
     "blocked_domains": "Domini bloquejat",
     "favourites": "Preferit",
     "follow_back": "Segueix també",
-    "follow_requested": "Sol·licitat",
     "go_to_profile": "Ves al perfil",
     "joined": "Data d'unió",
     "moved_title": "ha indicat que el seu compte és ara:",
@@ -161,7 +160,6 @@
     "followed_you_count": "{0} persones t'han seguit|{0} persona t'ha seguit|{0} persones t'han seguit",
     "missing_type": "MISSING notification.type:",
     "reblogged_post": "t'ha impulsat",
-    "request_to_follow": "ha demanat seguir-te",
     "signed_up": "s'ha registrat",
     "update_status": "ha actualitzat la publicació"
   },

@@ -17,7 +17,6 @@
     "favourites": "Favorieten",
     "follow": "Volg",
     "follow_back": "Volg terug",
-    "follow_requested": "Aangevraagd",
     "followers": "Volgers",
     "followers_count": "{0} Volgers|{0} Volger|{0} Volgers",
     "following": "Volgend",
@@ -37,7 +36,6 @@
     "profile_description": "{0}'s profiel koptekst",
     "profile_personal_note": "Persoonlijke Nota",
     "profile_unavailable": "Profiel niet beschikbaar",
-    "request_follow": "Verzoek om te volgen",
     "unblock": " Deblokkeren",
     "unfollow": "Ontvolgen",
     "unmute": "Ontdempen",
@@ -175,7 +173,6 @@
     "followed_you_count": "{0} mensen hebben je gevolgd|{0} persoon heeft je gevold|{0} mensen hebben je gevolgd",
     "missing_type": "MISSEND notificatie.type:",
     "reblogged_post": "herblogt je post",
-    "request_to_follow": "vraagt om jou te volgen",
     "signed_up": "ingeschreven",
     "update_status": "heeft hun post aangepast"
   },

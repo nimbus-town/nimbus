@@ -9,7 +9,6 @@
     "favourites": "Oblíbené",
     "follow": "Sledovat",
     "follow_back": "Taky sledovat",
-    "follow_requested": "Požádáno o sledování",
     "followers": "Sledující",
     "followers_count": "{0} sledujících",
     "following": "Sleduji",
@@ -133,7 +132,6 @@
     "followed_you_count": "{n} osoba vás začala sledovat|{n} lidí vás začalo sledovat",
     "missing_type": "MISSING notification.type:",
     "reblogged_post": "přeposlal váš příspěvek",
-    "request_to_follow": "požádal o sledování",
     "update_status": "aktualizoval svůj status"
   },
   "placeholder": {

@@ -7,8 +7,6 @@
     "route_loaded": "Cargouse a páxina {0}"
   },
   "account": {
-    "authorize": "Permitir o seguimento",
-    "authorized": "Aceptaches a solicitude",
     "avatar_description": "Avatar de {0}",
     "blocked_by": "Esta usuaria bloqueoute.",
     "blocked_domains": "Dominios bloqueados",
@@ -19,7 +17,6 @@
     "favourites": "Favoritas",
     "follow": "Seguir",
     "follow_back": "Seguir tamén",
-    "follow_requested": "Solicitado",
     "followers": "Seguidoras",
     "followers_count": "{0} Seguidoras|{0} Seguidora|{0} Seguidoras",
     "following": "Seguindo",
@@ -39,16 +36,11 @@
     "profile_description": "Cabeceira do perfil de {0}",
     "profile_personal_note": "Nota persoal",
     "profile_unavailable": "Perfil non dispoñible",
-    "reject": "Rexeitar seguimento",
-    "rejected": "Rexeitaches a solicitude",
-    "request_follow": "Solicitar seguimento",
-    "requested": "{0} solicitou seguirte",
     "unblock": "Desbloquear",
     "unfollow": "Retirar seguimento",
     "unmute": "Reactivar",
     "view_other_followers": "É posible que non se mostren as seguidoras desde outras instancias.",
-    "view_other_following": "É posible que non se mostren os seguimentos noutras instancias.",
-    "withdraw_follow_request": "Desbotar solicitude de seguimento"
+    "view_other_following": "É posible que non se mostren os seguimentos noutras instancias."
   },
   "action": {
     "apply": "Aplicar",
@@ -309,7 +301,6 @@
     "missing_type": "FALTA o notification.type:",
     "reblogged_post": "promoveu a túa publicación",
     "reported": "{0} denunciou a {1}",
-    "request_to_follow": "solicitou seguirte",
     "signed_up": "creou a conta",
     "update_status": "actualizou a publicación"
   },
@@ -605,7 +596,6 @@
     "notifications_all": "Todo",
     "notifications_favourite": "Favorita",
     "notifications_follow": "Seguimento",
-    "notifications_follow_request": "Solicitude de seguimento",
     "notifications_mention": "Mención",
     "notifications_more_tooltip": "Filtrar notificacións por tipo",
     "notifications_reblog": "Promoción",

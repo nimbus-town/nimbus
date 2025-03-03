@@ -17,7 +17,6 @@
     "favourites": "좋아요",
     "follow": "팔로우",
     "follow_back": "맞팔로우",
-    "follow_requested": "팔로우 요청",
     "followers": "팔로워",
     "followers_count": "{0}팔로워|{0}팔로워|{0}팔로워",
     "following": "팔로잉",
@@ -31,7 +30,6 @@
     "posts_count": "{0}게시물|{0}게시물|{0}게시물",
     "profile_description": "{0}의 프로필 헤더",
     "profile_unavailable": "프로필 사용 불가능",
-    "request_follow": "팔로우 요청",
     "unblock": "차단 해제",
     "unfollow": "언팔로우",
     "unmute": "언뮤트"
@@ -247,7 +245,6 @@
     "followed_you": "당신을 팔로우 합니다",
     "followed_you_count": "{0}명이 당신을 팔로우 합니다|{0}명이 당신을 팔로우 합니다|{0}명이 당신을 팔로우 합니다",
     "reblogged_post": "당신의 게시물을 리블로그했습니다.",
-    "request_to_follow": "팔로우 요청",
     "signed_up": "회원가입 됨",
     "update_status": "게시물이 업데이트 됨"
   },

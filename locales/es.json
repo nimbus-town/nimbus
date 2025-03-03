@@ -7,8 +7,6 @@
     "route_loaded": "Página {0} cargada"
   },
   "account": {
-    "authorize": "Autorizar seguimiento",
-    "authorized": "Has autorizado la solicitud",
     "avatar_description": "avatar de {0}",
     "blocked_by": "Has sido bloqueado por este usuario.",
     "blocked_domains": "Dominios bloqueados",
@@ -19,7 +17,6 @@
     "favourites": "Favoritas",
     "follow": "Seguir",
     "follow_back": "Seguir de vuelta",
-    "follow_requested": "Solicitado",
     "followers": "Seguidores",
     "followers_count": "{0} Seguidores|{0} Seguidor|{0} Seguidores",
     "following": "Siguiendo",
@@ -40,16 +37,11 @@
     "profile_description": "Encabezado del perfil de {0}",
     "profile_personal_note": "Nota Personal",
     "profile_unavailable": "Perfil no disponible",
-    "reject": "Descartar seguimiento",
-    "rejected": "Has descartado la solicitud",
-    "request_follow": "Solicitar seguirle",
-    "requested": "{0} ha solicitado seguirte",
     "unblock": "Desbloquear",
     "unfollow": "Dejar de seguir",
     "unmute": "Dejar de silenciar",
     "view_other_followers": "Puede que no se muestren los seguidores de otras instancias.",
-    "view_other_following": "Puede que no se muestren los seguidos de otras instancias.",
-    "withdraw_follow_request": "Retirar solicitud de seguimiento"
+    "view_other_following": "Puede que no se muestren los seguidos de otras instancias."
   },
   "action": {
     "apply": "Aplicar",
@@ -340,7 +332,6 @@
     "missing_type": "MISSING notification.type:",
     "reblogged_post": "retooteó tu publicación",
     "reported": "{0} reportó {1}",
-    "request_to_follow": "ha solicitado seguirte",
     "signed_up": "registrado",
     "update_status": "ha actualizado su publicación"
   },
@@ -653,7 +644,6 @@
     "notifications_all": "Todas",
     "notifications_favourite": "Favoritas",
     "notifications_follow": "Te siguieron",
-    "notifications_follow_request": "Solicitudes de seguimiento",
     "notifications_mention": "Menciones",
     "notifications_more_tooltip": "Filtrar notificaciones por tipo",
     "notifications_reblog": "Retoots",

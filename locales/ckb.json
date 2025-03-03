@@ -16,7 +16,6 @@
     "favourites": "دڵخواز",
     "follow": "بەدواداچوون",
     "follow_back": "دوا بکەوە",
-    "follow_requested": "داواکراوە",
     "followers": "هۆگران",
     "followers_count": "هۆگر {0}|هۆگر {0}|{0} هۆگر",
     "following": "شوێنکەوتوو",
@@ -36,7 +35,6 @@
     "profile_description": "سەردێڕی پڕۆفایلی {0}",
     "profile_personal_note": "تێبینی کەسی",
     "profile_unavailable": "پڕۆفایلی بەردەست نییە",
-    "request_follow": "داواکاری بۆ بەدواداچوون",
     "unblock": "بلۆک بکەرەوە",
     "unfollow": "بەدوایدا مەچۆ",
     "unmute": "بێدەنگی لابەرە",
@@ -298,7 +296,6 @@
     "missing_type": "MISSING notification.type:",
     "reblogged_post": "هاوبەشیکردنی بابەتی تۆ",
     "reported": "{0} گوزارشی {1}",
-    "request_to_follow": "داوای کردووە کە شوێنتان بکەوێت ",
     "signed_up": "بوو به ئه ندام",
     "update_status": "بابەتەکەیان نوێکردەوە"
   },
