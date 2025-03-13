@@ -7,8 +7,6 @@
     "route_loaded": "{0} halaman dimuat"
   },
   "account": {
-    "authorize": "Izin untuk mengikuti",
-    "authorized": "Anda telah memberikan izin tersebut",
     "avatar_description": "avatar {0}",
     "blocked_by": "Anda diblokir oleh pengguna ini.",
     "blocked_domains": "Domain yang diblokir",
@@ -19,7 +17,6 @@
     "favourites": "Favorit",
     "follow": "Ikuti",
     "follow_back": "Ikuti kembali",
-    "follow_requested": "Diminta",
     "followers": "Pengikut",
     "followers_count": "{0} Pengikut|{0} Pengikut|{0} Pengikut",
     "following": "Mengikuti",
@@ -39,16 +36,11 @@
     "profile_description": "judul profil {0}",
     "profile_personal_note": "Catatan Pribadi",
     "profile_unavailable": "Profil tidak tersedia",
-    "reject": "Menolak untuk mengikuti",
-    "rejected": "Anda telah menolak permintaan tersebut",
-    "request_follow": "Permintaan untuk mengikuti",
-    "requested": "{0} telah meminta untuk mengikuti Anda",
     "unblock": "Buka blokir",
     "unfollow": "Berhenti mengikuti",
     "unmute": "Bunyikan",
     "view_other_followers": "Pengikut dari contoh lain mungkin tidak ditampilkan.",
-    "view_other_following": "Mengikuti dari contoh lain mungkin tidak ditampilkan.",
-    "withdraw_follow_request": "Tarik permintaan ikuti"
+    "view_other_following": "Mengikuti dari contoh lain mungkin tidak ditampilkan."
   },
   "action": {
     "apply": "Terapkan",
@@ -309,7 +301,6 @@
     "missing_type": "NOTIFIKASI HILANG.jenis:",
     "reblogged_post": "meningkatkan postingan Anda",
     "reported": "{0} melaporkan {1}",
-    "request_to_follow": "meminta untuk mengikuti Anda",
     "signed_up": "mendaftar",
     "update_status": "memperbarui postingannya"
   },
@@ -605,7 +596,6 @@
     "notifications_all": "Semua",
     "notifications_favourite": "Favorit",
     "notifications_follow": "Ikuti",
-    "notifications_follow_request": "Permintaan mengikuti",
     "notifications_mention": "Penyebutan",
     "notifications_more_tooltip": "Filter pemberitahuan berdasarkan jenis",
     "notifications_reblog": "Menggiatkan",

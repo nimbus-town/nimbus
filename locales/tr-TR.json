@@ -17,7 +17,6 @@
     "favourites": "Favoriler",
     "follow": "Takip et",
     "follow_back": "Geri takip et",
-    "follow_requested": "İstek gönderildi",
     "followers": "Takipçiler",
     "followers_count": "{0} Takipçi",
     "following": "Takip edilenler",
@@ -37,7 +36,6 @@
     "profile_description": "{0} profil başlığı",
     "profile_personal_note": "Kişisel not",
     "profile_unavailable": "Profil mevcut değil",
-    "request_follow": "Takip isteği gönder",
     "unblock": "Engeli kaldır",
     "unfollow": "Takibi bırak",
     "unmute": "Susturulmayı kaldır",
@@ -297,7 +295,6 @@
     "missing_type": "EKSİK notification.type:",
     "reblogged_post": "gönderini yeniden blogladı",
     "reported": "{0} bildirildi {1}",
-    "request_to_follow": "Takip isteği attı",
     "signed_up": "Kaydoldu",
     "update_status": "Gönderisini güncelledi"
   },

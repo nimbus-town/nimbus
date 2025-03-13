@@ -7,8 +7,6 @@
     "route_loaded": "S'ha carregat la pàgina {0}"
   },
   "account": {
-    "authorize": "Autoritza seguiment",
-    "authorized": "Has autoritzat la sol·licitud",
     "avatar_description": "Avatar de {0}",
     "blocked_by": "Estàs bloquejat per aquest usuari.",
     "blocked_domains": "Dominis bloquejats",
@@ -19,7 +17,6 @@
     "favourites": "Preferits",
     "follow": "Segueix",
     "follow_back": "Segueix de tornada",
-    "follow_requested": "Demanat",
     "followers": "Seguidors",
     "followers_count": "{0} Seguidors|{0} Seguidor|{0} Seguidors",
     "following": "Seguint",
@@ -40,16 +37,11 @@
     "profile_description": "Capçalera del perfil de {0}",
     "profile_personal_note": "Nota Personal",
     "profile_unavailable": "Perfil no disponible",
-    "reject": "rebutja seguiment",
-    "rejected": "Has rebutjat la sol·licitud",
-    "request_follow": "Sol·licitud de seguiment",
-    "requested": "{0} ha sol·licitat seguir-te",
     "unblock": "Desbloqueja",
     "unfollow": "Deixa de seguir",
     "unmute": "Activa el so",
     "view_other_followers": "És possible que no es mostrin els seguidors d'altres instàncies.",
-    "view_other_following": "És possible que no es mostrin els seguits d'altres instàncies.",
-    "withdraw follow request": "Retira la sol·licitud de seguiment"
+    "view_other_following": "És possible que no es mostrin els seguits d'altres instàncies."
   },
   "action": {
     "apply": "Aplicar",
@@ -340,7 +332,6 @@
     "missing_type": "FALTA notificació.tipus:",
     "reblogged_post": "ha reblogjat la teva publicació",
     "reported": "{0} va denunciar {1}",
-    "request_to_follow": "demanat que us segueixi",
     "signed_up": "registrat",
     "update_status": "ha actualitzat la seva publicació"
   },
@@ -665,7 +656,6 @@
     "notifications_all": "Totes",
     "notifications_favourite": "Preferides",
     "notifications_follow": "T'han seguit",
-    "notifications_follow_request": "Sol·licituds de seguiment",
     "notifications_mention": "Esmentes",
     "notifications_more_tooltip": "Filtrar notificacions per tipus",
     "notifications_poll": "Enquestes",

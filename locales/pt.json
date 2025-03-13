@@ -7,8 +7,6 @@
     "route_loaded": "Página {0} carregada"
   },
   "account": {
-    "authorize": "Autorizar pedido para seguir",
-    "authorized": "Autorizou o pedido",
     "avatar_description": "Imagem de perfil de {0}",
     "blocked_by": "Está bloqueado por este utilizador.",
     "blocked_domains": "Domínios bloqueados",
@@ -19,7 +17,6 @@
     "favourites": "Favoritos",
     "follow": "Seguir",
     "follow_back": "Seguir de volta",
-    "follow_requested": "Pedido",
     "followers": "Seguidores",
     "followers_count": "{0} Seguidores|{0} Seguidor|{0} Seguidores",
     "following": "A seguir",
@@ -40,16 +37,11 @@
     "profile_description": "Descrição de perfil de {0}",
     "profile_personal_note": "Nota Pessoal",
     "profile_unavailable": "Perfil indisponível",
-    "reject": "Rejeitar pedido para seguir",
-    "rejected": "Rejeitou o pedido",
-    "request_follow": "Pedir para seguir",
-    "requested": "{0} pediu para o seguir",
     "unblock": "Desbloquear",
     "unfollow": "Deixar de seguir",
     "unmute": "Deixar de silenciar",
     "view_other_followers": "Os seguidores de outras instâncias podem não ser exibidos.",
-    "view_other_following": "As pessoas que segue de outras instâncias podem não ser exibidas.",
-    "withdraw_follow_request": "Retirar pedido para seguir"
+    "view_other_following": "As pessoas que segue de outras instâncias podem não ser exibidas."
   },
   "action": {
     "apply": "Aplicar",
@@ -342,7 +334,6 @@
     "others": "{0} outros|{0} outro|{0} outros",
     "reblogged_post": "partilhou a sua publicação",
     "reported": "{0} denunciou {1}",
-    "request_to_follow": "pediu para segui-lo",
     "signed_up": "inscreveu-se",
     "update_status": "atualizou a sua publicação"
   },
@@ -657,7 +648,6 @@
     "notifications_all": "Todas",
     "notifications_favourite": "Favoritos",
     "notifications_follow": "Seguidores",
-    "notifications_follow_request": "Pedidos para seguir",
     "notifications_mention": "Menções",
     "notifications_more_tooltip": "Filtra notificações por tipo",
     "notifications_reblog": "Partilhas",

@@ -7,8 +7,6 @@
     "route_loaded": "Pagina {0} caricata"
   },
   "account": {
-    "authorize": "Autorizza a seguire",
-    "authorized": "Hai autorizzato la richiesta",
     "avatar_description": "Avatar di {0}",
     "blocked_by": "Questo utente ti ha bloccato.",
     "blocked_domains": "Domini bloccati",
@@ -19,7 +17,6 @@
     "favourites": "Preferiti",
     "follow": "Segui",
     "follow_back": "Ricambia",
-    "follow_requested": "Richiesta inviata",
     "followers": "Seguaci",
     "followers_count": "{0} seguaci|{0} seguace|{0} seguaci",
     "following": "Segui già",
@@ -40,16 +37,11 @@
     "profile_description": "Copertina profilo di {0}",
     "profile_personal_note": "Nota personale",
     "profile_unavailable": "Profilo non disponibile",
-    "reject": "Rifiuta la richiesta",
-    "rejected": "Hai rifiutato la richiesta",
-    "request_follow": "Chiedi di seguire",
-    "requested": "{0} ha chiesto di seguirti",
     "unblock": "Sblocca",
     "unfollow": "Smetti di seguire",
     "unmute": "Riattiva",
     "view_other_followers": "I seguaci di altre istanze non sono disponibili.",
-    "view_other_following": "I seguiti di altre istanze non sono disponibili.",
-    "withdraw_follow_request": "Ritira richiesta di seguire"
+    "view_other_following": "I seguiti di altre istanze non sono disponibili."
   },
   "action": {
     "apply": "Applica",
@@ -342,7 +334,6 @@
     "others": "{0} altri|{0} altro|{0} altri",
     "reblogged_post": "ha rebloggato il tuo post",
     "reported": "{0} ha segnalato {1}",
-    "request_to_follow": "ti ha chiesto di seguirti",
     "signed_up": "ha effettuato l'iscrizione",
     "update_status": "ha aggiornato il suo post"
   },
@@ -657,7 +648,6 @@
     "notifications_all": "Tutte",
     "notifications_favourite": "Apprezzamento",
     "notifications_follow": "Nuovo seguace",
-    "notifications_follow_request": "Richiesta di seguire",
     "notifications_mention": "Menzioni",
     "notifications_more_tooltip": "Filtra notifiche per tipo",
     "notifications_poll": "Sondaggio",

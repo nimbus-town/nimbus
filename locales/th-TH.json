@@ -17,7 +17,6 @@
     "favourites": "รายการโปรด",
     "follow": "ติดตาม",
     "follow_back": "ติดตามกลับ",
-    "follow_requested": "ขอติดตามแล้ว",
     "followers": "ผู้ติดตาม",
     "followers_count": "ผู้ติดตาม {0} คน|ผู้ติดตาม {0} คน|ผู้ติดตาม {0} คน",
     "following": "กำลังติดตาม",
@@ -37,7 +36,6 @@
     "profile_description": "หัวโปรไฟล์ของ {0}",
     "profile_personal_note": "โน้ตส่วนตัว",
     "profile_unavailable": "โปรไฟล์ไม่พร้อมใจ",
-    "request_follow": "ขอติดตาม",
     "unblock": "เลิกปิดกั้น",
     "unfollow": "เลิกติดตาม",
     "unmute": "เลิกเปิดเสียง",
@@ -297,7 +295,6 @@
     "missing_type": "ไม่มี notification.type:",
     "reblogged_post": "ดันโพสต์ของคุณ",
     "reported": "{0} รายงาน {1}",
-    "request_to_follow": "ข้อที่จะติดตามคุณ",
     "signed_up": "ลงชื่อเข้าใช้แล้ว",
     "update_status": "ปรับปรุงโพสต์ของพวกเขาแล้ว"
   },

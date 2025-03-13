@@ -7,8 +7,6 @@
     "route_loaded": "صفحه {0} بارگذاری شد"
   },
   "account": {
-    "authorize": "اجازه دنبال کردن بدهید",
-    "authorized": "شما درخواست را تأیید کردید",
     "avatar_description": "آواتار {0}",
     "blocked_by": "شما توسط این کاربر مسدود شده‌اید.",
     "blocked_domains": "دامنه‌های مسدود شده",
@@ -19,7 +17,6 @@
     "favourites": "موارد مورد علاقه",
     "follow": "دنبال کنید",
     "follow_back": "دنبال کردن متقابل",
-    "follow_requested": "درخواست شده",
     "followers": "دنبال‌کنندگان",
     "followers_count": "{0} دنبال‌کننده",
     "following": "دنبال‌شده",
@@ -39,16 +36,11 @@
     "profile_description": "توضیحات بالای صفحه نمایه {0}",
     "profile_personal_note": "یادداشت شخصی",
     "profile_unavailable": "نمایه در دسترس نیست",
-    "reject": "رد درخواست",
-    "rejected": "درخواست را رد کردید",
-    "request_follow": "درخواست برای دنبال کردن",
-    "requested": "{0} درخواست دنبال کردن شما را دارد",
     "unblock": "رفع مسدودیت",
     "unfollow": "دنبال نکردن",
     "unmute": "باصدا",
     "view_other_followers": "دنبال‌کنندگان از نمونه‌های دیگر ممکن است نمایش داده نشوند.",
-    "view_other_following": "دنبال شوندگان از نمونه‌های دیگر ممکن است نمایش داده نشوند.",
-    "withdraw_follow_request": "درخواست دنبال‌کردن را پس بگیرید"
+    "view_other_following": "دنبال شوندگان از نمونه‌های دیگر ممکن است نمایش داده نشوند."
   },
   "action": {
     "apply": "اعمال",
@@ -305,7 +297,6 @@
     "missing_type": "اعلان از نوع ناقص:",
     "reblogged_post": "فرسته شما را باز نشر کرد",
     "reported": "{0} گزارش داد {1}",
-    "request_to_follow": "درخواست دنبال کردن شما را داد",
     "signed_up": "ثبت نام کرد",
     "update_status": "فرسته خود را به‌روزرسانی کرد"
   },
@@ -601,7 +592,6 @@
     "notifications_all": "همه",
     "notifications_favourite": "مورد علاقه",
     "notifications_follow": "دنبال کردن",
-    "notifications_follow_request": "درخواست دنبال کردن",
     "notifications_mention": "اشاره",
     "notifications_more_tooltip": "نوع اعلان‌ها را بر اساس نوع فیلتر کنید",
     "notifications_reblog": "بازنشر",
